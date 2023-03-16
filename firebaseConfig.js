@@ -8,13 +8,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCJbh2fp1W0ONtv-dfPw7WeadzIyZBjbn0",
+  apiKey: process.env.apiKey,
   authDomain: "pet-poison-alert.firebaseapp.com",
   projectId: "pet-poison-alert",
   storageBucket: "pet-poison-alert.appspot.com",
-  messagingSenderId: "325649458101",
-  appId: "1:325649458101:web:0512f50bacdddaedaceffc",
-  measurementId: "G-STPZG8HHJN"
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId
 };
 
 // Initialize Firebase
