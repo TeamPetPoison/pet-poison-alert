@@ -9,9 +9,9 @@ import { getFirestore } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.apiKey,
-  authDomain: "pet-poison-alert.firebaseapp.com",
-  projectId: "pet-poison-alert",
-  storageBucket: "pet-poison-alert.appspot.com",
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
   messagingSenderId: process.env.messagingSenderId,
   appId: process.env.appId,
   measurementId: process.env.measurementId
@@ -19,9 +19,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const firebaseAnalytics = getAnalytics(app);
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+const database = getFirestore(app);
 
-export default db;
+export default database;
