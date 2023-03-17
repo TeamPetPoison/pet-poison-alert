@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import dynamic from 'next/dynamic';
 import styles from '@/styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
+
+const MapWithNoSSR = dynamic(() => import('./Map'), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -16,7 +18,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>  
       <h1> Hello Team</h1>
-
+      <MapWithNoSSR />
     
       </main>
     </>
