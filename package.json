@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "watch:css": "postcss styles/globals.css -o public/build/tailwind.css -w",
+    "build:css": "postcss styles/globals.css -o public/build/tailwind.css"
   },
   "dependencies": {
     "@types/node": "18.15.2",
@@ -15,6 +17,10 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"

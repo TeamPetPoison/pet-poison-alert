@@ -1,15 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
- 
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  mode: 'jit',
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'rgb(var(--color-primary) / var(--alpha-value))',
+        foreground: 'rgb(var(--color-foreground) / var(--alpha-value))',
+        background: 'rgb(var(--color-background) / var(--alpha-value))',
+        positive: 'green',
+        negative: 'red',
+        warning: 'yellow'
+      }
+    }
   },
   plugins: [],
 }
+
