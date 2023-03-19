@@ -1,7 +1,11 @@
-import { Inter } from 'next/font/google';
-import Head from 'next/head';
+import Head from 'next/head'
+import dynamic from 'next/dynamic';
+import styles from '@/styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] });
+
+const MapWithNoSSR = dynamic(() => import('../lib/Components/Map'), {
+  ssr: false,
+});;
 
 export default function Home() {
   return (
@@ -13,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-background text-foreground">
+      <MapWithNoSSR />
         {/* this can be removed, just a test */}
         <h1> Hello Team</h1>
         {/* this can be removed, just a test */}
