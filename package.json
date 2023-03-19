@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "watch:css": "postcss styles/globals.css -o public/build/tailwind.css -w",
-    "build:css": "postcss styles/globals.css -o public/build/tailwind.css"
+    "lint": "next lint"
   },
   "dependencies": {
     "@types/node": "18.15.2",
