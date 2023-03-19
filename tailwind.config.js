@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+
+    // Or if using `src` directory:
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       /**
@@ -10,14 +16,14 @@ module.exports = {
        * @see https://tailwindcss.com/docs/customizing-colors#using-css-variables
        */
       colors: {
-        primary: 'rgb(var(--color-primary) / var(--alpha-value))',
-        foreground: 'rgb(var(--color-foreground) / var(--alpha-value))',
-        background: 'rgb(var(--color-background) / var(--alpha-value))',
-        backgroundAlt: 'rgb(var(--color-background-alt) / var(--alpha-value))',
-        positive: 'rgb(var(--color-positive) / var(--alpha-value))',
-        negative: 'rgb(var(--color-negative) / var(--alpha-value))',
-        warning: 'rgb(var(--color-warning) / var(--alpha-value))',
-        info: 'rgb(var(--color-info) / var(--alpha-value))',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        backgroundAlt: 'rgb(var(--color-background-alt) / <alpha-value>)',
+        positive: 'rgb(var(--color-positive) / <alpha-value>)',
+        negative: 'rgb(var(--color-negative) / <alpha-value>)',
+        warning: 'rgb(var(--color-warning) / <alpha-value>)',
+        info: 'rgb(var(--color-info) / <alpha-value>)',
       },
     },
   },
