@@ -12,5 +12,6 @@
     --color-negative: 248 113 113; /* rgb(248, 113, 113) */
     --color-warning: 250 204 21; /* rgb(250, 204, 21) */
     --color-info: 45 212 191; /* rgb(45, 212, 191) */
+    --color-selected: 59 130 246; /* rgb(59, 130, 246) */
   }
 }

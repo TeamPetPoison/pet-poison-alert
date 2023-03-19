@@ -24,6 +24,7 @@ module.exports = {
         negative: 'rgb(var(--color-negative) / <alpha-value>)',
         warning: 'rgb(var(--color-warning) / <alpha-value>)',
         info: 'rgb(var(--color-info) / <alpha-value>)',
+        selected: 'rgb(var(--color-selected) / <alpha-value>)',
       },
     },
   },
