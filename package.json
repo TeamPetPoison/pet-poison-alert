@@ -1,33 +1,14 @@
 {
-  "name": "pethealthreportservice",
+  "name": "pet-poison-alert",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev"
   },
   "dependencies": {
-    "@types/node": "18.15.2",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "copy-webpack-plugin": "^11.0.0",
-    "eslint": "8.36.0",
-    "eslint-config-next": "13.2.4",
-    "firebase": "^9.17.2",
-    "leaflet": "^1.9.3",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-leaflet": "^4.2.1",
     "typescript": "4.9.5"
   },
-  "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "postcss-import": "^15.1.0",
-    "tailwindcss": "^3.2.7",
-    "@types/leaflet": "^1.9.3"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
