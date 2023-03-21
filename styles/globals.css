@@ -15,3 +15,31 @@
     --color-selected: 59 130 246; /* rgb(59, 130, 246) */
   }
 }
+
+@layer components {
+  .leaflet-control-zoom {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+
+
+
+
