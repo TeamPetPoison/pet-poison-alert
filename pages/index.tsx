@@ -20,6 +20,7 @@ export default function Home() {
       </Head>
       <main className="relative bg-background text-foreground">
         <MapWithNoSSR />
+        <BottomNav />
       </main>
     </>
   );
