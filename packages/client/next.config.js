@@ -9,13 +9,14 @@ const nextConfig = {
       new CopyPlugin({
         patterns: [
           {
-            from: 'node_modules/leaflet/dist/images',
-            to: path.resolve(__dirname, 'public', 'leaflet', 'images')
+            // TODO: any way to get this path from the package.json or something?
+            from: path.resolve(path.dirname(require.resolve('leaflet', { paths: [__dirname] })), 'images'),
+            to: path.resolve(__dirname, 'public', 'leaflet', 'images'),
           },
         ],
-      }),
-    )
-    return config
-  }
-}
+      })
+    );
+    return config;
+  },
+};
 module.exports = nextConfig;
