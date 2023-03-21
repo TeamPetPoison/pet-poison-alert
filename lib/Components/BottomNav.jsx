@@ -1,7 +1,7 @@
 const BottomNav = () => {
     return (
-        <div className="absolute z-10000 w-100 flex justify-between">
-            <div className="bg-black text-purple-900">
+        <div className="absolute bottom-0 z-[9999] w-full h-16 rounded-xl p-1 flex justify-between bg-white">
+            <div className="">
                 Home
             </div>
             <div>
