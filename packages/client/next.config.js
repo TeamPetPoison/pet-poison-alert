@@ -10,7 +10,10 @@ const nextConfig = {
         patterns: [
           {
             // TODO: any way to get this path from the package.json or something?
-            from: path.resolve(path.dirname(require.resolve('leaflet', { paths: [__dirname] })), 'images'),
+            from: path.resolve(
+              path.dirname(require.resolve('leaflet', { paths: [__dirname] })),
+              'images'
+            ),
             to: path.resolve(__dirname, 'public', 'leaflet', 'images'),
           },
         ],
