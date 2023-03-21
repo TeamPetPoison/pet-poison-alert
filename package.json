@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run dev -w @pet-poison-alert/client"
+    "dev": "npm run dev -w @pet-poison-alert/client",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "devDependencies": {
     "prettier": "^2.8.5",
