@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.16",
+    "@iconify/icons-mdi": "^1.2.44",
     "@types/node": "18.15.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "heroicons": "^2.0.16",
     "leaflet": "^1.9.3",
     "next": "13.2.4",
     "react": "18.2.0",
@@ -23,10 +26,10 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
-    "tailwindcss": "^3.2.7",
-    "@types/leaflet": "^1.9.3"
+    "tailwindcss": "^3.2.7"
   }
 }
