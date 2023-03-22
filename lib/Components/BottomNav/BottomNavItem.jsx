@@ -1,14 +1,7 @@
-import { useState } from "react";
-
-const BottomNavItem = ({ icon, name }) => {
-  const [selected, setSelected] = useState(false);
-  const handleClick = () => {
-    return setSelected(!selected);
-  };
-
+const BottomNavItem = ({ icon, name, setActive, selected }) => {
   return (
     <div
-      onClick={handleClick}
+    onClick={setActive}
       className={`flex items-center justify-center flex-col ${
         selected ? "text-selected underline" : ""
       }`}

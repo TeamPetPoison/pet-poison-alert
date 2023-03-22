@@ -9,19 +9,19 @@ import {
 } from "@heroicons/react/24/outline";
 
 const BottomNav = () => {
-  const [active, setActive] = useState(false);
-
-  const handleClick = () => {
-    return setActive(false);
-  };
+  const [active, setActive] = useState(0);
 
   return (
     <div className="absolute bottom-0 z-[9999] w-full h-16 text-slate-400 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
       <BottomNavItem
+        setActive={() => setActive(0)}
+        selected={active === 0 ? true : false}
         icon={<HomeIcon className="h-6 w-6 pointer-events-none" />}
         name={"Home"}
       />
       <BottomNavItem
+        setActive={() => setActive(1)}
+        selected={active === 1 ? true : false}
         icon={<MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />}
         name={"Search"}
       />
@@ -34,10 +34,14 @@ const BottomNav = () => {
         </div>
       </div>
       <BottomNavItem
+        setActive={() => setActive(2)}
+        selected={active === 2 ? true : false}
         icon={<MapPinIcon className="h-6 w-6 pointer-events-none" />}
         name={"Layers"}
       />
       <BottomNavItem
+        setActive={() => setActive(3)}
+        selected={active === 3 ? true : false}
         icon={<UserIcon className="h-6 w-6 pointer-events-none" />}
         name={"Profile"}
       />
