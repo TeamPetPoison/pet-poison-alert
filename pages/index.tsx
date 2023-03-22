@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import BottomNav from '../lib/Components/BottomNav'
+import BottomNav from '../lib/Components/BottomNav/BottomNav'
 
 const MapWithNoSSR = dynamic(() => import('../lib/Components/Map'), {
   ssr: false,
