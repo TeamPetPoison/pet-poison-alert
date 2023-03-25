@@ -3,7 +3,7 @@ const BottomNavItem = ({ icon, name, setActive, selected }) => {
     <div
     onClick={setActive}
       className={`flex items-center justify-center flex-col ${
-        selected ? "text-selected underline" : ""
+        selected ? "text-selected" : ""
       }`}
     >
       {icon}
