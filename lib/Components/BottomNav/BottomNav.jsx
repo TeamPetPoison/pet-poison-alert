@@ -16,15 +16,17 @@ const BottomNav = () => {
       <BottomNavItem
         setActive={() => setActive(0)}
         selected={active === 0 ? true : false}
-        icon={<HomeIcon className="h-6 w-6 pointer-events-none" />}
         name={"Home"}
-      />
+      >
+        <HomeIcon className="h-6 w-6 pointer-events-none" />
+      </BottomNavItem>
       <BottomNavItem
         setActive={() => setActive(1)}
         selected={active === 1 ? true : false}
-        icon={<MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />}
         name={"Search"}
-      />
+      >
+        <MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />
+      </BottomNavItem>
       <div></div>
       <div className="rounded-full fixed bottom-0 h-24 w-24 flex items-center justify-center bg-white">
         <div className="rounded-full h-20 w-20 flex items-center justify-center bg-purple-500 ">
@@ -36,15 +38,17 @@ const BottomNav = () => {
       <BottomNavItem
         setActive={() => setActive(2)}
         selected={active === 2 ? true : false}
-        icon={<MapPinIcon className="h-6 w-6 pointer-events-none" />}
         name={"Layers"}
-      />
+      >
+        <MapPinIcon className="h-6 w-6 pointer-events-none" />
+      </BottomNavItem>
       <BottomNavItem
         setActive={() => setActive(3)}
         selected={active === 3 ? true : false}
-        icon={<UserIcon className="h-6 w-6 pointer-events-none" />}
         name={"Profile"}
-      />
+      >
+        <UserIcon className="h-6 w-6 pointer-events-none" />
+      </BottomNavItem>
     </div>
   );
 };

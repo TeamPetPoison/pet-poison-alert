@@ -1,4 +1,4 @@
-const BottomNavItem = ({ icon, name, setActive, selected }) => {
+const BottomNavItem = ({ name, setActive, selected, children }) => {
   return (
     <button
     onClick={setActive}
@@ -6,7 +6,7 @@ const BottomNavItem = ({ icon, name, setActive, selected }) => {
         selected ? "text-selected" : ""
       }`}
     >
-      {icon}
+      {children}
       <div>{name}</div>
     </button>
   );
