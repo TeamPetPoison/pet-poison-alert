@@ -1,6 +1,6 @@
 const BottomNavItem = ({ icon, name, setActive, selected }) => {
   return (
-    <div
+    <button
     onClick={setActive}
       className={`flex items-center justify-center flex-col ${
         selected ? "text-selected" : ""
@@ -8,7 +8,7 @@ const BottomNavItem = ({ icon, name, setActive, selected }) => {
     >
       {icon}
       <div>{name}</div>
-    </div>
+    </button>
   );
 };
 
