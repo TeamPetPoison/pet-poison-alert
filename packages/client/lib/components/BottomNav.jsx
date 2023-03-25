@@ -12,7 +12,7 @@ const BottomNav = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="absolute bottom-0 z-[9999] w-full h-16 text-slate-400 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
+    <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground/30 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
       <BottomNavItem
         setActive={() => setActive(0)}
         selected={active === 0 ? true : false}
@@ -29,9 +29,9 @@ const BottomNav = () => {
       </BottomNavItem>
       <div></div>
       <div className="rounded-full fixed bottom-0 h-24 w-24 flex items-center justify-center bg-white">
-        <div className="rounded-full h-20 w-20 flex items-center justify-center bg-purple-500 ">
-          <div className="rounded-full h-16 w-16 flex items-center justify-center bg-slate-300">
-            <PlusCircleIcon className="h-6 w-6 text-purple-500" />
+        <div className="rounded-full h-20 w-20 flex items-center justify-center bg-primary ">
+          <div className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
+            <PlusCircleIcon className="h-6 w-6 text-primary" />
           </div>
         </div>
       </div>
