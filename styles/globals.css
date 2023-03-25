@@ -16,10 +16,6 @@
   }
 }
 
-.leaflet-control-zoom {
-  bottom: 50px;
-}
-
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
   background-color: #fff;
@@ -34,26 +30,6 @@
   height: 32px;
 }
 
-.leaflet-control-zoom-in svg,
-.leaflet-control-zoom-out svg {
-  fill: #1f2937;
-  height: 20px;
-  width: 20px;
-}
-
-.leaflet-touch .leaflet-control-zoom-in,
-.leaflet-touch .leaflet-control-zoom-out {
-  margin-bottom: 4px;
-}
-
-.leaflet-touch .leaflet-control-zoom-in {
-  margin-bottom: 8px;
-}
-
-.leaflet-touch .leaflet-control-zoom-out {
-  margin-bottom: 4px;
-}
-
 .leaflet-control-zoom-in:hover,
 .leaflet-control-zoom-out:hover {
   background-color: #f1f5f9;
@@ -64,4 +40,8 @@
   background-color: #e5e7eb;
 }
 
-
+.leaflet-control-zoom-in svg,
+.leaflet-control-zoom-out svg {
+  height: 20px;
+  width: 20px;
+}
