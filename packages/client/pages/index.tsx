@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import BottomNav from '../lib/Components/BottomNav'
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,
@@ -19,6 +20,7 @@ export default function Home() {
       </Head>
       <main className="bg-background text-foreground">
         <MapWithNoSSR />
+        <BottomNav />
       </main>
     </>
   );

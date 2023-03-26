@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import 'leaflet/dist/leaflet.css';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { useState } from "react";
+import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 const Map = () => {
   const [geoData, setGeoData] = useState({ lat: -8.7445, lng: 115.182 });
