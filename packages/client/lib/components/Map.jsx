@@ -10,12 +10,21 @@ const Map = () => {
     const map = useMap();
 
     useEffect(() => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        map.setView(
-          { lat: position.coords.latitude, lng: position.coords.longitude },
-          12
-        );
-      });
+      // map.locate().on('locationfound', (e) => {
+      //   map.flyTo(e.latlng, 12)
+      // })
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          map.flyTo(
+            { lat: position.coords.latitude, lng: position.coords.longitude },
+            12
+          );
+        },
+        (error) => {
+          console.error(error);
+        },
+        { enableHighAccuracy: false, timeout: 5000, maximumAge: Infinity }
+      );
     }, [map]);
 
     return null;
