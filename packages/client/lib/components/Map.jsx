@@ -3,32 +3,29 @@ import useStore from '../../store/store';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 
+const SetViewOnUserLocation = () => {
+  const map = useMap();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        map.setView(
+          { lat: position.coords.latitude, lng: position.coords.longitude },
+          12
+        );
+      },
+      (error) => {
+        console.error(error);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: Infinity }
+    );
+  }, [map]);
+
+  return null;
+};
+
 const Map = () => {
   const geoData = useStore((state) => state.geoData);
-
-  const SetViewOnUserLocation = () => {
-    const map = useMap();
-
-    useEffect(() => {
-      // map.locate().on('locationfound', (e) => {
-      //   map.flyTo(e.latlng, 12)
-      // })
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          map.flyTo(
-            { lat: position.coords.latitude, lng: position.coords.longitude },
-            12
-          );
-        },
-        (error) => {
-          console.error(error);
-        },
-        { enableHighAccuracy: false, timeout: 5000, maximumAge: Infinity }
-      );
-    }, [map]);
-
-    return null;
-  };
 
   return (
     <MapContainer center={geoData} zoom={12} className="min-h-screen w-full">

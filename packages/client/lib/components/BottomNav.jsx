@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 const BottomNav = () => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(0)
 
   return (
     <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground/30 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
