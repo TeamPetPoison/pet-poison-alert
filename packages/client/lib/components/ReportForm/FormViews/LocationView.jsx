@@ -1,4 +1,4 @@
-const LocationView = () => {
+const LocationView = ({ formData, setFormData }) => {
     return (
         <>
             <h1>Location View</h1>

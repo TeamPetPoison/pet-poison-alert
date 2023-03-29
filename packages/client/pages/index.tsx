@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import BottomNav from '../lib/components/BottomNav';
 import LocationSearch from '@/lib/components/LocationSearch';
+import BottomNav from '../lib/components/BottomNav/BottomNav';
+import ReportForm from '../lib/components/ReportForm/ReportForm';
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,
@@ -23,6 +24,7 @@ export default function Home() {
         <LocationSearch />
         <MapWithNoSSR />
         <BottomNav />
+        <ReportForm />
       </main>
     </>
   );

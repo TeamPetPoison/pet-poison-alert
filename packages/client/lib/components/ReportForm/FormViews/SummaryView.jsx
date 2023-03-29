@@ -1,4 +1,4 @@
-const SummaryView = () => {
+const SummaryView = ({ formData, setFormData }) => {
     return (
         <>
             <h1>Summary View</h1>
