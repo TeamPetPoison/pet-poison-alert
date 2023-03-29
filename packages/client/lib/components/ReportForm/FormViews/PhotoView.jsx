@@ -6,7 +6,7 @@ import {
 const PhotoView = ({ formData, setFormData }) => {
   return (
     <>
-      <h3>Photos (optional)</h3>
+      <h3 className='text-lg mt-4'>Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <label
           htmlFor="imgURL"
