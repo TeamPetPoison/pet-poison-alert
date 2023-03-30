@@ -30,7 +30,7 @@ const PhotoView = ({ formData, setFormData }) => {
       <h3 className="text-lg mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <label
-          htmlFor="imgURL"
+          htmlFor="photos"
           className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white shadow-md"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -52,8 +52,8 @@ const PhotoView = ({ formData, setFormData }) => {
           </button>
           <input
             onChange={handleChange}
-            id="imgURL"
-            name="imgURL"
+            id="photos"
+            name="photos"
             type="file"
             accept=".png,.jpg,.jpeg,.webp"
             capture="environment"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import LocationView from './FormViews/LocationView';
 import PhotoView from './FormViews/PhotoView';
 import SummaryView from './FormViews/SummaryView';
@@ -8,7 +8,7 @@ import Submit from './NavigationButtons/Submit';
 
 const ReportForm = () => {
   const [formData, setFormData] = useState({
-    imgURL: [],
+    photos: [],
     title: '',
     description: '',
     location: {},
