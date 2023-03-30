@@ -3,6 +3,7 @@ import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
+import XMark from '../NavigationButtons/XMark'
 import Image from 'next/image';
 
 const PhotoView = ({ formData, setFormData }) => {
@@ -52,20 +53,26 @@ const PhotoView = ({ formData, setFormData }) => {
           />
         </label>
       </div>
-      <div className="flex flex-wrap m-2 ">
-        {files &&
+      <div className="flex justify-between flex-wrap m-auto pt-2 w-11/12">
+        {files.length > 1 ? (
           files.map((file, index) => (
-            <Image
-              key={index}
-              width={80}
-              height={100}
-              src={URL.createObjectURL(file)}
-              onLoad={(e) => {
-                URL.revokeObjectURL(e.target.src);
-              }}
-              alt=""
-            />
-          ))}
+            <div key={index} className="m-1">
+              <Image
+                width={20}
+                height={20}
+                className='w-24 h-auto rounded-lg'
+                src={URL.createObjectURL(file)}
+                onLoad={(e) => {
+                  URL.revokeObjectURL(e.target.src);
+                }}
+                alt=""
+              />
+              <XMark />
+            </div>
+          ))
+        ) : (
+          <div>No files selected</div>
+        )}
       </div>
     </>
   );
