@@ -1,12 +1,23 @@
+import { useEffect, useState } from 'react';
 import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 const PhotoView = ({ formData, setFormData }) => {
+  const [files, setFiles] = useState([]);
+
+  const handleChange = (e) => {
+    const { files } = e.target;
+    if (files.length) {
+      setFiles(Array.from(files));
+    }
+  };
+
   return (
     <>
-      <h3 className='text-lg mt-4'>Photos (optional)</h3>
+      <h3 className="text-lg mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <label
           htmlFor="imgURL"
@@ -29,8 +40,32 @@ const PhotoView = ({ formData, setFormData }) => {
             <DocumentMagnifyingGlassIcon className="w-7 h-7 pr-1 text-white" />
             Browse Photos
           </button>
-          <input id="imgURL" name="imgURL" type="file" accept='.png,.jpg,.jpeg,.webp' capture="environment" multiple className="hidden" />
+          <input
+            onChange={handleChange}
+            id="imgURL"
+            name="imgURL"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp"
+            capture="environment"
+            multiple
+            className="hidden"
+          />
         </label>
+      </div>
+      <div className="flex flex-wrap m-2 ">
+        {files &&
+          files.map((file, index) => (
+            <Image
+              key={index}
+              width={80}
+              height={100}
+              src={URL.createObjectURL(file)}
+              onLoad={(e) => {
+                URL.revokeObjectURL(e.target.src);
+              }}
+              alt=""
+            />
+          ))}
       </div>
     </>
   );
