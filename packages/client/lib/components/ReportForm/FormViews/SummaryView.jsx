@@ -15,11 +15,12 @@ const SummaryView = ({ formData, setFormData }) => {
         />
       </div>
       <h2 className="text-lg mt-4">Explain the incident</h2>
-      <label htmlFor="message" className="block mb-2 text-black">
+      <label htmlFor="description" className="block mb-2 text-black">
         e.g. "Next to the dirt road, there was a dog..."
       </label>
       <textarea
-        id="message"
+        id="description"
+        name="description"
         rows={4}
         className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"

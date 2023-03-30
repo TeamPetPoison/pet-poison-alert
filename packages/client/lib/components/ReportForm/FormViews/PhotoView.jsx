@@ -29,7 +29,7 @@ const PhotoView = ({ formData, setFormData }) => {
             <DocumentMagnifyingGlassIcon className="w-7 h-7 pr-1 text-white" />
             Browse Photos
           </button>
-          <input id="imgURL" name="imgURL" type="file" accept='.png,.jpg,.webp' capture="environment" className="hidden" />
+          <input id="imgURL" name="imgURL" type="file" accept='.png,.jpg,.webp' capture="environment" multiple className="hidden" />
         </label>
       </div>
     </>
