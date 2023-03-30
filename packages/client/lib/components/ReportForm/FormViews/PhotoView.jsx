@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 const PhotoView = ({ formData, setFormData }) => {
   const [files, setFiles] = useState([]);
+  const inputRef = useRef(null)
 
   const handleChange = (e) => {
     const { files } = e.target;
@@ -15,6 +16,12 @@ const PhotoView = ({ formData, setFormData }) => {
       setFiles(Array.from(files));
     }
   };
+
+  const handleRef = () => {
+    if (inputRef.current) {
+      inputRef.current.click()
+    }
+  }
 
   const removePhoto = (index) => {
     const newFiles = files.filter((_, i) => i !== index);
@@ -31,6 +38,7 @@ const PhotoView = ({ formData, setFormData }) => {
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <label
           htmlFor="photos"
+          onClick={handleRef}
           className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white shadow-md"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -52,6 +60,7 @@ const PhotoView = ({ formData, setFormData }) => {
           </button>
           <input
             onChange={handleChange}
+            ref={inputRef}
             id="photos"
             name="photos"
             type="file"
