@@ -16,6 +16,15 @@ const PhotoView = ({ formData, setFormData }) => {
     }
   };
 
+  const removePhoto = (index) => {
+    const newFiles = files.filter((_, i) => i !== index)
+    if (files.length === 1) {
+      setFiles([])
+      return
+    }
+    setFiles(newFiles)
+  }
+
   return (
     <>
       <h3 className="text-lg mt-4">Photos (optional)</h3>
@@ -54,9 +63,9 @@ const PhotoView = ({ formData, setFormData }) => {
         </label>
       </div>
       <div className="flex justify-between flex-wrap m-auto pt-2 w-11/12">
-        {files.length > 1 ? (
+        {files.length > 0 ? (
           files.map((file, index) => (
-            <div key={index} className="m-1">
+            <div key={index} className=" relative m-1">
               <Image
                 width={20}
                 height={20}
@@ -67,7 +76,7 @@ const PhotoView = ({ formData, setFormData }) => {
                 }}
                 alt=""
               />
-              <XMark />
+              <XMark handleClick={() => removePhoto(index)} />
             </div>
           ))
         ) : (

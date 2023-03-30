@@ -1,11 +1,16 @@
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XCircleIcon } from '@heroicons/react/24/outline';
 
-export const XMark = () => {
-    return (
-    <button onClick={(e) => e.preventDefault()}>
-        <XMarkIcon className="z-10 h-4 w-4"/>
+export const XMark = ({ handleClick }) => {
+  return (
+    <button
+      onClick={(e) => {
+        e.preventDefault();
+        handleClick();
+      }}
+    >
+      <XCircleIcon className="z-10 absolute top-0.5 right-0.5 text-black stroke-2 h-6 w-6" />
     </button>
-)
-}
+  );
+};
 
 export default XMark;
