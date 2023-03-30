@@ -11,17 +11,13 @@ const ReportForm = () => {
     imgURL: [],
     title: '',
     description: '',
-    location: {}
+    location: {},
   });
   const [step, setStep] = useState(0);
 
-  useEffect(() => {
-    console.log(step);
-  }, [step]);
-
   return (
     <div className="h-100 w-100 bg-white p-2">
-      <h1 className='text-xl font-medium'>Report your incident</h1>
+      <h1 className="text-xl font-medium">Report your incident</h1>
       <form action="">
         {step === 0 ? (
           <PhotoView formData={formData} setFormData={setFormData} />

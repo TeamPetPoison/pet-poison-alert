@@ -3,7 +3,7 @@ import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
-import XMark from '../NavigationButtons/XMark'
+import XMark from '../NavigationButtons/XMark';
 import Image from 'next/image';
 
 const PhotoView = ({ formData, setFormData }) => {
@@ -17,13 +17,13 @@ const PhotoView = ({ formData, setFormData }) => {
   };
 
   const removePhoto = (index) => {
-    const newFiles = files.filter((_, i) => i !== index)
+    const newFiles = files.filter((_, i) => i !== index);
     if (files.length === 1) {
-      setFiles([])
-      return
+      setFiles([]);
+      return;
     }
-    setFiles(newFiles)
-  }
+    setFiles(newFiles);
+  };
 
   return (
     <>
@@ -62,16 +62,17 @@ const PhotoView = ({ formData, setFormData }) => {
           />
         </label>
       </div>
-      <div className="flex justify-between flex-wrap m-auto pt-2 w-11/12">
+      <div className="flex justify-center flex-wrap m-auto pt-2">
         {files.length > 0 ? (
           files.map((file, index) => (
             <div key={index} className=" relative m-1">
               <Image
                 width={20}
                 height={20}
-                className='w-24 h-auto rounded-lg'
+                className="w-28 h-auto rounded-lg"
                 src={URL.createObjectURL(file)}
                 onLoad={(e) => {
+                  // add functionality for checking size of images
                   URL.revokeObjectURL(e.target.src);
                 }}
                 alt=""
