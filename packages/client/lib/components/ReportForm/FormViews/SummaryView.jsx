@@ -1,4 +1,11 @@
-const SummaryView = ({ formData, setFormData }) => {
+import useFormStore from "@/store/formStore";
+
+const SummaryView = () => {
+  const { title } = useFormStore();
+  const { setTitle } = useFormStore();
+  const { description } = useFormStore();
+  const { setDescription } = useFormStore();
+
   return (
     <>
       <h2 className="text-lg mt-4">Provide a short title</h2>

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import useFormStore from '../../../../store/formStore';
+import useFormStore from '@/store/formStore';
 import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
@@ -14,7 +14,7 @@ const PhotoView = () => {
 
   const handleChange = (e) => {
     const { files } = e.target;
-    // add logic here to check for files type and size
+    // add logic here to check for files type, size, and existing photos to be able to append photos instead of overwriting
     if (files.length) {
       setPhotos(Array.from(files));
     }
@@ -39,7 +39,7 @@ const PhotoView = () => {
     <>
       <h3 className="text-lg mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
-        <label
+        <div
           onClick={handleRef}
           className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white shadow-md"
         >
@@ -54,7 +54,9 @@ const PhotoView = () => {
             </p>
           </div>
           <button
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => {
+              e.preventDefault();
+            }}
             className="flex items-center bg-primary hover:primary-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
           >
             <DocumentMagnifyingGlassIcon className="w-7 h-7 pr-1 text-white" />
@@ -71,7 +73,7 @@ const PhotoView = () => {
             multiple
             className="hidden"
           />
-        </label>
+        </div>
       </div>
       <div className="flex justify-center flex-wrap m-auto pt-2">
         {photos.length > 0 ? (
