@@ -5,12 +5,14 @@ import SummaryView from './FormViews/SummaryView';
 import Continue from './NavigationButtons/Continue';
 import GoBack from './NavigationButtons/GoBack';
 import Submit from './NavigationButtons/Submit';
+import ExitForm from './NavigationButtons/ExitForm'
 
 const ReportForm = () => {
   const [step, setStep] = useState(0);
 
   return (
     <div className="h-100 w-100 bg-white p-2">
+      <ExitForm />
       <h1 className="text-xl font-medium">Report your incident</h1>
       <form action="">
         {step === 0 ? <PhotoView /> : null}
