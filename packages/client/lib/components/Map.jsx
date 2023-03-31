@@ -1,10 +1,18 @@
 import { useEffect } from 'react';
 import useStore from '../../store/store';
 import 'leaflet/dist/leaflet.css';
-import { MapContainer, TileLayer, Marker, ZoomControl,useMap } from 'react-leaflet';
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  ZoomControl,
+  useMap,
+} from 'react-leaflet';
 import Leaflet from 'leaflet';
+import useFormStore from '@/store/formStore';
 
 const SetViewOnUserLocation = () => {
+  const { setLocation } = useFormStore();
   const map = useMap();
 
   useEffect(() => {
@@ -19,19 +27,23 @@ const SetViewOnUserLocation = () => {
   }, []);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.watchPosition(
       (position) => {
         map.setView(
           { lat: position.coords.latitude, lng: position.coords.longitude },
           12
         );
+        setLocation({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
       },
       (error) => {
         console.error(error);
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: Infinity }
     );
-  }, [map]);
+  }, [map, setLocation]);
 
   return null;
 };
@@ -40,7 +52,12 @@ const Map = () => {
   const geoData = useStore((state) => state.geoData);
 
   return (
-    <MapContainer center={geoData} zoom={12} zoomControl={false} className="min-h-screen w-full">
+    <MapContainer
+      center={geoData}
+      zoom={12}
+      zoomControl={false}
+      className="min-h-screen w-full"
+    >
       <SetViewOnUserLocation />
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
