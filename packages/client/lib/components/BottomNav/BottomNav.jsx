@@ -7,9 +7,11 @@ import {
   PlusCircleIcon,
   MapPinIcon,
 } from '@heroicons/react/24/outline';
+import useFormStore from '@/store/formStore.js';
 
 const BottomNav = () => {
   const [active, setActive] = useState(0);
+  const { setShowForm } = useFormStore();
 
   return (
     <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground/30 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
@@ -28,11 +30,14 @@ const BottomNav = () => {
         <MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />
       </BottomNavItem>
       <div></div>
-      <div className="rounded-full fixed bottom-0 h-24 w-24 flex items-center justify-center bg-white">
+      <div
+        onClick={() => setShowForm(true)}
+        className="rounded-full fixed bottom-0 h-24 w-24 flex items-center justify-center bg-white"
+      >
         <div className="rounded-full h-20 w-20 flex items-center justify-center bg-primary ">
-          <div className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
+          <button className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
             <PlusCircleIcon className="h-6 w-6 text-primary" />
-          </div>
+          </button>
         </div>
       </div>
       <BottomNavItem

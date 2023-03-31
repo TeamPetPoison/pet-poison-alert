@@ -7,12 +7,6 @@ import GoBack from './NavigationButtons/GoBack';
 import Submit from './NavigationButtons/Submit';
 
 const ReportForm = () => {
-  const [formData, setFormData] = useState({
-    photos: [],
-    title: '',
-    description: '',
-    location: {},
-  });
   const [step, setStep] = useState(0);
 
   return (
