@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import useFormStore from '../../../../store/formStore'
+import useFormStore from '../../../../store/formStore';
 import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
@@ -9,8 +9,8 @@ import Image from 'next/image';
 
 const PhotoView = () => {
   const { photos } = useFormStore();
-  const { setPhotos } = useFormStore()
-  const inputRef = useRef(null)
+  const { setPhotos } = useFormStore();
+  const inputRef = useRef(null);
 
   const handleChange = (e) => {
     const { files } = e.target;
@@ -22,9 +22,9 @@ const PhotoView = () => {
 
   const handleRef = () => {
     if (inputRef.current) {
-      inputRef.current.click()
+      inputRef.current.click();
     }
-  }
+  };
 
   const removePhoto = (index) => {
     const newPhotos = photos.filter((_, i) => i !== index);
