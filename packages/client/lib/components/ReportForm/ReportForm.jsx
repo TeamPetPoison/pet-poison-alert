@@ -20,12 +20,8 @@ const ReportForm = () => {
       <h1 className="text-xl font-medium">Report your incident</h1>
       <form action="">
         {step === 0 ? <PhotoView /> : null}
-        {step === 1 ? (
-          <SummaryView formData={formData} setFormData={setFormData} />
-        ) : null}
-        {step === 2 ? (
-          <LocationView formData={formData} setFormData={setFormData} />
-        ) : null}
+        {step === 1 ? <SummaryView /> : null}
+        {step === 2 ? <LocationView /> : null}
         <div className="flex row justify-between">
           {step < 2 ? (
             <Continue
