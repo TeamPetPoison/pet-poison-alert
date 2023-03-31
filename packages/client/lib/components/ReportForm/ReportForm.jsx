@@ -1,43 +1,24 @@
-import { useState } from 'react';
 import LocationView from './FormViews/LocationView';
 import PhotoView from './FormViews/PhotoView';
 import SummaryView from './FormViews/SummaryView';
-import Continue from './NavigationButtons/Continue';
-import GoBack from './NavigationButtons/GoBack';
-import Submit from './NavigationButtons/Submit';
+import UpdateView from './FormViews/UpdateView';
+import FormButtons from './NavigationButtons/FormButtons';
 import ExitForm from './NavigationButtons/ExitForm'
+import useFormStore from '@/store/formStore';
 
 const ReportForm = () => {
-  const [step, setStep] = useState(0);
+  const { step } = useFormStore()
 
   return (
-    <div className="h-100 w-100 bg-white p-2">
+    <div className="h-100 w-100 bg-white">
       <ExitForm />
-      <h1 className="text-xl font-medium">Report your incident</h1>
+      {step === 3 ? null : <h1 className="text-xl font-medium">Report your incident</h1>}
       <form action="">
         {step === 0 ? <PhotoView /> : null}
         {step === 1 ? <SummaryView /> : null}
         {step === 2 ? <LocationView /> : null}
-        <div className="flex row justify-between">
-          {step < 2 ? (
-            <Continue
-              nextStep={(e) => {
-                e.preventDefault();
-                setStep(step + 1);
-              }}
-            />
-          ) : (
-            <Submit />
-          )}
-          {step > 0 ? (
-            <GoBack
-              prevStep={(e) => {
-                e.preventDefault();
-                setStep(step - 1);
-              }}
-            />
-          ) : null}
-        </div>
+        {step === 3 ? <UpdateView /> : null}
+        {step === 3 ? null : <FormButtons />}
       </form>
     </div>
   );

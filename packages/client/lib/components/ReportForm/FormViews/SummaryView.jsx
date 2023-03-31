@@ -1,13 +1,10 @@
 import useFormStore from '@/store/formStore';
 
 const SummaryView = () => {
-  const { title } = useFormStore();
-  const { setTitle } = useFormStore();
-  const { description } = useFormStore();
-  const { setDescription } = useFormStore();
+  const { title, setTitle, description, setDescription } = useFormStore();
 
   return (
-    <>
+    <div>
       <h2 className="text-lg mt-4">Provide a short title</h2>
       <div>
         <label htmlFor="title" className="block mb-2 text-black">
@@ -36,7 +33,7 @@ const SummaryView = () => {
         className="block p-2.5 w-full text-black bg-white rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"
       ></textarea>
-    </>
+    </div>
   );
 };
 

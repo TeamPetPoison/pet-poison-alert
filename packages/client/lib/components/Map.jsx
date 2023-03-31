@@ -27,7 +27,7 @@ const SetViewOnUserLocation = () => {
   }, []);
 
   useEffect(() => {
-    navigator.geolocation.watchPosition(
+    navigator.geolocation.getCurrentPosition(
       (position) => {
         map.setView(
           { lat: position.coords.latitude, lng: position.coords.longitude },
@@ -48,7 +48,7 @@ const SetViewOnUserLocation = () => {
   return null;
 };
 
-const Map = () => {
+const Map = ({ markerPosition }) => {
   const geoData = useStore((state) => state.geoData);
 
   return (
@@ -59,11 +59,8 @@ const Map = () => {
       className="min-h-screen w-full"
     >
       <SetViewOnUserLocation />
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={geoData} draggable />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      {markerPosition && <Marker position={markerPosition} draggable />}
       <ZoomControl position="topright" />
     </MapContainer>
   );

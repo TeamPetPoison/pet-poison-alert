@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 const useFormStore = create((set) => ({
+  step: 0,
   showForm: false,
   photos: [],
   title: '',
@@ -11,6 +12,7 @@ const useFormStore = create((set) => ({
   setDescription: (str) => set(() => ({ description: str })),
   setLocation: (latLng) => set(() => ({ location: latLng })),
   setShowForm: (bool) => set(() => ({ showForm: bool })),
+  setStep: (num) => set(() => ({ step: num}))
 }));
 
 export default useFormStore;

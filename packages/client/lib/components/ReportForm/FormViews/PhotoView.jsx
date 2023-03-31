@@ -8,8 +8,7 @@ import XMark from '../NavigationButtons/XMark';
 import Image from 'next/image';
 
 const PhotoView = () => {
-  const { photos } = useFormStore();
-  const { setPhotos } = useFormStore();
+  const { photos, setPhotos } = useFormStore();
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
@@ -36,7 +35,7 @@ const PhotoView = () => {
   };
 
   return (
-    <>
+    <div>
       <h3 className="text-lg mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <div
@@ -97,7 +96,7 @@ const PhotoView = () => {
           <div>No files selected</div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
