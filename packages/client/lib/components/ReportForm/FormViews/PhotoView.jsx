@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
+import useFormStore from '../../../../store/formStore'
 import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,
@@ -6,14 +7,16 @@ import {
 import XMark from '../NavigationButtons/XMark';
 import Image from 'next/image';
 
-const PhotoView = ({ formData, setFormData }) => {
-  const [files, setFiles] = useState([]);
+const PhotoView = () => {
+  const { photos } = useFormStore();
+  const { setPhotos } = useFormStore()
   const inputRef = useRef(null)
 
   const handleChange = (e) => {
     const { files } = e.target;
+    // add logic here to check for files type and size
     if (files.length) {
-      setFiles(Array.from(files));
+      setPhotos(Array.from(files));
     }
   };
 
@@ -24,12 +27,12 @@ const PhotoView = ({ formData, setFormData }) => {
   }
 
   const removePhoto = (index) => {
-    const newFiles = files.filter((_, i) => i !== index);
-    if (files.length === 1) {
-      setFiles([]);
+    const newPhotos = photos.filter((_, i) => i !== index);
+    if (photos.length === 1) {
+      setPhotos([]);
       return;
     }
-    setFiles(newFiles);
+    setPhotos(newPhotos);
   };
 
   return (
@@ -37,7 +40,6 @@ const PhotoView = ({ formData, setFormData }) => {
       <h3 className="text-lg mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <label
-          htmlFor="photos"
           onClick={handleRef}
           className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white shadow-md"
         >
@@ -72,14 +74,14 @@ const PhotoView = ({ formData, setFormData }) => {
         </label>
       </div>
       <div className="flex justify-center flex-wrap m-auto pt-2">
-        {files.length > 0 ? (
-          files.map((file, index) => (
+        {photos.length > 0 ? (
+          photos.map((photo, index) => (
             <div key={index} className=" relative m-1">
               <Image
                 width={20}
                 height={20}
                 className="w-28 h-auto rounded-lg"
-                src={URL.createObjectURL(file)}
+                src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
                   // add functionality for checking size of images
                   URL.revokeObjectURL(e.target.src);
