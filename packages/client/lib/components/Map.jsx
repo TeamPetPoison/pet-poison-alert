@@ -48,7 +48,7 @@ const SetViewOnUserLocation = () => {
   return null;
 };
 
-const Map = ({ markerPosition }) => {
+const Map = () => {
   const geoData = useStore((state) => state.geoData);
 
   return (
@@ -60,7 +60,7 @@ const Map = ({ markerPosition }) => {
     >
       <SetViewOnUserLocation />
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {markerPosition && <Marker position={markerPosition} draggable />}
+      {/* {markerPosition && <Marker position={markerPosition} draggable />} */}
       <ZoomControl position="topright" />
     </MapContainer>
   );

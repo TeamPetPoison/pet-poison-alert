@@ -1,17 +1,43 @@
 import useFormStore from '@/store/formStore';
-import dynamic from 'next/dynamic';
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  useMap,
+} from 'react-leaflet';
 import { CheckIcon } from '@heroicons/react/24/outline';
+import { useRef, useEffect } from 'react';
 
-const MapWithNoSSR = dynamic(() => import('../../Map'), {
-  ssr: false,
-});
+const SetMarkerLocation = ({ markerRef, setLocation }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    const { current } = markerRef;
+    console.log(current)
+
+    if (current) {
+      current.on('dragend', (e) => {
+        setLocation(e.target.getLatLng());
+      });
+    }
+
+    return () => {
+      if (current) {
+        current.off('dragend');
+      }
+    };
+  }, [markerRef, setLocation, map]);
+
+  return null;
+};
 
 const UpdateView = () => {
   const { location, setLocation, step, setStep } = useFormStore();
+  const markerRef = useRef(null);
 
   return (
-    <div className="flex justify-center">
-      <div className='absolute top-10 w-11/12 z-[9999]'>
+    <div className="flex justify-center h-screen">
+      <div className="absolute top-10 w-11/12 z-[9999]">
         <input
           type="text"
           id="title"
@@ -20,13 +46,21 @@ const UpdateView = () => {
           className="w-full p-2 text-black border border-gray-300 rounded-lg bg-white focus:ring-primary focus:border-primary shadow-md"
         />
       </div>
-      <MapWithNoSSR markerPosition={location} />
+      <MapContainer
+        center={location}
+        zoom={13}
+        scrollWheelZoom={false}
+        className="min-h-screen w-full"
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <SetMarkerLocation markerRef={markerRef} setLocation={setLocation} />;
+        <Marker position={location} ref={markerRef} draggable />
+      </MapContainer>
       <div className="absolute bottom-10 z-[9999]">
         <button
           onClick={(e) => {
             e.preventDefault();
             setStep(step - 1);
-            // here we will setLocation()
           }}
           className="flex items-center bg-positive hover:positive-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
         >
