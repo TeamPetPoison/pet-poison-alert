@@ -1,6 +1,6 @@
 import useFormStore from '@/store/formStore';
 import Continue from './Continue';
-import CancelButton from './CancelButton';
+import CancelButton from './Cancel';
 import GoBack from './GoBack';
 import Submit from './Submit';
 

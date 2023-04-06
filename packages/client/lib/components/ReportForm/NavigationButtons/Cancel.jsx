@@ -3,10 +3,10 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline"
 const CancelButton = () => {
     return (
         <button
-            className='flex w-1/2 bg-white text-black text-3xl border py-2 px-4 rounded'
+            className='flex items-center justify-center w-1/2 bg-negative text-white text-3xl border py-2 px-4 rounded-2xl'
         >
-            <ArrowUturnLeftIcon className="h-8 w-8"/>
             Cancel
+            <ArrowUturnLeftIcon className="h-8 w-8 stroke-2"/>
         </button>
     )
 }
