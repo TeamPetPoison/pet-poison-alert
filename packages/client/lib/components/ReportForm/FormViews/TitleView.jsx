@@ -5,7 +5,7 @@ const TitleView = () => {
 
   return (
     <div className='flex-1'>
-      <h2 className="text-lg mt-4">Provide a short title</h2>
+      <h2 className="text-lg">Provide a short title</h2>
       <div>
         <label htmlFor="title" className="block mb-2 text-black">
           e.g. "Dog found on Example Road, near hotel"

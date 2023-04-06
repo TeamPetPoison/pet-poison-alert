@@ -17,16 +17,15 @@ const ReportForm = () => {
 
   return (
     <div className="bg-white">
-      {step === 5 ? null : (
-        <h1 className="text-xl font-medium">Report your incident</h1>
-      )}
-      <form action="" className='flex flex-col h-screen'>
+      <form action="" className={`flex flex-col h-screen ${step !== 5 ? 'p-2' : ''}`}>
+        {step === 5 ? null : (
+          <h1 className="text-xl font-medium">Report your incident</h1>
+        )}
         {step === 0 ? <CategoryView /> : null}
         {step === 1 ? <PhotoView /> : null}
         {step === 2 ? <TitleView /> : null}
         {step === 3 ? <LocationView /> : null}
         {step === 4 ? <SummaryView /> : null}
-
 
         {step === 5 ? <DynamicUpdateView /> : null}
 
