@@ -1,10 +1,13 @@
+import { ArrowUturnRightIcon } from "@heroicons/react/24/outline"
+
 const Continue = ({ nextStep }) => {
     return (
         <button
-            className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded fixed bottom-8 right-8'
+            className='flex justify-between w-1/2 bg-white text-black text-3xl border py-2 px-4 rounded'
             onClick={nextStep}
         >
             Continue
+            <ArrowUturnRightIcon className="h-8 w-8"/>
         </button>
     )
 }

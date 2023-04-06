@@ -1,10 +1,13 @@
+import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline"
+
 const GoBack = ({ prevStep }) => {
     return (
         <button
-            className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded fixed bottom-8 left-8'
+            className='flex justify-between w-1/2 bg-white text-black text-3xl border py-2 px-4 rounded'
             onClick={prevStep}
         >
-            Go Back
+            <ArrowUturnLeftIcon className="h-8 w-8"/>
+            Back
         </button>
     )
 }   
