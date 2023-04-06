@@ -25,7 +25,7 @@ const LocationView = () => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              setStep(step + 1);
+              setStep(5);
             }}
             className="flex items-center bg-primary hover:primary-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
           >

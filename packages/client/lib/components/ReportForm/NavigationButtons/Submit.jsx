@@ -1,12 +1,14 @@
 import useFormStore from '@/store/formStore';
 import useStore from '@/store/store';
+import { CheckIcon } from '@heroicons/react/24/outline';
 
 const Submit = () => {
-  const { setShowForm, resetForm, photos, title, description, location } = useFormStore();
+  const { setShowForm, resetForm, category, photos, title, description, location } = useFormStore();
   const { setMarkers } = useStore();
 
-  const handleSubmit = (photos, title, description, location) => {
+  const handleSubmit = (category, photos, title, description, location) => {
     const formObj = {
+      category: category,
       photos: photos,
       title: title,
       description: description,
@@ -24,9 +26,11 @@ const Submit = () => {
         handleSubmit(photos, title, description, location)
         setShowForm(false);
       }}
-      className="flex justify-between bg-white text-black text-3xl border py-2 px-4 rounded"
-    >
+      className="flex items-center bg-positive hover:positive-700 text-white text-3xl py-2.5 px-3.5 rounded-2xl"
+      >
       Submit
+      <CheckIcon className="w-8 h-8 pr-1 text-white" />
+
     </button>
   );
 };

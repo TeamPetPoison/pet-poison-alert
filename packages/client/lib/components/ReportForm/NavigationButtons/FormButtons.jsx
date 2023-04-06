@@ -18,7 +18,7 @@ const FormButtons = () => {
           }}
         />
       ) : null}
-      {step < 3 ? (
+      {step < 4 ? (
         <Continue
           nextStep={(e) => {
             e.preventDefault();

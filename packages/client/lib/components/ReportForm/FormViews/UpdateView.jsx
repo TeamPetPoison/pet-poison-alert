@@ -54,7 +54,7 @@ const UpdateView = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setStep(step - 1);
+            setStep(3);
           }}
           className="flex items-center bg-positive hover:positive-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
         >
