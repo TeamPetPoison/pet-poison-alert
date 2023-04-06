@@ -4,7 +4,7 @@ const CategoryView = () => {
   const { category, setCategory } = useFormStore();
 
   return (
-    <div>
+    <div className='flex-1'>
       <h2 className="text-lg mt-4">Category of incident</h2>
       <div>
         <input

@@ -8,7 +8,7 @@ const FormButtons = () => {
   const { step, setStep } = useFormStore();
 
   return (
-    <div className="flex row justify-between">
+    <div className="flex w-11/12 justify-between self-center m-8">
       {step === 0 ? <CancelButton /> : null}
       {step > 0 ? (
         <GoBack
@@ -18,7 +18,7 @@ const FormButtons = () => {
           }}
         />
       ) : null}
-      {step < 2 ? (
+      {step < 3 ? (
         <Continue
           nextStep={(e) => {
             e.preventDefault();

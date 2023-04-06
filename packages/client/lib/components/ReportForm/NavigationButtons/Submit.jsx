@@ -24,7 +24,7 @@ const Submit = () => {
         handleSubmit(photos, title, description, location)
         setShowForm(false);
       }}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded fixed bottom-8 right-8"
+      className="flex justify-between bg-white text-black text-3xl border py-2 px-4 rounded"
     >
       Submit
     </button>

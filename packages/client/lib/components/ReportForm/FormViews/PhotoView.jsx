@@ -35,7 +35,7 @@ const PhotoView = () => {
   };
 
   return (
-    <div>
+    <div className='flex-1'>
       <h3 className="text-lg mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <div
