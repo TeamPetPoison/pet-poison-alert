@@ -61,6 +61,7 @@
   bottom: 757px;
   left: 23.85%;
   right: 19.81%;
+  /* @apply fixed top-8 left-8 */
 }
 
 .searchbar {
