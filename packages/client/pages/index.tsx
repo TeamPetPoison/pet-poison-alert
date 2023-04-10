@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import BottomNav from '../lib/Components/BottomNav'
+import SearchBar from '@/lib/components/SearchBar';
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,
@@ -19,6 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-background text-foreground">
+        <SearchBar/>
         <MapWithNoSSR />
         <BottomNav />
       </main>
