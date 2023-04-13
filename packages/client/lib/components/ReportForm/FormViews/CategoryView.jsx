@@ -8,73 +8,80 @@ const CategoryView = () => {
       <h2 className="text-lg mt-4">Category of incident</h2>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Lost/Missing Pet'}
           type="radio"
-          name="Lost/Missing Pet"
-          id="Lost/Missing Pet"
+          name="category"
+          value="Lost/Missing Pet"
+          required
         />
         <label htmlFor="Lost/Missing Pet">Lost/Missing Pet</label>
       </div>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Found Pet'}
           type="radio"
-          name="Found Pet"
-          id="Found Pet"
+          name="category"
+          value="Found Pet"
+          required
         />
         <label htmlFor="Found Pet">Found Pet</label>
       </div>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Needs Medical Treatment'}
           type="radio"
-          name="Needs Medical Treatment"
-          id="Needs Medical Treatment"
+          name="category"
+          value="Needs Medical Treatment"
+          required
         />
         <label htmlFor="Needs Medical Treatment">Needs Medical Treatment</label>
       </div>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Gave/Received Medical Treatment'}
           type="radio"
-          name="Gave/Received Medical Treatment"
-          id="Gave/Received Medical Treatment"
+          name="category"
+          value="Gave/Received Medical Treatment"
+          required
         />
         <label htmlFor="Gave/Received Medical Treatment">Gave/Received Medical Treatment</label>
       </div>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Gave Food'}
           type="radio"
-          name="Gave Food"
-          id="Gave Food"
+          name="category"
+          value="Gave Food"
+          required
         />
         <label htmlFor="Gave Food">Gave Food</label>
       </div>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Poisoning'}
           type="radio"
-          name="Poisoning"
-          id="Poisoning"
+          name="category"
+          value="Poisoning"
+          required
         />
         <label htmlFor="Poisoning">Poisoning</label>
       </div>
       <div>
         <input
-          onChange={({ target }) => setCategory(target.name)}
+          onChange={({ target }) => setCategory(target.value)}
           checked={category === 'Other'}
           type="radio"
-          name="Other"
-          id="Other"
+          name="category"
+          value="Other"
+          required
         />
-        <label htmlFor="Other">Other</label>
+        <label>Other</label>
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ const TitleView = () => {
           id="title"
           name="title"
           value={title}
+          required
           placeholder="Provide a title for the report"
           className="block w-full p-2 text-black border border-gray-300 rounded-lg bg-white focus:ring-primary focus:border-primary shadow-md"
         />
@@ -30,6 +31,7 @@ const TitleView = () => {
         onChange={(e) => setDescription(e.target.value)}
         value={description}
         rows={4}
+        required
         className="block p-2.5 w-full text-black bg-white rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"
       ></textarea>

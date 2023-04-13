@@ -8,7 +8,7 @@ const Submit = () => {
 
   const handleSubmit = (category, photos, title, description, location) => {
     const formObj = {
-      category: category,
+      "category": category,
       photos: photos,
       title: title,
       description: description,
@@ -23,7 +23,7 @@ const Submit = () => {
     <button
       onClick={(e) => {
         e.preventDefault();
-        handleSubmit(photos, title, description, location)
+        handleSubmit(category, photos, title, description, location)
         setShowForm(false);
       }}
       className="flex items-center bg-positive hover:positive-700 text-white text-3xl py-2.5 px-3.5 rounded-2xl"

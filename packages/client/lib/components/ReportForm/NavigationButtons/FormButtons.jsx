@@ -21,6 +21,9 @@ const FormButtons = () => {
       {step < 4 ? (
         <Continue
           nextStep={(e) => {
+            if (!e.target.form.checkValidity()) {
+              return;
+            }
             e.preventDefault();
             setStep(step + 1);
           }}
