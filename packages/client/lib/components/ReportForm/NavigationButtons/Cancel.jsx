@@ -12,10 +12,10 @@ const CancelButton = () => {
   return (
     <button
       onClick={handleCancel}
-      className="flex items-center justify-center bg-negative text-white text-3xl border py-2 px-4 rounded-2xl"
+      className="flex items-center justify-center bg-negative text-white text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
     >
       Cancel
-      <ArrowUturnLeftIcon className="h-8 w-8 stroke-2" />
+      <ArrowUturnLeftIcon className="h-6 w-6 pl-1" />
     </button>
   );
 };

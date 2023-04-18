@@ -3,11 +3,11 @@ import { ArrowUturnRightIcon } from '@heroicons/react/24/outline';
 const Continue = ({ nextStep }) => {
   return (
     <button
-      className="flex justify-between bg-white text-black text-3xl border py-2 px-4 rounded-2xl"
+      className="flex items-center justify-center bg-white text-black text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
       onClick={nextStep}
     >
       Continue
-      <ArrowUturnRightIcon className="h-8 w-8" />
+      <ArrowUturnRightIcon className="h-6 w-6 pl-1" />
     </button>
   );
 };

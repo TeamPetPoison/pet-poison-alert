@@ -59,7 +59,7 @@ const UpdateView = () => {
           className="flex items-center bg-positive hover:positive-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
         >
           Confirm
-          <CheckIcon className="w-7 h-7 pr-1 text-white" />
+          <CheckIcon className="w-6 h-6 pr-1 text-white" />
         </button>
       </div>
     </div>
