@@ -13,6 +13,7 @@ const FormButtons = () => {
       <div className='flex flex-col items-center mb-2'>
         <NoSymbolIcon className='text-negative h-6 w-6'/>
         <h3 className='text-negative text-xs whitespace-nowrap'>Avoid personal information and vehicle plate numbers</h3>
+        {step === 4 ? <h3 className='text-negative text-xs whitespace-nowrap'>Submissions will be made public</h3> : null}
       </div>
       <div className='flex justify-between'>
         {step === 0 ? <CancelButton /> : null}

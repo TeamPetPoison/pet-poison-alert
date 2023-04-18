@@ -6,7 +6,7 @@ const LocationView = () => {
 
   return (
     <div className='flex-1'>
-      <h2 className="text-lg mt-4">Pin map location</h2>
+      <h2 className="text-xl mt-4">Pin map location</h2>
       <div>
         <label htmlFor="location" className="block mb-2 text-black">
           e.g. "Example Road, City" or "-8.54, 115.24"

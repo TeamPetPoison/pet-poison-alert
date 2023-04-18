@@ -5,7 +5,7 @@ const CategoryView = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-xl mt-4 font-semibold">Category of incident</h2>
+      <h2 className="text-xl mt-4">Category of incident</h2>
       <h3 className="text-lg">Please choose one category</h3>
       <div className="flex items-center">
         <input
@@ -14,6 +14,7 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Lost/Missing Pet"
           value="Lost/Missing Pet"
           required
         />
@@ -28,6 +29,7 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Found Pet"
           value="Found Pet"
           required
         />
@@ -40,6 +42,7 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Needs Medical Treatment"
           value="Needs Medical Treatment"
           required
         />
@@ -52,6 +55,7 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Gave/Received Medical Treatment"
           value="Gave/Received Medical Treatment"
           required
         />
@@ -66,6 +70,7 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Gave Food"
           value="Gave Food"
           required
         />
@@ -78,6 +83,7 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Poisoning"
           value="Poisoning"
           required
         />
@@ -90,10 +96,11 @@ const CategoryView = () => {
           type="radio"
           name="category"
           className="w-4 h-4"
+          id="Other"
           value="Other"
           required
         />
-        <label className="p-1">Other</label>
+        <label htmlFor='Other' className="p-1">Other</label>
       </div>
     </div>
   );

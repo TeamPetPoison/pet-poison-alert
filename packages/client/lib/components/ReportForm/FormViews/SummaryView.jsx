@@ -6,19 +6,21 @@ const SummaryView = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-lg">Summary of report</h2>
+      <h2 className="text-xl mt-4">Summary of report</h2>
       <h3 className="text-md">Please confirm the details of your report</h3>
-      <h2 className="text-lg">Category</h2>
-      <input type="radio" readOnly checked/>
-      <label htmlFor="">{category}</label>
-      <h2 className="text-lg">Photos</h2>
+      <h2 className="text-xl mt-4">Category</h2>
+      <div className='flex items-center'>
+        <input type="radio" readOnly checked className='h-4 w-4'/>
+        <label htmlFor="" className='pl-3'>{category}</label>
+      </div>
+      <h2 className="text-xl mt-4">Photos</h2>
       <div className='flex'>
           {photos.length > 0 ? (
               photos.map((photo, index) => (
                 <div key={index} className=" relative m-1">
                   <Image
-                    width={20}
-                    height={20}
+                    width={15}
+                    height={15}
                     className="w-28 h-auto rounded-lg"
                     src={URL.createObjectURL(photo)}
                     onLoad={(e) => {
@@ -33,7 +35,7 @@ const SummaryView = () => {
               <div>No files selected</div>
             )}
       </div>
-      <h2 className="text-lg">Title</h2>
+      <h2 className="text-xl mt-4">Title</h2>
       <input
           type="text"
           value={title}
@@ -41,7 +43,7 @@ const SummaryView = () => {
           disabled
           className="block w-full p-2 text-black border border-gray-300 rounded-lg bg-white focus:ring-primary focus:border-primary shadow-md"
         />
-      <h2 className="text-lg">Description</h2>
+      <h2 className="text-xl mt-4">Description</h2>
       <textarea
         value={description}
         rows={4}
@@ -49,7 +51,7 @@ const SummaryView = () => {
         placeholder="Provide a description of your report"
         disabled
       ></textarea>
-      <h2 className="text-lg">Location</h2>
+      <h2 className="text-xl mt-4">Location</h2>
       <input
           type="text"
           value={`${location.lat}, ${location.lng}`}
