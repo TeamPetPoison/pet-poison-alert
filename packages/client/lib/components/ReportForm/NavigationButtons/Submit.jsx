@@ -7,8 +7,9 @@ const Submit = () => {
   const { setMarkers } = useStore();
 
   const handleSubmit = (category, photos, title, description, location) => {
+    // add data validation and checks here to ensure good input data
     const formObj = {
-      "category": category,
+      category: category,
       photos: photos,
       title: title,
       description: description,
