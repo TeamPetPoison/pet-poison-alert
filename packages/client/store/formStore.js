@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 const initialState = {
   step: 0,
+  error: false,
   showForm: false,
   category: '',
   photos: [],
@@ -13,6 +14,7 @@ const initialState = {
 const useFormStore = create((set) => ({
   ...initialState,
   step: 0,
+  error: false,
   showForm: false,
   category: '',
   photos: [],
@@ -26,6 +28,7 @@ const useFormStore = create((set) => ({
   setLocation: (latLng) => set(() => ({ location: latLng })),
   setShowForm: (bool) => set(() => ({ showForm: bool })),
   setStep: (num) => set(() => ({ step: num })),
+  setError: (bool) => set(() => ({ error: bool })),
   resetForm: () => set(initialState),
 }));
 

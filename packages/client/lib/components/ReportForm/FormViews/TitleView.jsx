@@ -1,10 +1,11 @@
 import useFormStore from '@/store/formStore';
 
 const TitleView = () => {
-  const { title, setTitle, description, setDescription } = useFormStore();
+  const { title, setTitle, description, setDescription, error, setError } =
+    useFormStore();
 
   return (
-    <div className='flex-1'>
+    <div className="flex-1">
       <h2 className="text-xl mt-4">Provide a short title</h2>
       <div>
         <label htmlFor="title" className="block mb-2 text-black">
@@ -12,7 +13,14 @@ const TitleView = () => {
         </label>
         <input
           type="text"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value)
+            if (e.target.value) {
+              setError(false)
+            } else {
+              setError(true)
+            }
+          }}
           id="title"
           name="title"
           value={title}
@@ -20,6 +28,7 @@ const TitleView = () => {
           placeholder="Provide a title for the report"
           className="block w-full p-2 text-black border border-gray-300 rounded-lg bg-white focus:ring-primary focus:border-primary shadow-md"
         />
+        {error ? <div className="text-xs text-negative">Please provide a title.</div> : null}
       </div>
       <h2 className="text-xl mt-4">Explain the incident</h2>
       <label htmlFor="description" className="block mb-2 text-black">
@@ -35,6 +44,7 @@ const TitleView = () => {
         className="block p-2.5 w-full text-black bg-white rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"
       ></textarea>
+      {error ? <div className="text-xs text-negative">Please provide a description</div> : null}
     </div>
   );
 };

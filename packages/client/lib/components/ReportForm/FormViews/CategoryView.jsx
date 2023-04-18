@@ -1,7 +1,7 @@
 import useFormStore from '@/store/formStore';
 
 const CategoryView = () => {
-  const { category, setCategory } = useFormStore();
+  const { category, setCategory, error, setError } = useFormStore();
 
   return (
     <div className="flex-1">
@@ -9,7 +9,10 @@ const CategoryView = () => {
       <h3 className="text-lg">Please choose one category</h3>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Lost/Missing Pet'}
           type="radio"
           name="category"
@@ -24,7 +27,10 @@ const CategoryView = () => {
       </div>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Found Pet'}
           type="radio"
           name="category"
@@ -33,11 +39,16 @@ const CategoryView = () => {
           value="Found Pet"
           required
         />
-        <label htmlFor="Found Pet" className="p-1">Found Pet</label>
+        <label htmlFor="Found Pet" className="p-1">
+          Found Pet
+        </label>
       </div>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Needs Medical Treatment'}
           type="radio"
           name="category"
@@ -46,11 +57,16 @@ const CategoryView = () => {
           value="Needs Medical Treatment"
           required
         />
-        <label htmlFor="Needs Medical Treatment" className="p-1">Needs Medical Treatment</label>
+        <label htmlFor="Needs Medical Treatment" className="p-1">
+          Needs Medical Treatment
+        </label>
       </div>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Gave/Received Medical Treatment'}
           type="radio"
           name="category"
@@ -65,7 +81,10 @@ const CategoryView = () => {
       </div>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Gave Food'}
           type="radio"
           name="category"
@@ -74,11 +93,16 @@ const CategoryView = () => {
           value="Gave Food"
           required
         />
-        <label htmlFor="Gave Food" className="p-1">Gave Food</label>
+        <label htmlFor="Gave Food" className="p-1">
+          Gave Food
+        </label>
       </div>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Poisoning'}
           type="radio"
           name="category"
@@ -87,11 +111,16 @@ const CategoryView = () => {
           value="Poisoning"
           required
         />
-        <label htmlFor="Poisoning" className="p-1">Poisoning</label>
+        <label htmlFor="Poisoning" className="p-1">
+          Poisoning
+        </label>
       </div>
       <div className="flex items-center">
         <input
-          onChange={({ target }) => setCategory(target.value)}
+          onChange={({ target }) => {
+            setError(false);
+            setCategory(target.value);
+          }}
           checked={category === 'Other'}
           type="radio"
           name="category"
@@ -100,8 +129,13 @@ const CategoryView = () => {
           value="Other"
           required
         />
-        <label htmlFor='Other' className="p-1">Other</label>
+        <label htmlFor="Other" className="p-1">
+          Other
+        </label>
       </div>
+      {error ? (
+        <div className="text-xs text-negative">Please provide a category</div>
+      ) : null}
     </div>
   );
 };

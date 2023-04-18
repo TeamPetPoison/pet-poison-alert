@@ -6,7 +6,8 @@ import GoBack from './GoBack';
 import Submit from './Submit';
 
 const FormButtons = () => {
-  const { step, setStep } = useFormStore();
+  const { step, setStep, error, setError } = useFormStore();
+  // useState for error state here. If error in nextStep pass error state into whichever View
 
   return (
     <div className="flex flex-col w-11/12 self-center mx-8 my-2">
@@ -29,6 +30,8 @@ const FormButtons = () => {
           <Continue
             nextStep={(e) => {
               if (!e.target.form.checkValidity()) {
+                e.preventDefault()
+                setError(!e.target.form.checkValidity())
                 return;
               }
               e.preventDefault();

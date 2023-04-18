@@ -14,7 +14,7 @@ const LocationView = () => {
         <input
           type="text"
           id="location"
-          // placeholder need to setLocation with LatLng object
+          disabled
           onChange={(e) => setLocation(e.target.value)}
           name="location"
           value={`${location.lat}, ${location.lng}`}
