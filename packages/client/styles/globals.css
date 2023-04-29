@@ -55,37 +55,4 @@
 }
 
 
-.container {
-  position: fixed;
-  top: 32px;
-  bottom: 757px;
-  left: 23.85%;
-  right: 19.81%;
-  /* @apply fixed top-8 left-8 */
-}
 
-.searchbar {
-  position: relative;
-}
-
-.input {
-  width: 82.78%;
-  margin-right: 16px;
-  margin-left: -82.78%;
-  position: absolute;
-  bottom: 12px;
-  top: 16px;
-}
-
-.dropdown {
-  margin-top: 10px;
-}
-
-.dropdown-row {
-  cursor: pointer;
-  padding: 10px;
-}
-
-.dropdown-row:hover {
-  background-color: #f2f2f2;
-}

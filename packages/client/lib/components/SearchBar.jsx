@@ -26,19 +26,19 @@ const mockSearchLocationData = {
   ],
 };
 
-function SearchBar() {
+function getSearchLocationData(searchText) {
+  const results = mockSearchLocationData.results.filter((result) => {
+    return result.name.toLowerCase().includes(searchText.toLowerCase());
+  });
+  return results;
+}
+
+function LocationSearch() {
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  function getSearchLocationData(searchText) {
-    const results = mockSearchLocationData.results.filter((result) => {
-      return result.name.toLowerCase().includes(searchText.toLowerCase());
-    });
-    return results;
-  }
-
-  function onChange(event) {
+  function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
     const searchResults = getSearchLocationData(value);
@@ -46,42 +46,55 @@ function SearchBar() {
     setIsOpen(searchResults.length > 0);
   }
 
-  function onSearch(searchTerm) {
-    //api to be fetch
-    setValue(searchTerm);
-    console.log('search', searchTerm);
+  function handleClearInput() {
+    setValue('');
+  }
+
+  function handleToggleSearch() {
+    setIsOpen(!isOpen);
+  }
+
+  function handleSearch() {
+    console.log('search', value);
     setIsOpen(false);
   }
 
   return (
     <div className="fixed top-8 left-6 right-6 z-[9999] bg-background text-foreground rounded-2xl">
       <div className="relative">
-        <div className='flex px-5 py-3 justify-between items-center gap-x-4 border border-solid border-purple-500 rounded-lg'>
+        <div className='flex px-5 py-3 justify-between items-center gap-x-4 border border-solid border-white-500 rounded-lg'>
 
           {isOpen ? (
-            <ArrowUturnLeftIcon className='w-6 h-6' onClick={() => setIsOpen(false)} />
+            <ArrowUturnLeftIcon className='w-6 h-6' onClick={handleToggleSearch} />
           ) : (
-            <Bars3Icon className='w-6 h-6' onClick={() => setIsOpen(true)} />
+            <Bars3Icon className='w-6 h-6' onClick={handleToggleSearch} />
           )}
+
           <input
-            className="w-full pl-2 placeholder:text-foreground/30 border border-solid border-purple-500 rounded-lg"
+            className="w-full pl-2 placeholder:text-foreground/30 border border-solid border-white-500 rounded-lg"
             type="text"
-            placeholder='Type a location'
+            placeholder='Search For Place, Location'
             value={value}
-            onChange={onChange}
+            onChange={handleInputChange}
           />
+
           {value && (
-            <XMarkIcon className='w-6 h-6' onClick={() => setValue('')} />
+            <XMarkIcon className='w-6 h-6' onClick={handleClearInput} />
           )}
-          <MagnifyingGlassCircleIcon className='w-6 h-6' onClick={() => onSearch(value)} />
+
+          <MagnifyingGlassCircleIcon className='w-6 h-6' onClick={handleSearch} />
         </div>
+
         {isOpen && (
-          <div className="absolute top-14 left-0 right-0 bg-white border border-solid border-purple-500 rounded-b-lg">
+          <div className="absolute top-14 left-0 right-0 bg-white border border-solid border-white-500 rounded-b-lg">
             {results.slice(0, 10).map((item) => (
               <div
                 key={item.name}
                 className="px-5 py-2 hover:bg-purple-200 cursor-pointer"
-                onClick={() => onSearch(item.name)}
+                onClick={() => {
+                  setValue(item.name);
+                  handleSearch();
+                }}
               >
                 {item.name}
               </div>
@@ -93,7 +106,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
-
-
-
+export default LocationSearch;

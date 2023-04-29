@@ -21,8 +21,6 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "@chakra-ui/react": "^2.5.5"
-  }
+  ]
+  
 }

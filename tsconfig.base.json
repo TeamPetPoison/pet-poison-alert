@@ -12,7 +12,7 @@
     "composite": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitThis": true,
