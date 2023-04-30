@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import useStore from '../../store/store';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -13,6 +13,7 @@ import useFormStore from '@/store/formStore';
 
 const SetViewOnUserLocation = () => {
   const setLocation = useFormStore((state) => state.setLocation);
+  const isMounted = useRef(false);
   const map = useMap();
 
   useEffect(() => {
@@ -26,17 +27,30 @@ const SetViewOnUserLocation = () => {
     })();
   }, []);
 
+  // for checking if map is mounted or not, used in getting current user location
+  useEffect(() => {
+    isMounted.current = true;
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        map.setView(
-          { lat: position.coords.latitude, lng: position.coords.longitude },
-          12
-        );
-        setLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
+        if (!map) return;
+
+        if (isMounted.current) {
+          map.setView(
+            { lat: position.coords.latitude, lng: position.coords.longitude },
+            12
+          );
+          setLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        }
       },
       (error) => {
         console.error(error);
@@ -49,8 +63,8 @@ const SetViewOnUserLocation = () => {
 };
 
 const Map = () => {
-  const geoData = useStore(state => state.geoData)
-  const markers = useStore(state => state.markers)
+  const geoData = useStore((state) => state.geoData);
+  const markers = useStore((state) => state.markers);
 
   return (
     <MapContainer
