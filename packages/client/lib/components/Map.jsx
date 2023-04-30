@@ -12,7 +12,7 @@ import Leaflet from 'leaflet';
 import useFormStore from '@/store/formStore';
 
 const SetViewOnUserLocation = () => {
-  const { setLocation } = useFormStore();
+  const setLocation = useFormStore((state) => state.setLocation);
   const map = useMap();
 
   useEffect(() => {
@@ -49,7 +49,8 @@ const SetViewOnUserLocation = () => {
 };
 
 const Map = () => {
-  const { geoData, markers } = useStore();
+  const geoData = useStore(state => state.geoData)
+  const markers = useStore(state => state.markers)
 
   return (
     <MapContainer

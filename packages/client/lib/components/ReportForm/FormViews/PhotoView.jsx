@@ -8,17 +8,27 @@ import XMark from '../NavigationButtons/XMark';
 import Image from 'next/image';
 
 const PhotoView = () => {
-  const { photos, setPhotos } = useFormStore();
+  const photos = useFormStore((state) => state.photos);
+  const setPhotos = useFormStore((state) => state.setPhotos);
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
     const { files } = e.target;
-    // add logic here to check for files type, size, and existing photos to be able to append photos instead of overwriting
-    if (files.length) {
-      setPhotos(Array.from(files));
+    // TODO add logic here to check for files type, size, and existing photos to be able to append photos instead of overwriting
+    if (photos.length > 0) {
+      if (files.length) {
+        setPhotos([...photos, ...Array.from(files)]);
+      }
+    } else {
+      if (files.length) {
+        setPhotos(Array.from(files));
+      }
+
     }
   };
 
+  /* handles the clicking of the button regardless
+  whether clicking button directly or label */
   const handleRef = () => {
     if (inputRef.current) {
       inputRef.current.click();
@@ -35,7 +45,7 @@ const PhotoView = () => {
   };
 
   return (
-    <div className='flex-1'>
+    <div className="flex-1">
       <h3 className="text-xl mt-4">Photos (optional)</h3>
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <div
@@ -81,10 +91,10 @@ const PhotoView = () => {
               <Image
                 width={20}
                 height={20}
-                className="w-28 h-auto rounded-lg"
+                className="w-20 h-auto rounded-lg"
                 src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
-                  // add functionality for checking size of images
+                  // TODO add functionality for checking size of images
                   URL.revokeObjectURL(e.target.src);
                 }}
                 alt=""

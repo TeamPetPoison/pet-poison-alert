@@ -4,6 +4,7 @@ const Continue = ({ nextStep }) => {
   return (
     <button
       className="flex items-center justify-center bg-white text-black text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+      type="button"
       onClick={nextStep}
     >
       Continue

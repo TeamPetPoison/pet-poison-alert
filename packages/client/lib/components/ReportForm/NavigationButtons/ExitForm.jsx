@@ -2,7 +2,7 @@ import useFormStore from '@/store/formStore';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const ExitForm = () => {
-  const { setShowForm } = useFormStore();
+  const setShowForm = useFormStore((state) => state.setShowForm);
 
   return (
     <button

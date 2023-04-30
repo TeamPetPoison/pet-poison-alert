@@ -13,11 +13,16 @@ const DynamicUpdateView = dynamic(() => import('./FormViews/UpdateView'), {
 });
 
 const ReportForm = () => {
-  const { step } = useFormStore();
+  const step = useFormStore((state) => state.step);
 
   return (
     <div className="bg-white">
-      <form action="" className={`flex flex-col h-screen overflow-hidden ${step !== 5 ? 'p-2' : ''}`}>
+      <form
+        noValidate
+        className={`flex flex-col h-screen overflow-hidden ${
+          step !== 5 ? 'p-2' : ''
+        }`}
+      >
         {step === 5 ? null : (
           <h1 className="text-2xl font-medium">Report your incident</h1>
         )}

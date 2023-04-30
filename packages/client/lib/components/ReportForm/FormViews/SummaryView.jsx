@@ -2,7 +2,11 @@ import useFormStore from '@/store/formStore';
 import Image from 'next/image';
 
 const SummaryView = () => {
-  const { category, photos, title, description, location } = useFormStore();
+  const category = useFormStore(state => state.category)
+  const photos = useFormStore(state => state.photos)
+  const title = useFormStore(state => state.title)
+  const description = useFormStore(state => state.description)
+  const location = useFormStore(state => state.location)
 
   return (
     <div className="flex-1">
@@ -14,17 +18,16 @@ const SummaryView = () => {
         <label htmlFor="" className='pl-3'>{category}</label>
       </div>
       <h2 className="text-xl mt-4">Photos</h2>
-      <div className='flex'>
+      <div className='flex h-[100px] overflow-y-hidden'>
           {photos.length > 0 ? (
               photos.map((photo, index) => (
-                <div key={index} className=" relative m-1">
+                <div key={index} className="relative m-1">
                   <Image
-                    width={15}
-                    height={15}
-                    className="w-28 h-auto rounded-lg"
+                    width={20}
+                    height={20}
+                    className="w-20 h-auto rounded-lg"
                     src={URL.createObjectURL(photo)}
                     onLoad={(e) => {
-                      // add functionality for checking size of images
                       URL.revokeObjectURL(e.target.src);
                     }}
                     alt=""

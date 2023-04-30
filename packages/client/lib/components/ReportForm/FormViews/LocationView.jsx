@@ -2,7 +2,10 @@ import useFormStore from '@/store/formStore';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 
 const LocationView = () => {
-  const { location, setLocation, step, setStep } = useFormStore();
+  const location = useFormStore((state) => state.location);
+  const setLocation = useFormStore((state) => state.setLocation);
+  const setStep = useFormStore((state) => state.setStep);
+
 
   return (
     <div className='flex-1'>

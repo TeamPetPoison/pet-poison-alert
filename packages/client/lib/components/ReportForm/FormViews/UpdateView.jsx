@@ -26,7 +26,9 @@ const SetMarkerLocation = ({ markerRef, setLocation }) => {
 };
 
 const UpdateView = () => {
-  const { location, setLocation, step, setStep } = useFormStore();
+  const location = useFormStore((state) => state.location);
+  const setLocation = useFormStore((state) => state.setLocation);
+  const setStep = useFormStore((state) => state.setStep);
   const markerRef = useRef(null);
 
   return (

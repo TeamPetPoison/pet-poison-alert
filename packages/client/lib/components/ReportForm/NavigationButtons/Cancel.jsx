@@ -2,7 +2,8 @@ import useFormStore from '@/store/formStore';
 import { ArrowUturnLeftIcon } from '@heroicons/react/24/outline';
 
 const CancelButton = () => {
-  const { resetForm, setShowForm } = useFormStore();
+  const resetForm = useFormStore((state) => state.resetForm);
+  const setShowForm = useFormStore((state) => state.setShowForm);
 
   const handleCancel = () => {
     resetForm();
