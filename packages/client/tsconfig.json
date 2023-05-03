@@ -5,19 +5,21 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "strictNullChecks": false, // TODO make "true" once all files are converted to TS
-    "noImplicitAny": false, // TODO: make "true" once all files are converted to TS
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
+    "noImplicitAny": false, // TODO: make "true" once all files are converted to TS
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
-    "target": "es5",
     "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": false, // TODO make "true" once all files are converted to TS
+    "target": "es5",
     "paths": {
       "@/*": ["./*"]
     }
