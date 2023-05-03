@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "allowJs": true, // TODO: turn off once all files are converted to TS
+    "allowJs": true, // TODO: make "false" once all files are converted to TS
     "checkJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "noImplicitAny": false, // TODO: turn off once all files are converted to TS
+    "strictNullChecks": false, // TODO make "true" once all files are converted to TS
+    "noImplicitAny": false, // TODO: make "true" once all files are converted to TS
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
