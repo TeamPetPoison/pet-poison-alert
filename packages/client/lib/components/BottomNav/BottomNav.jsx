@@ -29,15 +29,13 @@ const BottomNav = () => {
       >
         <MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />
       </BottomNavItem>
-      <div></div>
-      <div
-        onClick={() => setShowForm(true)}
-        className="rounded-full fixed bottom-0 h-24 w-24 flex items-center justify-center bg-white"
-      >
-        <div className="rounded-full h-20 w-20 flex items-center justify-center bg-primary ">
-          <button className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
-            <PlusCircleIcon className="h-6 w-6 text-primary" />
-          </button>
+      <div onClick={() => setShowForm(true)} className="relative">
+        <div className="absolute left-0 bottom-0 translate-y-1/3 rounded-full h-24 w-24 flex items-center justify-bg-background">
+          <div className="rounded-full h-20 w-20 flex items-center justify-center bg-primary ">
+            <button className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
+              <PlusCircleIcon className="h-6 w-6 text-primary" />
+            </button>
+          </div>
         </div>
       </div>
       <BottomNavItem
