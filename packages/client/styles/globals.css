@@ -32,9 +32,7 @@
   border-top-right-radius: 0.5rem;
 }
 .leaflet-bar a:last-child {
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  border-bottom: 0.5rem;
+border-bottom:none;
 }
 .leaflet-touch .leaflet-bar a:first-child {
   border-top-left-radius: 0.5rem;
@@ -53,6 +51,4 @@
 .leaflet-bar a.leaflet-control-zoom-out:active {
   @apply bg-backgroundAlt;
 }
-
-
 
