@@ -11,8 +11,25 @@ const DynamicUpdateView = dynamic(() => import('./FormViews/UpdateView'), {
   ssr: false,
 });
 
+const renderStepMap = {
+  0: CategoryView,
+  1: PhotoView,
+  2: TitleView,
+  3: LocationView,
+  4: SummaryView,
+  5: DynamicUpdateView,
+};
+
 const ReportForm = () => {
   const step = useFormStore((state) => state.step);
+
+  if (!renderStepMap[step]) {
+    return null;
+  }
+
+  const RenderViewFromStep = renderStepMap[step];
+
+  const isStepFive = step === 5;
 
   return (
     <div className="bg-background">
@@ -22,18 +39,12 @@ const ReportForm = () => {
           step !== 5 ? 'p-2' : ''
         }`}
       >
-        {step === 5 ? null : (
+        {!isStepFive && (
           <h1 className="text-2xl font-medium">Report your incident</h1>
         )}
-        {step === 0 ? <CategoryView /> : null}
-        {step === 1 ? <PhotoView /> : null}
-        {step === 2 ? <TitleView /> : null}
-        {step === 3 ? <LocationView /> : null}
-        {step === 4 ? <SummaryView /> : null}
+        <RenderViewFromStep />
 
-        {step === 5 ? <DynamicUpdateView /> : null}
-
-        {step === 5 ? null : <FormButtons />}
+        {!isStepFive && <FormButtons />}
       </form>
     </div>
   );
