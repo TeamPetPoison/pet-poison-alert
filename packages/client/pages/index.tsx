@@ -10,7 +10,7 @@ const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
 });
 
 export default function Home() {
-  const { showForm } = useFormStore();
+  const showForm = useFormStore((state) => state.showForm);
 
   return (
     <>
