@@ -75,7 +75,10 @@ const Map = () => {
       className="min-h-screen w-full"
     >
       <SetViewOnUserLocation />
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
       {markers.length > 0 &&
         markers.map((marker, index) => {
           return <Marker key={index} position={marker.location} />;
