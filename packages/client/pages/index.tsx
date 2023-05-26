@@ -24,14 +24,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-background text-foreground">
-        {showForm ? null : (
+        {showForm ? (
+          <ReportForm />
+        ) : (
           <>
             <LocationSearch />
             <MapWithNoSSR />
             <BottomNav />
           </>
         )}
-        {showForm ? <ReportForm /> : null}
       </main>
     </>
   );
