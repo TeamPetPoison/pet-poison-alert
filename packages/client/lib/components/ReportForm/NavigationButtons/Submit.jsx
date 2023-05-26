@@ -33,10 +33,10 @@ const Submit = () => {
         handleSubmit(category, photos, title, description, location);
         setShowForm(false);
       }}
-      className="flex items-center justify-center bg-positive text-white text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+      className="flex items-center justify-center bg-positive text-background text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
     >
       Submit
-      <CheckIcon className="w-6 h-6 pl-1 text-white" />
+      <CheckIcon className="w-6 h-6 pl-1 text-background" />
     </button>
   );
 };

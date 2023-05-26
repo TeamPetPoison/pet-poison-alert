@@ -8,7 +8,7 @@ export const XMark = ({ handleClick }) => {
         handleClick();
       }}
     >
-      <XCircleIcon className="z-10 absolute top-0.5 right-0.5 text-black stroke-2 h-6 w-6" />
+      <XCircleIcon className="z-10 absolute top-0.5 right-0.5 text-foreground stroke-2 h-6 w-6" />
     </button>
   );
 };

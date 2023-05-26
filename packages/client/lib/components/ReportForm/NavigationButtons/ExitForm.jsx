@@ -12,7 +12,7 @@ const ExitForm = () => {
       }}
       className="flex z-[9999] absolute top-2 right-2"
     >
-      <XMarkIcon className="h-8 w-8 stroke-2 text-black" />
+      <XMarkIcon className="h-8 w-8 stroke-2 text-foreground" />
     </button>
   );
 };

@@ -16,7 +16,7 @@ const ReportForm = () => {
   const step = useFormStore((state) => state.step);
 
   return (
-    <div className="bg-white">
+    <div className="bg-background">
       <form
         noValidate
         className={`flex flex-col h-screen overflow-hidden ${

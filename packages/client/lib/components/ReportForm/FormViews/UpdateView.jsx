@@ -39,7 +39,7 @@ const UpdateView = () => {
           id="title"
           name="title"
           placeholder="Search"
-          className="w-full p-2 text-black border border-gray-300 rounded-lg bg-white focus:ring-primary focus:border-primary shadow-md"
+          className="w-full p-2 text-foreground border border-gray-300 rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
         />
       </div>
       <MapContainer
@@ -58,10 +58,10 @@ const UpdateView = () => {
             e.preventDefault();
             setStep(3);
           }}
-          className="flex items-center bg-positive hover:positive-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
+          className="flex items-center bg-positive hover:positive-700 text-background font-bold py-2.5 px-3.5 rounded-xl"
         >
           Confirm
-          <CheckIcon className="w-6 h-6 pr-1 text-white" />
+          <CheckIcon className="w-6 h-6 pr-1 text-background" />
         </button>
       </div>
     </div>

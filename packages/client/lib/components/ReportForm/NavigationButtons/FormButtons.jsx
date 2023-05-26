@@ -24,11 +24,11 @@ const FormButtons = () => {
     <div className="flex flex-col w-11/12 self-center mx-8 my-2">
       <div className="flex flex-col items-center mb-2">
         <NoSymbolIcon className="text-negative h-6 w-6" />
-        <h3 className="text-negative text-xs whitespace-nowrap">
+        <h3 className="text-negative text-xs backgroundspace-nowrap">
           Avoid personal information and vehicle plate numbers
         </h3>
         {step === 4 ? (
-          <h3 className="text-negative text-xs whitespace-nowrap">
+          <h3 className="text-negative text-xs backgroundspace-nowrap">
             Submissions will be made public
           </h3>
         ) : null}

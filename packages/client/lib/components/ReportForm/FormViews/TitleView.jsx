@@ -25,7 +25,7 @@ const TitleView = () => {
     <div className="flex-1">
       <h2 className="text-xl mt-4">Provide a short title</h2>
       <div>
-        <label htmlFor="title" className="block mb-2 text-black">
+        <label htmlFor="title" className="block mb-2 text-foreground">
           e.g. "Dog found on Example Road, near hotel"
         </label>
         <input
@@ -36,7 +36,7 @@ const TitleView = () => {
           value={title}
           required
           placeholder="Provide a title for the report"
-          className="block w-full p-2 text-black border border-gray-300 rounded-lg bg-white focus:ring-primary focus:border-primary shadow-md"
+          className="block w-full p-2 text-foreground border border-gray-300 rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
         />
         <div
           className={`text-xs text-negative ${
@@ -47,7 +47,7 @@ const TitleView = () => {
         </div>
       </div>
       <h2 className="text-xl mt-4">Explain the incident</h2>
-      <label htmlFor="description" className="block mb-2 text-black">
+      <label htmlFor="description" className="block mb-2 text-foreground">
         e.g. "Next to the dirt road, there was a dog..."
       </label>
       <textarea
@@ -57,7 +57,7 @@ const TitleView = () => {
         value={description}
         rows={4}
         required
-        className="block p-2.5 w-full text-black bg-white rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
+        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"
       ></textarea>
       <div

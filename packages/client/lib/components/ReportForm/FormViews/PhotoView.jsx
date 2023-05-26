@@ -23,7 +23,6 @@ const PhotoView = () => {
       if (files.length) {
         setPhotos(Array.from(files));
       }
-
     }
   };
 
@@ -50,15 +49,15 @@ const PhotoView = () => {
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <div
           onClick={handleRef}
-          className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-white shadow-md"
+          className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-background shadow-md"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <PhotoIcon className="w-8 h-8 text-black" />
-            <p className="mb-2 text-sm text-black">
+            <PhotoIcon className="w-8 h-8 text-foreground" />
+            <p className="mb-2 text-sm text-foreground">
               <span className="font-semibold">Click to upload</span> or drag and
               drop
             </p>
-            <p className="text-xs text-black">
+            <p className="text-xs text-foreground">
               PNG, JPG, or WEBP (Max File Size 10MB)
             </p>
           </div>
@@ -66,9 +65,9 @@ const PhotoView = () => {
             onClick={(e) => {
               e.preventDefault();
             }}
-            className="flex items-center bg-primary hover:primary-700 text-white font-bold py-2.5 px-3.5 rounded-xl"
+            className="flex items-center bg-primary hover:primary-700 text-background font-bold py-2.5 px-3.5 rounded-xl"
           >
-            <DocumentMagnifyingGlassIcon className="w-7 h-7 pr-1 text-white" />
+            <DocumentMagnifyingGlassIcon className="w-7 h-7 pr-1 text-background" />
             Browse Photos
           </button>
           <input
