@@ -7,7 +7,7 @@ import {
   PlusCircleIcon,
   MapPinIcon,
 } from '@heroicons/react/24/outline';
-import useFormStore from '@/store/formStore.js';
+import useFormStore from '../../../store/formStore.js';
 
 const BottomNav = () => {
   const [active, setActive] = useState(0);

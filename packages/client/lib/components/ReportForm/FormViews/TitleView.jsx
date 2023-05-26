@@ -1,4 +1,4 @@
-import useFormStore from '@/store/formStore';
+import useFormStore from '../../../../store/formStore';
 
 const TitleView = () => {
   const title = useFormStore((state) => state.title);

@@ -1,5 +1,5 @@
-import useFormStore from '@/store/formStore';
-import useStore from '@/store/store';
+import useFormStore from '../../../../store/formStore';
+import useStore from '../../../../store/store';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
 const Submit = () => {

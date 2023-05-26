@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import useFormStore from '@/store/formStore';
+import useFormStore from '../../../../store/formStore';
 import {
   PhotoIcon,
   DocumentMagnifyingGlassIcon,

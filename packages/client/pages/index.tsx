@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import LocationSearch from '@/lib/components/LocationSearch';
 import BottomNav from '../lib/components/BottomNav/BottomNav';
 import ReportForm from '../lib/components/ReportForm/ReportForm';
-import useFormStore from '@/store/formStore';
+import useFormStore from '../store/formStore';
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,

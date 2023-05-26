@@ -1,12 +1,11 @@
-import dynamic from 'next/dynamic';
 import CategoryView from './FormViews/CategoryView';
-import PhotoView from './FormViews/PhotoView';
-import TitleView from './FormViews/TitleView';
-import LocationView from './FormViews/LocationView';
-import SummaryView from './FormViews/SummaryView';
+import dynamic from 'next/dynamic';
 import FormButtons from './NavigationButtons/FormButtons';
-
-import useFormStore from '@/store/formStore';
+import LocationView from './FormViews/LocationView';
+import PhotoView from './FormViews/PhotoView';
+import SummaryView from './FormViews/SummaryView';
+import TitleView from './FormViews/TitleView';
+import useFormStore from '../../../store/formStore';
 
 const DynamicUpdateView = dynamic(() => import('./FormViews/UpdateView'), {
   ssr: false,

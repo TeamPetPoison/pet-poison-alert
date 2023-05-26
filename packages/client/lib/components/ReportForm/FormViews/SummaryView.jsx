@@ -1,4 +1,4 @@
-import useFormStore from '@/store/formStore';
+import useFormStore from '../../../../store/formStore';
 import Image from 'next/image';
 
 const SummaryView = () => {

@@ -1,4 +1,4 @@
-import useFormStore from '@/store/formStore';
+import useFormStore from '../../../../store/formStore';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 
 const LocationView = () => {
