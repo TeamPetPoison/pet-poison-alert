@@ -36,10 +36,6 @@ const PhotoView = () => {
 
   const removePhoto = (index) => {
     const newPhotos = photos.filter((_, i) => i !== index);
-    if (photos.length === 1) {
-      setPhotos([]);
-      return;
-    }
     setPhotos(newPhotos);
   };
 
