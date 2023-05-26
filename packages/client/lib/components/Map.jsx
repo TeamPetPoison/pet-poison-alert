@@ -18,17 +18,18 @@ const SetViewOnUserLocation = () => {
 
   useEffect(() => {
     (async function init() {
+      // TODO: delete override required on prototype required or not?
       // delete Leaflet.Icon.Default.prototype._getIconUrl;
+
+      // Sets default icon path for leaflet icons/markers
       Leaflet.Icon.Default.mergeOptions({
         iconRetinaUrl: 'leaflet/images/marker-icon-2x.png',
         iconUrl: 'leaflet/images/marker-icon.png',
         shadowUrl: 'leaflet/images/marker-shadow.png',
       });
     })();
-  }, []);
 
-  // for checking if map is mounted or not, used in getting current user location
-  useEffect(() => {
+    // Checks if map is currently mounted (prevents position error when form is opened)
     isMounted.current = true;
 
     return () => {
