@@ -17,16 +17,6 @@
 }
 
 @layer components {
-  /* input:invalid:not([required]) ~ .error-message,
-  input:invalid:not(:placeholder-shown) ~ .error-message,
-  textarea:invalid:not([required]) ~ .error-message,
-  textarea:invalid:not(:placeholder-shown) ~ .error-message {
-    @apply visible;
-  } */
-  /* input:not(:placeholder-shown):invalid ~ .error-message,
-  textarea:placeholder-shown:invalid ~ .error-message {
-    @apply visible;
-  } */
   input:not(:focus):not(:placeholder-shown):invalid ~ .error-message,
   textarea:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
     @apply visible;
