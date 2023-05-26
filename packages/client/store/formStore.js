@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 
 const initialState = {
-  step: 0,
-  error: false,
-  showForm: false,
   category: '',
-  photos: [],
-  title: '',
   description: '',
+  error: false,
   location: { lat: -8.7445, lng: 115.182 },
+  photos: [],
+  showForm: false,
+  step: 0,
+  title: '',
 };
 
 const useFormStore = create((set) => ({
