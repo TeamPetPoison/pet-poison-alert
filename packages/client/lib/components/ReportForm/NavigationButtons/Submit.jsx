@@ -14,6 +14,7 @@ const Submit = () => {
 
   const handleSubmit = (category, photos, title, description, location) => {
     const formObj = {
+      id: Date.now(),
       category: category,
       photos: photos,
       title: title,

@@ -80,9 +80,7 @@ const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {markers.length > 0 &&
-        markers.map((marker, index) => {
-          return <Marker key={index} position={marker.location} />;
-        })}
+        markers.map((marker) =>  <Marker key={marker.id} position={marker.location} />)}
       <ZoomControl position="topright" />
     </MapContainer>
   );
