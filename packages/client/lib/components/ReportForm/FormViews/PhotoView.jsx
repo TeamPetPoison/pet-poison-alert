@@ -14,7 +14,7 @@ const PhotoView = () => {
 
   const handleChange = (e) => {
     const { files } = e.target;
-    // TODO add logic here to check for files type, size, and existing photos to be able to append photos instead of overwriting
+    // TODO: Add logic here to check for files type and size
     if (photos.length > 0) {
       if (files.length) {
         setPhotos([...photos, ...Array.from(files)]);
