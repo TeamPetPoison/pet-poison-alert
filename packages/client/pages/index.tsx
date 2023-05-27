@@ -1,13 +1,17 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import BottomNav from '../lib/components/BottomNav';
 import LocationSearch from '@/lib/components/LocationSearch';
+import BottomNav from '../lib/components/BottomNav/BottomNav';
+import ReportForm from '../lib/components/ReportForm/ReportForm';
+import useFormStore from '../store/formStore';
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,
 });
 
 export default function Home() {
+  const showForm = useFormStore((state) => state.showForm);
+
   return (
     <>
       <Head>
@@ -20,9 +24,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-background text-foreground">
-        <LocationSearch />
-        <MapWithNoSSR />
-        <BottomNav />
+        {showForm ? (
+          <ReportForm />
+        ) : (
+          <>
+            <LocationSearch />
+            <MapWithNoSSR />
+            <BottomNav />
+          </>
+        )}
       </main>
     </>
   );
