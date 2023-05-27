@@ -1,29 +1,29 @@
-import { useState } from "react";
-import BottomNavItem from "./BottomNavItem.jsx";
+import { useState } from 'react';
+import BottomNavItem from './BottomNavItem.jsx';
 import {
   HomeIcon,
   MagnifyingGlassIcon,
   UserIcon,
   PlusCircleIcon,
   MapPinIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 const BottomNav = () => {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(0);
 
   return (
     <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground/30 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
       <BottomNavItem
         setActive={() => setActive(0)}
         selected={active === 0 ? true : false}
-        name={"Home"}
+        name={'Home'}
       >
         <HomeIcon className="h-6 w-6 pointer-events-none" />
       </BottomNavItem>
       <BottomNavItem
         setActive={() => setActive(1)}
         selected={active === 1 ? true : false}
-        name={"Search"}
+        name={'Search'}
       >
         <MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />
       </BottomNavItem>
@@ -38,14 +38,14 @@ const BottomNav = () => {
       <BottomNavItem
         setActive={() => setActive(2)}
         selected={active === 2 ? true : false}
-        name={"Layers"}
+        name={'Layers'}
       >
         <MapPinIcon className="h-6 w-6 pointer-events-none" />
       </BottomNavItem>
       <BottomNavItem
         setActive={() => setActive(3)}
         selected={active === 3 ? true : false}
-        name={"Profile"}
+        name={'Profile'}
       >
         <UserIcon className="h-6 w-6 pointer-events-none" />
       </BottomNavItem>

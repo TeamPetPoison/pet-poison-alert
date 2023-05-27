@@ -3,6 +3,7 @@ import useStore from '../../store/store';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, ZoomControl,useMap } from 'react-leaflet';
 import Leaflet from 'leaflet';
+
 const SetViewOnUserLocation = () => {
   const map = useMap();
 
