@@ -67,8 +67,8 @@ function LocationSearch() {
     debounceTimer = setTimeout(async () => {
       const searchResult = await getSearchLocationData(value);
       setResults(searchResult.slice(0, 5));
-      setIsOpen(searchResult.lenght > 0);
-    }, 500);
+      setIsOpen(searchResult.length > 0);
+    }, 100);
   }
 
   function handleClearInput() {
