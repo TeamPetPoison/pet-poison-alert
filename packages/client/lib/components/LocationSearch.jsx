@@ -3,9 +3,10 @@ import {
   MagnifyingGlassCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
+import axios from 'axios';
 import useOnClickOutside from './useOnClickOutside';
 
-const mockSearchLocationData = {
+/*const mockSearchLocationData = {
   results: [
     {
       lat: 40.7128,
@@ -28,7 +29,7 @@ const mockSearchLocationData = {
       name: 'Chicago, IL, USA',
     },
   ],
-};
+};*/
 
 function LocationSearch() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,23 +37,32 @@ function LocationSearch() {
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
 
+  let decounceTimer;
+
+  async function getSearchLocationData(searchText) {
+    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+      searchText
+    )}&format=json`;
+
+    try {
+      const response = await axios.get(url);
+      return response.data.map((result) => ({
+        lat: parseFloat(result.lat),
+        lng: parseFloat(result.lon),
+        name: result.display_name,
+      }));
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return [];
+    }
+  }
   function handleToggleSearch() {
     setIsOpen(!isOpen);
-  }
-
-  function getSearchLocationData(searchText) {
-    const filteredResults = mockSearchLocationData.results.filter((result) => {
-      return result.name.toLowerCase().includes(searchText.toLowerCase());
-    });
-    return filteredResults;
   }
 
   function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
-    const searchResults = getSearchLocationData(value);
-    setResults(searchResults);
-    setIsOpen(searchResults.length > 0);
   }
 
   function handleClearInput() {
