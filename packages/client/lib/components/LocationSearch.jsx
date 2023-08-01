@@ -4,7 +4,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import useOnClickOutside from './useOnClickOutside';
-//we going to replace this part
+
 const mockSearchLocationData = {
   results: [
     {
