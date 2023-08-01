@@ -63,14 +63,13 @@ function LocationSearch() {
   function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+      const searchResult = await getSearchLocationData(value);
+      setResults(searchResult.slice(0, 5));
+      setIsOpen(searchResult.lenght > 0);
+    }, 500);
   }
-
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(async () => {
-    const searchResult = await getSearchLocationData(value);
-    setResults(searchResult.slice(0.5));
-    setIsOpen(searchResult.lenght > 0);
-  }, 500);
 
   function handleClearInput() {
     setValue('');
