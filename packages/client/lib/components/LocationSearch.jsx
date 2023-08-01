@@ -37,7 +37,7 @@ function LocationSearch() {
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
 
-  let decounceTimer;
+  let debounceTimer;
 
   async function getSearchLocationData(searchText) {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
@@ -64,6 +64,13 @@ function LocationSearch() {
     const value = event.target.value;
     setValue(value);
   }
+
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(async () => {
+    const searchResult = await getSearchLocationData(value);
+    setResults(searchResult.slice(0.5));
+    setIsOpen(searchResult.lenght > 0);
+  }, 500);
 
   function handleClearInput() {
     setValue('');
