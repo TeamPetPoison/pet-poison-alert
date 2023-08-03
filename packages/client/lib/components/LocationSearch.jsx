@@ -6,31 +6,6 @@ import {
 import axios from 'axios';
 import useOnClickOutside from './useOnClickOutside';
 
-/*const mockSearchLocationData = {
-  results: [
-    {
-      lat: 40.7128,
-      lng: -74.006,
-      name: 'New York, NY, USA',
-    },
-    {
-      lat: 37.7749,
-      lng: -122.4194,
-      name: 'San Francisco, CA, USA',
-    },
-    {
-      lat: 34.0522,
-      lng: -118.2437,
-      name: 'Los Angeles, CA, USA',
-    },
-    {
-      lat: 41.8781,
-      lng: -87.6298,
-      name: 'Chicago, IL, USA',
-    },
-  ],
-};*/
-
 function LocationSearch() {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
@@ -68,7 +43,7 @@ function LocationSearch() {
       const searchResult = await getSearchLocationData(value);
       setResults(searchResult.slice(0, 5));
       setIsOpen(searchResult.length > 0);
-    }, 100);
+    }, 500);
   }
 
   function handleClearInput() {
