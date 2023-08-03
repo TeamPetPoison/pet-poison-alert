@@ -6,15 +6,13 @@ import {
 import axios from 'axios';
 import useOnClickOutside from './useOnClickOutside';
 
-function LocationSearch() {
+const LocationSearch = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
 
-  let debounceTimer;
-
-  async function getSearchLocationData(searchText) {
+  const getSearchLocationData = async (searchText) => {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
       searchText
     )}&format=json`;
@@ -30,11 +28,11 @@ function LocationSearch() {
       console.error('Error fetching data:', error);
       return [];
     }
-  }
-  function handleToggleSearch() {
+  };
+  const handleToggleSearch = () => {
     setIsOpen(!isOpen);
-  }
-
+  };
+  let debounceTimer;
   function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
@@ -46,20 +44,20 @@ function LocationSearch() {
     }, 500);
   }
 
-  function handleClearInput() {
+  const handleClearInput = () => {
     setValue('');
     setResults([]);
     setIsOpen(false);
-  }
+  };
 
-  function handleListItemClick(name) {
+  const handleListItemClick = (name) => {
     setValue(name);
     setIsOpen(false);
-  }
+  };
 
-  function hideSearch() {
+  const hideSearch = () => {
     setIsOpen(false);
-  }
+  };
 
   useOnClickOutside(searchRef, hideSearch);
 
@@ -110,6 +108,6 @@ function LocationSearch() {
       </div>
     </div>
   );
-}
+};
 
 export default LocationSearch;
