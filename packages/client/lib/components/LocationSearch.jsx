@@ -11,6 +11,10 @@ const LocationSearch = () => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
+  const [selectedLocation, setSelectedLocation] = useState({
+    lat: null,
+    lng: null,
+  });
 
   const getSearchLocationData = async (searchText) => {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
@@ -50,9 +54,10 @@ const LocationSearch = () => {
     setIsOpen(false);
   };
 
-  const handleListItemClick = (name) => {
+  const handleListItemClick = (name, lat, lng) => {
     setValue(name);
     setIsOpen(false);
+    setSelectedLocation({ lat, lng });
   };
 
   const hideSearch = () => {
@@ -97,7 +102,9 @@ const LocationSearch = () => {
                 <li
                   key={item.name}
                   className="px-5 py-2 hover:bg-selected-10 cursor-pointer"
-                  onClick={() => handleListItemClick(item.name)}
+                  onClick={() =>
+                    handleListItemClick(item.name, item.lat, item.lng)
+                  }
                 >
                   {item.name}
                 </li>
