@@ -4,5 +4,8 @@ import type { AppProps } from 'next/app';
 import { LocationProvider } from './LocationContext';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return;
+  <LocationProvider>
+    <Component {...pageProps} />;
+  </LocationProvider>;
 }

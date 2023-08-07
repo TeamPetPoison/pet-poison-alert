@@ -11,10 +11,7 @@ const LocationSearch = () => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
-  const [selectedLocation, setSelectedLocation] = useState({
-    lat: null,
-    lng: null,
-  });
+  const { setSelectedLocation } = useLocationContext();
 
   const getSearchLocationData = async (searchText) => {
     const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
