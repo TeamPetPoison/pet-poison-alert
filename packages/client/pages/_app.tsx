@@ -1,11 +1,12 @@
 import 'leaflet/dist/leaflet.css';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { LocationProvider } from './LocationContext';
+import { LocationProvider } from '../lib/components/LocationContext';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return;
-  <LocationProvider>
-    <Component {...pageProps} />;
-  </LocationProvider>;
+  return (
+    <LocationProvider>
+      <Component {...pageProps} />
+    </LocationProvider>
+  );
 }

@@ -5,6 +5,7 @@ import {
 } from '@heroicons/react/24/outline';
 import axios from 'axios';
 import useOnClickOutside from './useOnClickOutside';
+import { useLocationContext } from './LocationContext';
 
 const LocationSearch = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -10,6 +10,7 @@ import {
 } from 'react-leaflet';
 import Leaflet from 'leaflet';
 import useFormStore from '@/store/formStore';
+import { useLocationContext } from './LocationContext';
 
 const SetViewOnUserLocation = () => {
   const setLocation = useFormStore((state) => state.setLocation);
@@ -66,6 +67,16 @@ const SetViewOnUserLocation = () => {
 const Map = () => {
   const geoData = useStore((state) => state.geoData);
   const markers = useStore((state) => state.markers);
+  const { selectedLocation, setLocation } = useLocationContext();
+
+  useEffect(() => {
+    if (selectedLocation.lat && selectedLocation.lng) {
+      setLocation({
+        lat: selectedLocation.lat,
+        lng: selectedLocation.lng,
+      });
+    }
+  }, [selectedLocation, setLocation]);
 
   return (
     <MapContainer
@@ -80,7 +91,9 @@ const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {markers.length > 0 &&
-        markers.map((marker) =>  <Marker key={marker.id} position={marker.location} />)}
+        markers.map((marker) => (
+          <Marker key={marker.id} position={marker.location} />
+        ))}
       <ZoomControl position="topright" />
     </MapContainer>
   );
