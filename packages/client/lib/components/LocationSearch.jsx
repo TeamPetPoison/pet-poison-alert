@@ -53,6 +53,7 @@ const LocationSearch = () => {
   };
 
   const handleListItemClick = (name, lat, lng) => {
+    console.log('Clicked on item:', name, lat, lng);
     setValue(name);
     setIsOpen(false);
     setSelectedLocation({ lat, lng });
