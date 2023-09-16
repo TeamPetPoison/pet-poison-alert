@@ -1,18 +1,18 @@
-import { useEffect, useRef } from 'react';
-import useStore from '../../store/store';
+import useFormStore from '@/store/formStore';
+import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useEffect, useRef } from 'react';
 import {
   MapContainer,
-  TileLayer,
   Marker,
+  TileLayer,
   ZoomControl,
   useMap,
 } from 'react-leaflet';
-import Leaflet from 'leaflet';
-import useFormStore from '@/store/formStore';
-import { useLocationContext } from './LocationContext';
+import useMainStore from '../../store/store';
 
 const SetViewOnUserLocation = () => {
+  const geoData = useMainStore((state) => state.geoData);
   const setLocation = useFormStore((state) => state.setLocation);
   const isMounted = useRef(false);
   const map = useMap();
@@ -37,6 +37,11 @@ const SetViewOnUserLocation = () => {
       isMounted.current = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!map || geoData.lat == null || geoData.lng == null) return;
+    map.setView(geoData, 12);
+  }, [geoData, map]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -65,18 +70,8 @@ const SetViewOnUserLocation = () => {
 };
 
 const Map = () => {
-  const geoData = useStore((state) => state.geoData);
-  const markers = useStore((state) => state.markers);
-  const { selectedLocation, setLocation } = useLocationContext();
-
-  useEffect(() => {
-    if (selectedLocation.lat && selectedLocation.lng) {
-      setLocation({
-        lat: selectedLocation.lat,
-        lng: selectedLocation.lng,
-      });
-    }
-  }, [selectedLocation, setLocation]);
+  const geoData = useMainStore((state) => state.geoData);
+  const markers = useMainStore((state) => state.markers);
 
   return (
     <MapContainer
