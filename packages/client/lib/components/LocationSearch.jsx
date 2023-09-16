@@ -3,9 +3,27 @@ import {
   MagnifyingGlassCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import axios from 'axios';
 import useOnClickOutside from './useOnClickOutside';
 import { useLocationContext } from './LocationContext';
+
+const getSearchLocationData = async (searchText) => {
+  const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+    searchText
+  )}&format=json`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.map((result) => ({
+      lat: parseFloat(result.lat),
+      lng: parseFloat(result.lon),
+      name: result.display_name,
+    }));
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
+};
 
 const LocationSearch = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,32 +32,16 @@ const LocationSearch = () => {
   const searchRef = useRef(null);
   const { setSelectedLocation } = useLocationContext();
 
-  const getSearchLocationData = async (searchText) => {
-    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-      searchText
-    )}&format=json`;
-
-    try {
-      const response = await axios.get(url);
-      return response.data.map((result) => ({
-        lat: parseFloat(result.lat),
-        lng: parseFloat(result.lon),
-        name: result.display_name,
-      }));
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return [];
-    }
-  };
   const handleToggleSearch = () => {
     setIsOpen(!isOpen);
   };
-  let debounceTimer;
+
+  let debounceTimerRef = useRef(null);
   function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(async () => {
+    clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(async () => {
       const searchResult = await getSearchLocationData(value);
       setResults(searchResult.slice(0, 5));
       setIsOpen(searchResult.length > 0);
