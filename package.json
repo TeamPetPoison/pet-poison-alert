@@ -16,8 +16,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "axios": "^1.4.0"
-  }
+  ]
 }
