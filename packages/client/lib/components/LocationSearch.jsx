@@ -4,7 +4,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import useOnClickOutside from './useOnClickOutside';
-import { useLocationContext } from './LocationContext';
+import useMainStore from '../../store/store';
 
 const getSearchLocationData = async (searchText) => {
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
@@ -30,7 +30,7 @@ const LocationSearch = () => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
-  const { setSelectedLocation } = useLocationContext();
+  const setGeoData = useMainStore((state) => state.setGeoData);
 
   const handleToggleSearch = () => {
     setIsOpen(!isOpen);
@@ -58,7 +58,7 @@ const LocationSearch = () => {
     console.log('Clicked on item:', name, lat, lng);
     setValue(name);
     setIsOpen(false);
-    setSelectedLocation({ lat, lng });
+    setGeoData({ lat, lng });
   };
 
   const hideSearch = () => {
