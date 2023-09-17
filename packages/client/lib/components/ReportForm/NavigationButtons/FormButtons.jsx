@@ -27,13 +27,13 @@ const FormButtons = () => {
 
   return (
     <div className="flex flex-col w-11/12 self-center mx-8 my-2">
-      <div className="flex flex-col items-center mb-2">
-        <SVGIcon name="noSymbolIcon" className="text-negative" />
-        <h3 className="text-negative text-xs">
+      <div className="flex pt-2 flex-col items-center mb-2 text-center text-xs text-negative">
+        <SVGIcon name="noSymbolIcon" />
+        <h3 className="w-full whitespace-nowrap">
           Avoid personal information and vehicle plate numbers
         </h3>
         {step === 4 ? (
-          <h3 className="text-negative text-xs">
+          <h3 className="w-full whitespace-nowrap">
             Submissions will be made public
           </h3>
         ) : null}
