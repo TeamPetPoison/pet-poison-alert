@@ -1,6 +1,6 @@
+import { CheckIcon } from '@heroicons/react/24/outline';
 import useFormStore from '../../../../store/formStore';
 import useMainStore from '../../../../store/store';
-import { CheckIcon } from '@heroicons/react/24/outline';
 
 const Submit = () => {
   const setShowForm = useFormStore((state) => state.setShowForm);

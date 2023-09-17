@@ -1,7 +1,7 @@
-import useFormStore from '../../../../store/formStore';
 import { NoSymbolIcon } from '@heroicons/react/24/outline';
-import Continue from './Continue';
+import useFormStore from '../../../../store/formStore';
 import CancelButton from './Cancel';
+import Continue from './Continue';
 import GoBack from './GoBack';
 import Submit from './Submit';
 
