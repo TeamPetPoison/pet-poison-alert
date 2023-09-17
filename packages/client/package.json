@@ -1,13 +1,4 @@
 {
-  "name": "@pet-poison-alert/client",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@types/node": "18.15.2",
@@ -29,6 +20,19 @@
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "tailwindcss": "^3.2.7"
-  }
+  },
+  "name": "@pet-poison-alert/client",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "lint": "next lint",
+    "prettier:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "start": "next start"
+  },
+  "version": "0.1.0"
 }

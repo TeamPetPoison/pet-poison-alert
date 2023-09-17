@@ -1,19 +1,22 @@
 {
-  "name": "pet-poison-alert",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "npm run dev -w @pet-poison-alert/client",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
-  },
   "devDependencies": {
     "eslint": "^8.40.0",
-    "prettier": "^2.8.5",
+    "prettier": "^3.0.3",
     "typescript": "^5.0.4"
   },
   "engines": {
     "node": ">=14.0.0"
   },
+  "name": "pet-poison-alert",
+  "private": true,
+  "scripts": {
+    "build": "npm -w=@pet-poison-alert/client run build",
+    "dev": "npm run dev -w @pet-poison-alert/client",
+    "format": "npm -w=@pet-poison-alert/client run format",
+    "lint": "npm -w=@pet-poison-alert/client run lint",
+    "prettier:check": "npm -w=@pet-poison-alert/client run prettier:check"
+  },
+  "version": "0.1.0",
   "workspaces": [
     "packages/*"
   ]

@@ -14,7 +14,7 @@ npm-debug.log*
 *.tsbuildinfo
 
 #node_modules
-/node_modules
+node_modules
 
 # vs code
 .vscode
