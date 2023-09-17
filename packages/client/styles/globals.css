@@ -4,15 +4,16 @@
 
 @layer base {
   :root {
-    --color-primary: 168 85 247; /* rgb(168, 85, 247) */
-    --color-foreground: 24 24 27; /* rgb(24, 24, 27) */
-    --color-background: 249 249 249; /* rgb(249, 249, 249) */
     --color-background-alt: 231 231 231; /* rgb(231, 231, 231) */
-    --color-positive: 34 197 94; /* rgb(34, 197, 94) */
-    --color-negative: 248 113 113; /* rgb(248, 113, 113) */
-    --color-warning: 250 204 21; /* rgb(250, 204, 21) */
+    --color-background: 249 249 249; /* rgb(249, 249, 249) */
+    --color-border: 209 213 219; /* rgb(209, 213, 219); */
+    --color-foreground: 24 24 27; /* rgb(24, 24, 27) */
     --color-info: 45 212 191; /* rgb(45, 212, 191) */
+    --color-negative: 248 113 113; /* rgb(248, 113, 113) */
+    --color-positive: 34 197 94; /* rgb(34, 197, 94) */
+    --color-primary: 168 85 247; /* rgb(168, 85, 247) */
     --color-selected: 59 130 246; /* rgb(59, 130, 246) */
+    --color-warning: 250 204 21; /* rgb(250, 204, 21) */
   }
 }
 
@@ -26,7 +27,6 @@
   textarea ~ .error-message {
     @apply invisible;
   }
-
 }
 
 /* Override for Leaflet Zoom Controls */
@@ -38,6 +38,7 @@
   justify-content: center;
   align-items: center;
   row-gap: 0.5rem;
+  background-color: rgb(209, 213, 219);
 }
 
 .leaflet-bar a:first-child {
@@ -45,7 +46,7 @@
   border-top-right-radius: 0.5rem;
 }
 .leaflet-bar a:last-child {
-border-bottom:none;
+  border-bottom: none;
 }
 .leaflet-touch .leaflet-bar a:first-child {
   border-top-left-radius: 0.5rem;
@@ -57,7 +58,7 @@ border-bottom:none;
 }
 .leaflet-bar a.leaflet-control-zoom-in,
 .leaflet-bar a.leaflet-control-zoom-out {
-  @apply bg-background text-foreground rounded-lg flex justify-center items-center w-10 h-10 text-2xl;
+  @apply bg-background text-foreground flex h-10 w-10 items-center justify-center rounded-lg text-2xl;
 }
 
 .leaflet-bar a.leaflet-control-zoom-in:active,

@@ -38,7 +38,7 @@ const BottomNav = () => {
   };
 
   return (
-    <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground/30 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
+    <div className="text-foreground bg-background absolute bottom-0 z-[9999] grid h-16 w-full grid-cols-5 items-center justify-items-center rounded-t-2xl p-1">
       {LEFT_NAV_ITEMS.map((item) => (
         <BottomNavItem
           key={item.name}
@@ -50,9 +50,9 @@ const BottomNav = () => {
         </BottomNavItem>
       ))}
       <div onClick={() => setShowForm(true)} className="relative">
-        <div className="absolute left-0 bottom-0 translate-y-1/3 -translate-x-1/2 rounded-full h-24 w-24 flex items-center justify-center bg-background">
-          <div className="rounded-full h-20 w-20 flex items-center justify-center bg-primary ">
-            <button className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
+        <div className="bg-background absolute bottom-0 left-0 flex h-24 w-24 -translate-x-1/2 translate-y-1/3 items-center justify-center rounded-full">
+          <div className="bg-primary flex h-20 w-20 items-center justify-center rounded-full ">
+            <button className="bg-backgroundAlt flex h-16 w-16 items-center justify-center rounded-full">
               <SVGIcon name="plusCircleIcon" className="text-primary" />
             </button>
           </div>

@@ -51,7 +51,7 @@ const SetViewOnUserLocation = () => {
         if (isMounted.current) {
           map.setView(
             { lat: position.coords.latitude, lng: position.coords.longitude },
-            12
+            12,
           );
           setLocation({
             lat: position.coords.latitude,
@@ -62,7 +62,7 @@ const SetViewOnUserLocation = () => {
       (error) => {
         console.error(error);
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: Infinity }
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: Infinity },
     );
   }, [map, setLocation]);
 

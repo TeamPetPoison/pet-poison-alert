@@ -26,8 +26,8 @@ const FormButtons = () => {
   };
 
   return (
-    <div className="flex flex-col w-11/12 self-center mx-8 my-2">
-      <div className="flex pt-2 flex-col items-center mb-2 text-center text-xs text-negative">
+    <div className="mx-8 my-2 flex w-11/12 flex-col self-center">
+      <div className="text-negative mb-2 flex flex-col items-center pt-2 text-center text-xs">
         <SVGIcon name="noSymbolIcon" />
         <h3 className="w-full whitespace-nowrap">
           Avoid personal information and vehicle plate numbers
@@ -42,7 +42,7 @@ const FormButtons = () => {
         {step === 0 ? (
           <button
             onClick={handleCancel}
-            className="flex items-center justify-center bg-negative text-background text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+            className="bg-negative text-background m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
           >
             Cancel
             <SVGIcon name="arrowUturnLeftIcon" className="pl-1" />
@@ -50,7 +50,7 @@ const FormButtons = () => {
         ) : null}
         {step > 0 ? (
           <button
-            className="flex items-center justify-center bg-background text-foreground text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+            className="bg-background text-foreground m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
             onClick={() => setStep(step - 1)}
             type="button"
           >
@@ -60,7 +60,7 @@ const FormButtons = () => {
         ) : null}
         {step < 4 ? (
           <button
-            className="flex items-center justify-center bg-background text-foreground text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+            className="bg-background text-foreground m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
             type="button"
             onClick={onNextStep}
           >

@@ -37,19 +37,19 @@ const PhotoView = () => {
 
   return (
     <div className="flex-1">
-      <h3 className="text-xl mt-4">Photos (optional)</h3>
-      <div className="flex items-center justify-center m-auto p-2 w-11/12">
+      <h3 className="mt-4 text-xl">Photos (optional)</h3>
+      <div className="m-auto flex w-11/12 items-center justify-center p-2">
         <div
           onClick={handleRef}
-          className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-background shadow-md"
+          className="border-border bg-background flex h-48 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed shadow-md"
         >
-          <div className="flex flex-col items-center justify-center pt-5 pb-6">
+          <div className="flex flex-col items-center justify-center pb-6 pt-5">
             <SVGIcon name="photoIcon" className="text-foreground" />
-            <p className="mb-2 text-sm text-foreground">
+            <p className="text-foreground mb-2 text-sm">
               <span className="font-semibold">Click to upload</span> or drag and
               drop
             </p>
-            <p className="text-xs text-foreground">
+            <p className="text-foreground text-xs">
               PNG, JPG, or WEBP (Max File Size 10MB)
             </p>
           </div>
@@ -57,10 +57,10 @@ const PhotoView = () => {
             onClick={(e) => {
               e.preventDefault();
             }}
-            className="flex items-center bg-primary hover:primary-700 text-background font-bold py-2.5 px-3.5 rounded-xl"
+            className="bg-primary hover:text-background/70 text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"
           >
             <SVGIcon
-              className="pr-1 text-background"
+              className="text-background pr-1"
               name="documentMagnifyingGlassIcon"
             />
             Browse Photos
@@ -78,14 +78,14 @@ const PhotoView = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center flex-wrap m-auto pt-2">
+      <div className="m-auto flex flex-wrap justify-center pt-2">
         {photos.length > 0 ? (
           photos.map((photo, index) => (
             <div key={index} className=" relative m-1">
               <Image
                 width={20}
                 height={20}
-                className="w-20 h-auto rounded-lg"
+                className="h-auto w-20 rounded-lg"
                 src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
                   // TODO add functionality for checking size of images
@@ -98,7 +98,7 @@ const PhotoView = () => {
               />
               <button
                 onClick={() => removePhoto(index)}
-                className="z-10 absolute top-0.5 right-0.5 text-foreground"
+                className="text-foreground absolute right-0.5 top-0.5 z-10"
               >
                 <SVGIcon name="xCircleIcon" />
               </button>

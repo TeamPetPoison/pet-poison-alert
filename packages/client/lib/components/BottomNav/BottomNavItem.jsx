@@ -2,7 +2,7 @@ const BottomNavItem = ({ name, setActive, selected, children }) => {
   return (
     <button
       onClick={setActive}
-      className={`flex items-center justify-center flex-col text-sm ${
+      className={`flex flex-col items-center justify-center text-sm ${
         selected ? 'text-selected' : ''
       }`}
     >

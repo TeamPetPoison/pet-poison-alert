@@ -11,7 +11,7 @@ const ExitForm = () => {
         e.preventDefault();
         setShowForm(false);
       }}
-      className="flex z-[9999] absolute top-2 right-2"
+      className="absolute right-2 top-2 z-[9999] flex"
     >
       {/* <XMarkIcon className="h-8 w-8 stroke-2 text-foreground" /> */}
       <SVGIcon name="xMarkIcon" className="text-foreground" />
