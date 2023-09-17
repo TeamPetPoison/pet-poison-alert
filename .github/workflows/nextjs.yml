@@ -98,4 +98,5 @@ jobs:
         uses: actions/deploy-pages@v2
         with: 
           local-dir: ./packages/client/out
+          token: ${{ secrets.GITHUB_TOKEN }}
 
