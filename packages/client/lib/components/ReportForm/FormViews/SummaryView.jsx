@@ -10,16 +10,16 @@ const SummaryView = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-xl mt-4">Summary of report</h2>
+      <h2 className="mt-4 text-xl">Summary of report</h2>
       <h3 className="text-md">Please confirm the details of your report</h3>
-      <h2 className="text-xl mt-4">Category</h2>
+      <h2 className="mt-4 text-xl">Category</h2>
       <div className="flex items-center">
         <input type="radio" readOnly checked className="h-4 w-4" />
         <label htmlFor="" className="pl-3">
           {category}
         </label>
       </div>
-      <h2 className="text-xl mt-4">Photos</h2>
+      <h2 className="mt-4 text-xl">Photos</h2>
       <div className="flex h-[100px]">
         {photos.length > 0 ? (
           photos.map((photo, index) => (
@@ -27,7 +27,7 @@ const SummaryView = () => {
               <Image
                 width={20}
                 height={20}
-                className="w-20 h-auto rounded-lg"
+                className="h-auto w-20 rounded-lg"
                 src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
                   URL.revokeObjectURL(e.target.src);
@@ -40,29 +40,29 @@ const SummaryView = () => {
           <div>No files selected</div>
         )}
       </div>
-      <h2 className="text-xl mt-4">Title</h2>
+      <h2 className="mt-4 text-xl">Title</h2>
       <input
         type="text"
         value={title}
         placeholder="Provide a title for the report"
         disabled
-        className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+        className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"
       />
-      <h2 className="text-xl mt-4">Description</h2>
+      <h2 className="mt-4 text-xl">Description</h2>
       <textarea
         value={description}
         rows={4}
-        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-border focus:ring-primary focus:primary shadow-md"
+        className="text-foreground bg-background border-border focus:ring-primary focus:primary block w-full rounded-lg border p-2.5 shadow-md"
         placeholder="Provide a description of your report"
         disabled
       ></textarea>
-      <h2 className="text-xl mt-4">Location</h2>
+      <h2 className="mt-4 text-xl">Location</h2>
       <input
         type="text"
         value={`${location.lat}, ${location.lng}`}
         placeholder="Provide a location or coordinates"
         disabled
-        className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+        className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"
       />
     </div>
   );

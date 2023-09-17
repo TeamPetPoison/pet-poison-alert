@@ -32,14 +32,14 @@ const UpdateView = () => {
   const markerRef = useRef(null);
 
   return (
-    <div className="flex justify-center h-screen">
-      <div className="absolute top-10 w-11/12 z-[9999]">
+    <div className="flex h-screen justify-center">
+      <div className="absolute top-10 z-[9999] w-11/12">
         <input
           type="text"
           id="title"
           name="title"
           placeholder="Search"
-          className="w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+          className="text-foreground border-border bg-background focus:ring-primary focus:border-primary w-full rounded-lg border p-2 shadow-md"
         />
       </div>
       <MapContainer
@@ -58,10 +58,10 @@ const UpdateView = () => {
             e.preventDefault();
             setStep(3);
           }}
-          className="flex items-center bg-positive hover:bg-positive text-background font-bold py-2.5 px-3.5 rounded-xl"
+          className="bg-positive hover:bg-positive text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"
         >
           Confirm
-          <SVGIcon name="checkIcon" className="pr-1 text-background" />
+          <SVGIcon name="checkIcon" className="text-background pr-1" />
         </button>
       </div>
     </div>

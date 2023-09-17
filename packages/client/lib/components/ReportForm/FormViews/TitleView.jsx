@@ -23,9 +23,9 @@ const TitleView = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-xl mt-4">Provide a short title</h2>
+      <h2 className="mt-4 text-xl">Provide a short title</h2>
       <div>
-        <label htmlFor="title" className="block mb-2 text-foreground">
+        <label htmlFor="title" className="text-foreground mb-2 block">
           e.g. {'"'}Dog found on Example Road, near hotel{'"'}
         </label>
         <input
@@ -36,18 +36,18 @@ const TitleView = () => {
           value={title}
           required
           placeholder="Provide a title for the report"
-          className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+          className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"
         />
         <div
-          className={`text-xs text-negative ${
+          className={`text-negative text-xs ${
             isTitleValid() ? 'invisible' : 'visible'
           }`}
         >
           Please provide a title.
         </div>
       </div>
-      <h2 className="text-xl mt-4">Explain the incident</h2>
-      <label htmlFor="description" className="block mb-2 text-foreground">
+      <h2 className="mt-4 text-xl">Explain the incident</h2>
+      <label htmlFor="description" className="text-foreground mb-2 block">
         e.g. {'"'}Next to the dirt road, there was a dog...{'"'}
       </label>
       <textarea
@@ -57,11 +57,11 @@ const TitleView = () => {
         value={description}
         rows={4}
         required
-        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-border focus:ring-primary focus:primary shadow-md"
+        className="text-foreground bg-background border-border focus:ring-primary focus:primary block w-full rounded-lg border p-2.5 shadow-md"
         placeholder="Provide a description of your report"
       ></textarea>
       <div
-        className={`text-xs text-negative ${
+        className={`text-negative text-xs ${
           isDescriptionValid() ? 'invisible' : 'visible'
         }`}
       >

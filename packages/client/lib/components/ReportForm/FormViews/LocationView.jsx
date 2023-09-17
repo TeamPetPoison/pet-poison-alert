@@ -8,9 +8,9 @@ const LocationView = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-xl mt-4">Pin map location</h2>
+      <h2 className="mt-4 text-xl">Pin map location</h2>
       <div>
-        <label htmlFor="location" className="block mb-2 text-foreground">
+        <label htmlFor="location" className="text-foreground mb-2 block">
           e.g. {'"'}Example Road, City{'"'} or {'"'}-8.54, 115.24{'"'}
         </label>
         <input
@@ -21,19 +21,19 @@ const LocationView = () => {
           name="location"
           value={`${location.lat}, ${location.lng}`}
           placeholder="Provide a location or coordinates"
-          className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+          className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"
         />
-        <div className="flex justify-center mt-20">
+        <div className="mt-20 flex justify-center">
           <button
             onClick={(e) => {
               e.preventDefault();
               setStep(5);
             }}
-            className="flex items-center bg-primary text-background font-bold py-2.5 px-3.5 rounded-xl"
+            className="bg-primary text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"
           >
             <SVGIcon
               name="mapPinIcon"
-              className="w-7 h-7 pr-1 text-background"
+              className="text-background h-7 w-7 pr-1"
             />
             Update Location
           </button>

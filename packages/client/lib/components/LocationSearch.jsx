@@ -5,7 +5,7 @@ import { SVGIcon } from './common/icons/SVGIcon';
 
 const getSearchLocationData = async (searchText) => {
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-    searchText
+    searchText,
   )}&format=json`;
 
   try {
@@ -68,10 +68,10 @@ const LocationSearch = () => {
   return (
     <div
       ref={searchRef}
-      className="fixed top-8 left-6 right-6 z-[9999] bg-background text-foreground rounded-2xl"
+      className="bg-background text-foreground fixed left-6 right-6 top-8 z-[9999] rounded-2xl"
     >
       <div className="relative">
-        <div className="flex px-5 py-3 justify-between items-center gap-x-4 rounded-lg">
+        <div className="flex items-center justify-between gap-x-4 rounded-lg px-5 py-3">
           <button onClick={handleToggleSearch}>
             {isOpen ? (
               <SVGIcon name="xMarkIcon" />
@@ -81,7 +81,7 @@ const LocationSearch = () => {
           </button>
 
           <input
-            className="w-full pl-2 placeholder:text-foreground/30 rounded-lg"
+            className="placeholder:text-foreground/30 w-full rounded-lg pl-2"
             type="text"
             placeholder="Search For Place, Location"
             value={value}
@@ -95,12 +95,12 @@ const LocationSearch = () => {
         </div>
 
         {isOpen && (
-          <div className="absolute top-14 left-0 right-0 bg-background border border-solid border-border rounded-b-lg">
+          <div className="bg-background border-border absolute left-0 right-0 top-14 rounded-b-lg border border-solid">
             <ul className="list-none p-0">
               {results.map((item) => (
                 <li
                   key={item.name}
-                  className="px-5 py-2 hover:bg-selected cursor-pointer"
+                  className="hover:bg-selected cursor-pointer px-5 py-2"
                   onClick={() =>
                     handleListItemClick(item.name, item.lat, item.lng)
                   }

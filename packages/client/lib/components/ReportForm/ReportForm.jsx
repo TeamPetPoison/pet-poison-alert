@@ -35,7 +35,7 @@ const ReportForm = () => {
     <div className="bg-background">
       <form
         noValidate
-        className={`flex flex-col min-h-screen ${step !== 5 ? 'p-2' : ''}`}
+        className={`flex min-h-screen flex-col ${step !== 5 ? 'p-2' : ''}`}
       >
         {!isStepFive && (
           <h1 className="text-2xl font-medium">Report your incident</h1>

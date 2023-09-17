@@ -28,7 +28,7 @@ const CategoryView = () => {
 
   return (
     <div className="flex-1">
-      <h2 className="text-xl mt-4">Category of incident</h2>
+      <h2 className="mt-4 text-xl">Category of incident</h2>
       <h3 className="text-lg">Please choose one category</h3>
       {categoryOptions.map((option) => (
         <div className="flex items-center" key={option}>
@@ -37,7 +37,7 @@ const CategoryView = () => {
             checked={category === option}
             type="radio"
             name="category"
-            className="w-4 h-4"
+            className="h-4 w-4"
             id={option}
             value={option}
             required
@@ -48,7 +48,7 @@ const CategoryView = () => {
         </div>
       ))}
       <p
-        className={`text-xs text-negative ${
+        className={`text-negative text-xs ${
           isFormValid() ? 'invisible' : 'visible'
         }`}
       >
