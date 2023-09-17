@@ -1,11 +1,7 @@
+import Image from 'next/image';
 import { useRef } from 'react';
 import useFormStore from '../../../../store/formStore';
-import {
-  PhotoIcon,
-  DocumentMagnifyingGlassIcon,
-} from '@heroicons/react/24/outline';
-import XMark from '../NavigationButtons/XMark';
-import Image from 'next/image';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const PhotoView = () => {
   const photos = useFormStore((state) => state.photos);
@@ -48,7 +44,7 @@ const PhotoView = () => {
           className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-background shadow-md"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <PhotoIcon className="w-8 h-8 text-foreground" />
+            <SVGIcon name="photoIcon" className="text-foreground" />
             <p className="mb-2 text-sm text-foreground">
               <span className="font-semibold">Click to upload</span> or drag and
               drop
@@ -63,7 +59,10 @@ const PhotoView = () => {
             }}
             className="flex items-center bg-primary hover:primary-700 text-background font-bold py-2.5 px-3.5 rounded-xl"
           >
-            <DocumentMagnifyingGlassIcon className="w-7 h-7 pr-1 text-background" />
+            <SVGIcon
+              className="pr-1 text-background"
+              name="documentMagnifyingGlassIcon"
+            />
             Browse Photos
           </button>
           <input
@@ -90,11 +89,19 @@ const PhotoView = () => {
                 src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
                   // TODO add functionality for checking size of images
-                  URL.revokeObjectURL(e.target.src);
+                  const img = e.target;
+                  if ('src' in img && typeof img.src === 'string') {
+                    URL.revokeObjectURL(img.src);
+                  }
                 }}
                 alt=""
               />
-              <XMark handleClick={() => removePhoto(index)} />
+              <button
+                onClick={() => removePhoto(index)}
+                className="z-10 absolute top-0.5 right-0.5 text-foreground"
+              >
+                <SVGIcon name="xCircleIcon" />
+              </button>
             </div>
           ))
         ) : (

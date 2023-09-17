@@ -1,5 +1,5 @@
-import useFormStore from '../../../../store/formStore';
 import Image from 'next/image';
+import useFormStore from '../../../../store/formStore';
 
 const SummaryView = () => {
   const category = useFormStore((state) => state.category);
@@ -20,7 +20,7 @@ const SummaryView = () => {
         </label>
       </div>
       <h2 className="text-xl mt-4">Photos</h2>
-      <div className="flex h-[100px] overflow-y-hidden">
+      <div className="flex h-[100px]">
         {photos.length > 0 ? (
           photos.map((photo, index) => (
             <div key={index} className="relative m-1">

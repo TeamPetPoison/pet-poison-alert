@@ -1,6 +1,7 @@
 import useFormStore from '../../../../store/formStore';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 
+//TODO: is this component needed?
 const ExitForm = () => {
   const setShowForm = useFormStore((state) => state.setShowForm);
 
@@ -12,7 +13,8 @@ const ExitForm = () => {
       }}
       className="flex z-[9999] absolute top-2 right-2"
     >
-      <XMarkIcon className="h-8 w-8 stroke-2 text-foreground" />
+      {/* <XMarkIcon className="h-8 w-8 stroke-2 text-foreground" /> */}
+      <SVGIcon name="xMarkIcon" className="text-foreground" />
     </button>
   );
 };

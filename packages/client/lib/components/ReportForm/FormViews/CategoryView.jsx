@@ -20,7 +20,7 @@ const CategoryView = () => {
   };
 
   const isFormValid = () => {
-    if(!category && formErrorState) {
+    if (!category && formErrorState) {
       return false;
     }
     return true;
@@ -47,7 +47,11 @@ const CategoryView = () => {
           </label>
         </div>
       ))}
-      <p className={`text-xs text-negative ${isFormValid() ?'invisible' : 'visible'}`}> 
+      <p
+        className={`text-xs text-negative ${
+          isFormValid() ? 'invisible' : 'visible'
+        }`}
+      >
         Please provide a category
       </p>
     </div>

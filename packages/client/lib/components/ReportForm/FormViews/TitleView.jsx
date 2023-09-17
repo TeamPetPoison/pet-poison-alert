@@ -26,7 +26,7 @@ const TitleView = () => {
       <h2 className="text-xl mt-4">Provide a short title</h2>
       <div>
         <label htmlFor="title" className="block mb-2 text-foreground">
-          e.g. "Dog found on Example Road, near hotel"
+          e.g. {'"'}Dog found on Example Road, near hotel{'"'}
         </label>
         <input
           type="text"
@@ -48,7 +48,7 @@ const TitleView = () => {
       </div>
       <h2 className="text-xl mt-4">Explain the incident</h2>
       <label htmlFor="description" className="block mb-2 text-foreground">
-        e.g. "Next to the dirt road, there was a dog..."
+        e.g. {'"'}Next to the dirt road, there was a dog...{'"'}
       </label>
       <textarea
         id="description"

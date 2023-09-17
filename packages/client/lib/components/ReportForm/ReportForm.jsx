@@ -1,11 +1,11 @@
-import CategoryView from './FormViews/CategoryView';
 import dynamic from 'next/dynamic';
-import FormButtons from './NavigationButtons/FormButtons';
+import useFormStore from '../../../store/formStore';
+import CategoryView from './FormViews/CategoryView';
 import LocationView from './FormViews/LocationView';
 import PhotoView from './FormViews/PhotoView';
 import SummaryView from './FormViews/SummaryView';
 import TitleView from './FormViews/TitleView';
-import useFormStore from '../../../store/formStore';
+import FormButtons from './NavigationButtons/FormButtons';
 
 const DynamicUpdateView = dynamic(() => import('./FormViews/UpdateView'), {
   ssr: false,
@@ -35,9 +35,7 @@ const ReportForm = () => {
     <div className="bg-background">
       <form
         noValidate
-        className={`flex flex-col h-screen overflow-hidden ${
-          step !== 5 ? 'p-2' : ''
-        }`}
+        className={`flex flex-col min-h-screen ${step !== 5 ? 'p-2' : ''}`}
       >
         {!isStepFive && (
           <h1 className="text-2xl font-medium">Report your incident</h1>

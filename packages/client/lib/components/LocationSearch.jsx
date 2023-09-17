@@ -1,10 +1,7 @@
-import React, { useState, useRef } from 'react';
-import {
-  MagnifyingGlassCircleIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
-import useOnClickOutside from './useOnClickOutside';
+import { useRef, useState } from 'react';
 import useMainStore from '../../store/store';
+import useOnClickOutside from '../hooks/useOnClickOutside';
+import { SVGIcon } from './common/icons/SVGIcon';
 
 const getSearchLocationData = async (searchText) => {
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
@@ -32,11 +29,8 @@ const LocationSearch = () => {
   const searchRef = useRef(null);
   const setGeoData = useMainStore((state) => state.setGeoData);
 
-  const handleToggleSearch = () => {
-    setIsOpen(!isOpen);
-  };
-
   let debounceTimerRef = useRef(null);
+
   function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
@@ -67,6 +61,10 @@ const LocationSearch = () => {
 
   useOnClickOutside(searchRef, hideSearch);
 
+  const handleToggleSearch = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div
       ref={searchRef}
@@ -76,9 +74,9 @@ const LocationSearch = () => {
         <div className="flex px-5 py-3 justify-between items-center gap-x-4 rounded-lg">
           <button onClick={handleToggleSearch}>
             {isOpen ? (
-              <XMarkIcon className="w-6 h-6" />
+              <SVGIcon name="xMarkIcon" />
             ) : (
-              <MagnifyingGlassCircleIcon className="w-6 h-6" />
+              <SVGIcon name="magnifyingGlassIcon" />
             )}
           </button>
 
@@ -91,7 +89,7 @@ const LocationSearch = () => {
           />
           {value && (
             <button onClick={handleClearInput}>
-              <XMarkIcon className="w-6 h-6" />
+              <SVGIcon name="xMarkIcon" />
             </button>
           )}
         </div>
@@ -99,7 +97,7 @@ const LocationSearch = () => {
         {isOpen && (
           <div className="absolute top-14 left-0 right-0 bg-white border border-solid border-white-500 rounded-b-lg">
             <ul className="list-none p-0">
-              {results.slice(0, 10).map((item) => (
+              {results.map((item) => (
                 <li
                   key={item.name}
                   className="px-5 py-2 hover:bg-selected-10 cursor-pointer"

@@ -1,14 +1,19 @@
 import useFormStore from '../../../../store/formStore';
-import { NoSymbolIcon } from '@heroicons/react/24/outline';
-import Continue from './Continue';
-import CancelButton from './Cancel';
-import GoBack from './GoBack';
-import Submit from './Submit';
+import { SVGIcon } from '../../common/icons/SVGIcon';
+import SubmitReportForm from './SubmitReportForm.jsx';
 
 const FormButtons = () => {
   const step = useFormStore((state) => state.step);
   const setStep = useFormStore((state) => state.setStep);
   const setError = useFormStore((state) => state.setError);
+
+  const resetForm = useFormStore((state) => state.resetForm);
+  const setShowForm = useFormStore((state) => state.setShowForm);
+
+  const handleCancel = () => {
+    resetForm();
+    setShowForm(false);
+  };
 
   const onNextStep = (e) => {
     e.preventDefault();
@@ -22,28 +27,49 @@ const FormButtons = () => {
 
   return (
     <div className="flex flex-col w-11/12 self-center mx-8 my-2">
-      <div className="flex flex-col items-center mb-2">
-        <NoSymbolIcon className="text-negative h-6 w-6" />
-        <h3 className="text-negative text-xs backgroundspace-nowrap">
+      <div className="flex pt-2 flex-col items-center mb-2 text-center text-xs text-negative">
+        <SVGIcon name="noSymbolIcon" />
+        <h3 className="w-full whitespace-nowrap">
           Avoid personal information and vehicle plate numbers
         </h3>
         {step === 4 ? (
-          <h3 className="text-negative text-xs backgroundspace-nowrap">
+          <h3 className="w-full whitespace-nowrap">
             Submissions will be made public
           </h3>
         ) : null}
       </div>
       <div className="flex justify-between">
-        {step === 0 ? <CancelButton /> : null}
-        {step > 0 ? (
-          <GoBack
-            prevStep={(e) => {
-              e.preventDefault();
-              setStep(step - 1);
-            }}
-          />
+        {step === 0 ? (
+          <button
+            onClick={handleCancel}
+            className="flex items-center justify-center bg-negative text-background text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+          >
+            Cancel
+            <SVGIcon name="arrowUturnLeftIcon" className="pl-1" />
+          </button>
         ) : null}
-        {step < 4 ? <Continue nextStep={onNextStep} /> : <Submit />}
+        {step > 0 ? (
+          <button
+            className="flex items-center justify-center bg-background text-foreground text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+            onClick={() => setStep(step - 1)}
+            type="button"
+          >
+            Back
+            <SVGIcon name="arrowUturnLeftIcon" className="pl-1" />
+          </button>
+        ) : null}
+        {step < 4 ? (
+          <button
+            className="flex items-center justify-center bg-background text-foreground text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+            type="button"
+            onClick={onNextStep}
+          >
+            Continue
+            <SVGIcon name="arrowUturnRightIcon" className="pl-1" />
+          </button>
+        ) : (
+          <SubmitReportForm />
+        )}
       </div>
     </div>
   );
