@@ -30,7 +30,9 @@ const SummaryView = () => {
                 className="h-auto w-20 rounded-lg"
                 src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
-                  URL.revokeObjectURL(e.target.src);
+                  if ('src' in e.target && typeof e.target.src === 'string') {
+                    URL.revokeObjectURL(e.target.src);
+                  }
                 }}
                 alt=""
               />
