@@ -52,6 +52,7 @@ const FormButtons = () => {
           <button
             className="flex items-center justify-center bg-background text-foreground text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
             onClick={() => setStep(step - 1)}
+            type="button"
           >
             Back
             <SVGIcon name="arrowUturnLeftIcon" className="pl-1" />
