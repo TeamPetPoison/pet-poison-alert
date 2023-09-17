@@ -95,12 +95,12 @@ const LocationSearch = () => {
         </div>
 
         {isOpen && (
-          <div className="absolute top-14 left-0 right-0 bg-white border border-solid border-white-500 rounded-b-lg">
+          <div className="absolute top-14 left-0 right-0 bg-background border border-solid border-border rounded-b-lg">
             <ul className="list-none p-0">
               {results.map((item) => (
                 <li
                   key={item.name}
-                  className="px-5 py-2 hover:bg-selected-10 cursor-pointer"
+                  className="px-5 py-2 hover:bg-selected cursor-pointer"
                   onClick={() =>
                     handleListItemClick(item.name, item.lat, item.lng)
                   }

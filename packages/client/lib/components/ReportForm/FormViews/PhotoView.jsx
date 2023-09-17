@@ -41,7 +41,7 @@ const PhotoView = () => {
       <div className="flex items-center justify-center m-auto p-2 w-11/12">
         <div
           onClick={handleRef}
-          className="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-background shadow-md"
+          className="flex flex-col items-center justify-center w-full h-48 border-2 border-border border-dashed rounded-lg cursor-pointer bg-background shadow-md"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
             <SVGIcon name="photoIcon" className="text-foreground" />
@@ -57,7 +57,7 @@ const PhotoView = () => {
             onClick={(e) => {
               e.preventDefault();
             }}
-            className="flex items-center bg-primary hover:primary-700 text-background font-bold py-2.5 px-3.5 rounded-xl"
+            className="flex items-center bg-primary hover:text-background/70 text-background font-bold py-2.5 px-3.5 rounded-xl"
           >
             <SVGIcon
               className="pr-1 text-background"

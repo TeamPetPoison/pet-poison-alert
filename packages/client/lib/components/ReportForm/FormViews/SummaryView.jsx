@@ -46,13 +46,13 @@ const SummaryView = () => {
         value={title}
         placeholder="Provide a title for the report"
         disabled
-        className="block w-full p-2 text-foreground border border-gray-300 rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+        className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
       />
       <h2 className="text-xl mt-4">Description</h2>
       <textarea
         value={description}
         rows={4}
-        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
+        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-border focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"
         disabled
       ></textarea>
@@ -62,7 +62,7 @@ const SummaryView = () => {
         value={`${location.lat}, ${location.lng}`}
         placeholder="Provide a location or coordinates"
         disabled
-        className="block w-full p-2 text-foreground border border-gray-300 rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+        className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
       />
     </div>
   );

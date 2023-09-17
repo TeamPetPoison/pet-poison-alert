@@ -21,7 +21,7 @@ const LocationView = () => {
           name="location"
           value={`${location.lat}, ${location.lng}`}
           placeholder="Provide a location or coordinates"
-          className="block w-full p-2 text-foreground border border-gray-300 rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+          className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
         />
         <div className="flex justify-center mt-20">
           <button

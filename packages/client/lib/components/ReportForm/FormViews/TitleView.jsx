@@ -36,7 +36,7 @@ const TitleView = () => {
           value={title}
           required
           placeholder="Provide a title for the report"
-          className="block w-full p-2 text-foreground border border-gray-300 rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
+          className="block w-full p-2 text-foreground border border-border rounded-lg bg-background focus:ring-primary focus:border-primary shadow-md"
         />
         <div
           className={`text-xs text-negative ${
@@ -57,7 +57,7 @@ const TitleView = () => {
         value={description}
         rows={4}
         required
-        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-gray-300 focus:ring-primary focus:primary shadow-md"
+        className="block p-2.5 w-full text-foreground bg-background rounded-lg border border-border focus:ring-primary focus:primary shadow-md"
         placeholder="Provide a description of your report"
       ></textarea>
       <div

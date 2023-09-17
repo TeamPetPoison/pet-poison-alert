@@ -38,7 +38,7 @@ const BottomNav = () => {
   };
 
   return (
-    <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground/30 rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-white">
+    <div className="absolute bottom-0 z-[9999] w-full h-16 text-foreground rounded-t-2xl p-1 grid grid-cols-5 justify-items-center items-center bg-background">
       {LEFT_NAV_ITEMS.map((item) => (
         <BottomNavItem
           key={item.name}
