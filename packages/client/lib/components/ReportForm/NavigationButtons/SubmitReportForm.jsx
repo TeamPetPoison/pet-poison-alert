@@ -2,7 +2,7 @@ import useFormStore from '../../../../store/formStore';
 import useMainStore from '../../../../store/store';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
-const Submit = () => {
+const SubmitReportForm = () => {
   const setShowForm = useFormStore((state) => state.setShowForm);
   const resetForm = useFormStore((state) => state.resetForm);
   const category = useFormStore((state) => state.category);
@@ -41,4 +41,4 @@ const Submit = () => {
   );
 };
 
-export default Submit;
+export default SubmitReportForm;

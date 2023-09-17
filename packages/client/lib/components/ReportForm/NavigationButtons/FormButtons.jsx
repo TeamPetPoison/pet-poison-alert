@@ -1,6 +1,6 @@
 import useFormStore from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
-import Submit from './Submit';
+import SubmitReportForm from './SubmitReportForm.jsx';
 
 const FormButtons = () => {
   const step = useFormStore((state) => state.step);
@@ -29,11 +29,11 @@ const FormButtons = () => {
     <div className="flex flex-col w-11/12 self-center mx-8 my-2">
       <div className="flex flex-col items-center mb-2">
         <SVGIcon name="noSymbolIcon" className="text-negative" />
-        <h3 className="text-negative text-xs backgroundspace-nowrap">
+        <h3 className="text-negative text-xs">
           Avoid personal information and vehicle plate numbers
         </h3>
         {step === 4 ? (
-          <h3 className="text-negative text-xs backgroundspace-nowrap">
+          <h3 className="text-negative text-xs">
             Submissions will be made public
           </h3>
         ) : null}
@@ -67,7 +67,7 @@ const FormButtons = () => {
             <SVGIcon name="arrowUturnRightIcon" className="pl-1" />
           </button>
         ) : (
-          <Submit />
+          <SubmitReportForm />
         )}
       </div>
     </div>
