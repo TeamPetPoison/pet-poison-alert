@@ -82,7 +82,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          name: client-artifact
+          # name: client-artifact
           path: ./packages/client/out
 
   # Deployment job
