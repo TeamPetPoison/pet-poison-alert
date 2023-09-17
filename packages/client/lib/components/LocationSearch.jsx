@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
 import {
   MagnifyingGlassCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import useOnClickOutside from '../hooks/useOnClickOutside';
+import { useRef, useState } from 'react';
 import useMainStore from '../../store/store';
+import useOnClickOutside from '../hooks/useOnClickOutside';
 
 const getSearchLocationData = async (searchText) => {
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
