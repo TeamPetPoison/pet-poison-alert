@@ -1,5 +1,5 @@
-import { MapPinIcon } from '@heroicons/react/24/outline';
 import useFormStore from '../../../../store/formStore';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const LocationView = () => {
   const location = useFormStore((state) => state.location);
@@ -11,7 +11,7 @@ const LocationView = () => {
       <h2 className="text-xl mt-4">Pin map location</h2>
       <div>
         <label htmlFor="location" className="block mb-2 text-foreground">
-          e.g. "Example Road, City" or "-8.54, 115.24"
+          e.g. {'"'}Example Road, City{'"'} or {'"'}-8.54, 115.24{'"'}
         </label>
         <input
           type="text"
@@ -31,7 +31,10 @@ const LocationView = () => {
             }}
             className="flex items-center bg-primary text-background font-bold py-2.5 px-3.5 rounded-xl"
           >
-            <MapPinIcon className="w-7 h-7 pr-1 text-background" />
+            <SVGIcon
+              name="mapPinIcon"
+              className="w-7 h-7 pr-1 text-background"
+            />
             Update Location
           </button>
         </div>

@@ -1,30 +1,24 @@
 import { useState } from 'react';
-import BottomNavItem from './BottomNavItem.jsx';
-import {
-  HomeIcon,
-  MagnifyingGlassIcon,
-  UserIcon,
-  PlusCircleIcon,
-  MapPinIcon,
-} from '@heroicons/react/24/outline';
 import useFormStore from '../../../store/formStore.js';
+import { SVGIcon } from '../common/icons/SVGIcon.jsx';
+import BottomNavItem from './BottomNavItem.jsx';
 
 const BOTTOM_NAV_ITEMS = [
   {
     name: 'Home',
-    icon: <HomeIcon className="h-6 w-6 pointer-events-none" />,
+    icon: <SVGIcon name="homeIcon" />,
   },
   {
     name: 'Search',
-    icon: <MagnifyingGlassIcon className="h-6 w-6 pointer-events-none" />,
+    icon: <SVGIcon name="magnifyingGlassIcon" />,
   },
   {
     name: 'Layers',
-    icon: <MapPinIcon className="h-6 w-6 pointer-events-none" />,
+    icon: <SVGIcon name="mapPinIcon" />,
   },
   {
     name: 'Profile',
-    icon: <UserIcon className="h-6 w-6 pointer-events-none" />,
+    icon: <SVGIcon name="userIcon" />,
   },
 ];
 
@@ -59,7 +53,7 @@ const BottomNav = () => {
         <div className="absolute left-0 bottom-0 translate-y-1/3 -translate-x-1/2 rounded-full h-24 w-24 flex items-center justify-center bg-background">
           <div className="rounded-full h-20 w-20 flex items-center justify-center bg-primary ">
             <button className="rounded-full h-16 w-16 flex items-center justify-center bg-backgroundAlt">
-              <PlusCircleIcon className="h-6 w-6 text-primary" />
+              <SVGIcon name="plusCircleIcon" className="text-primary" />
             </button>
           </div>
         </div>

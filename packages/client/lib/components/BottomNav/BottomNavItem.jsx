@@ -1,9 +1,9 @@
 const BottomNavItem = ({ name, setActive, selected, children }) => {
   return (
     <button
-    onClick={setActive}
+      onClick={setActive}
       className={`flex items-center justify-center flex-col text-sm ${
-        selected ? "text-selected" : ""
+        selected ? 'text-selected' : ''
       }`}
     >
       {children}

@@ -1,8 +1,8 @@
 import { NoSymbolIcon } from '@heroicons/react/24/outline';
 import useFormStore from '../../../../store/formStore';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 import CancelButton from './Cancel';
 import Continue from './Continue';
-import GoBack from './GoBack';
 import Submit from './Submit';
 
 const FormButtons = () => {
@@ -36,12 +36,13 @@ const FormButtons = () => {
       <div className="flex justify-between">
         {step === 0 ? <CancelButton /> : null}
         {step > 0 ? (
-          <GoBack
-            prevStep={(e) => {
-              e.preventDefault();
-              setStep(step - 1);
-            }}
-          />
+          <button
+            className="flex items-center justify-center bg-background text-foreground text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
+            onClick={() => setStep(step - 1)}
+          >
+            Back
+            <SVGIcon name="arrowUturnLeftIcon" className="h-6 w-6 pl-1" />
+          </button>
         ) : null}
         {step < 4 ? <Continue nextStep={onNextStep} /> : <Submit />}
       </div>

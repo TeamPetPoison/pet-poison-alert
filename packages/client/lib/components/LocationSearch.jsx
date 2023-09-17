@@ -1,10 +1,7 @@
-import {
-  MagnifyingGlassCircleIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
 import { useRef, useState } from 'react';
 import useMainStore from '../../store/store';
 import useOnClickOutside from '../hooks/useOnClickOutside';
+import { SVGIcon } from './common/icons/SVGIcon';
 
 const getSearchLocationData = async (searchText) => {
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
@@ -77,9 +74,9 @@ const LocationSearch = () => {
         <div className="flex px-5 py-3 justify-between items-center gap-x-4 rounded-lg">
           <button onClick={handleToggleSearch}>
             {isOpen ? (
-              <XMarkIcon className="w-6 h-6" />
+              <SVGIcon name="xMarkIcon" />
             ) : (
-              <MagnifyingGlassCircleIcon className="w-6 h-6" />
+              <SVGIcon name="magnifyingGlassIcon" />
             )}
           </button>
 
@@ -92,7 +89,7 @@ const LocationSearch = () => {
           />
           {value && (
             <button onClick={handleClearInput}>
-              <XMarkIcon className="w-6 h-6" />
+              <SVGIcon name="xMarkIcon" />
             </button>
           )}
         </div>
