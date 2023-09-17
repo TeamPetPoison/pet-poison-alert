@@ -1,11 +1,11 @@
+import {
+  DocumentMagnifyingGlassIcon,
+  PhotoIcon,
+} from '@heroicons/react/24/outline';
+import Image from 'next/image';
 import { useRef } from 'react';
 import useFormStore from '../../../../store/formStore';
-import {
-  PhotoIcon,
-  DocumentMagnifyingGlassIcon,
-} from '@heroicons/react/24/outline';
 import XMark from '../NavigationButtons/XMark';
-import Image from 'next/image';
 
 const PhotoView = () => {
   const photos = useFormStore((state) => state.photos);
@@ -90,7 +90,10 @@ const PhotoView = () => {
                 src={URL.createObjectURL(photo)}
                 onLoad={(e) => {
                   // TODO add functionality for checking size of images
-                  URL.revokeObjectURL(e.target.src);
+                  const img = e.target;
+                  if ('src' in img && typeof img.src === 'string') {
+                    URL.revokeObjectURL(img.src);
+                  }
                 }}
                 alt=""
               />

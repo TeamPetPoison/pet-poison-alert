@@ -1,5 +1,5 @@
-import useFormStore from '../../../../store/formStore';
 import Image from 'next/image';
+import useFormStore from '../../../../store/formStore';
 
 const SummaryView = () => {
   const category = useFormStore((state) => state.category);

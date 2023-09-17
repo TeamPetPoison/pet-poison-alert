@@ -1,5 +1,5 @@
-import useFormStore from '../../../../store/formStore';
 import { MapPinIcon } from '@heroicons/react/24/outline';
+import useFormStore from '../../../../store/formStore';
 
 const LocationView = () => {
   const location = useFormStore((state) => state.location);
