@@ -4,71 +4,66 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import useOnClickOutside from './useOnClickOutside';
+import useMainStore from '../../store/store';
 
-const mockSearchLocationData = {
-  results: [
-    {
-      lat: 40.7128,
-      lng: -74.006,
-      name: 'New York, NY, USA',
-    },
-    {
-      lat: 37.7749,
-      lng: -122.4194,
-      name: 'San Francisco, CA, USA',
-    },
-    {
-      lat: 34.0522,
-      lng: -118.2437,
-      name: 'Los Angeles, CA, USA',
-    },
-    {
-      lat: 41.8781,
-      lng: -87.6298,
-      name: 'Chicago, IL, USA',
-    },
-  ],
+const getSearchLocationData = async (searchText) => {
+  const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+    searchText
+  )}&format=json`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.map((result) => ({
+      lat: parseFloat(result.lat),
+      lng: parseFloat(result.lon),
+      name: result.display_name,
+    }));
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
 };
 
-function LocationSearch() {
+const LocationSearch = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
+  const setGeoData = useMainStore((state) => state.setGeoData);
 
-  function handleToggleSearch() {
+  const handleToggleSearch = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
-  function getSearchLocationData(searchText) {
-    const filteredResults = mockSearchLocationData.results.filter((result) => {
-      return result.name.toLowerCase().includes(searchText.toLowerCase());
-    });
-    return filteredResults;
-  }
-
+  let debounceTimerRef = useRef(null);
   function handleInputChange(event) {
     const value = event.target.value;
     setValue(value);
-    const searchResults = getSearchLocationData(value);
-    setResults(searchResults);
-    setIsOpen(searchResults.length > 0);
+    clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(async () => {
+      const searchResult = await getSearchLocationData(value);
+      setResults(searchResult.slice(0, 5));
+      setIsOpen(searchResult.length > 0);
+    }, 500);
   }
 
-  function handleClearInput() {
+  const handleClearInput = () => {
     setValue('');
     setResults([]);
     setIsOpen(false);
-  }
+  };
 
-  function handleListItemClick(name) {
+  const handleListItemClick = (name, lat, lng) => {
+    console.log('Clicked on item:', name, lat, lng);
     setValue(name);
     setIsOpen(false);
-  }
+    setGeoData({ lat, lng });
+  };
 
-  function hideSearch() {
+  const hideSearch = () => {
     setIsOpen(false);
-  }
+  };
 
   useOnClickOutside(searchRef, hideSearch);
 
@@ -108,7 +103,9 @@ function LocationSearch() {
                 <li
                   key={item.name}
                   className="px-5 py-2 hover:bg-selected-10 cursor-pointer"
-                  onClick={() => handleListItemClick(item.name)}
+                  onClick={() =>
+                    handleListItemClick(item.name, item.lat, item.lng)
+                  }
                 >
                   {item.name}
                 </li>
@@ -119,6 +116,6 @@ function LocationSearch() {
       </div>
     </div>
   );
-}
+};
 
 export default LocationSearch;

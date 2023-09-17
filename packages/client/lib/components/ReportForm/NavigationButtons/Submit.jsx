@@ -1,5 +1,5 @@
 import useFormStore from '../../../../store/formStore';
-import useStore from '../../../../store/store';
+import useMainStore from '../../../../store/store';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
 const Submit = () => {
@@ -10,7 +10,7 @@ const Submit = () => {
   const title = useFormStore((state) => state.title);
   const description = useFormStore((state) => state.description);
   const location = useFormStore((state) => state.location);
-  const setMarkers = useStore((state) => state.setMarkers);
+  const setMarkers = useMainStore((state) => state.setMarkers);
 
   const handleSubmit = (category, photos, title, description, location) => {
     const formObj = {
