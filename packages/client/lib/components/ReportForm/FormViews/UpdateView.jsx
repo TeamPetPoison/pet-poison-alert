@@ -1,7 +1,7 @@
+import { useEffect, useRef } from 'react';
+import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import useFormStore from '../../../../store/formStore';
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
-import { CheckIcon } from '@heroicons/react/24/outline';
-import { useRef, useEffect } from 'react';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const SetMarkerLocation = ({ markerRef, setLocation }) => {
   const map = useMap();
@@ -61,7 +61,7 @@ const UpdateView = () => {
           className="flex items-center bg-positive hover:positive-700 text-background font-bold py-2.5 px-3.5 rounded-xl"
         >
           Confirm
-          <CheckIcon className="w-6 h-6 pr-1 text-background" />
+          <SVGIcon name="checkIcon" className="pr-1 text-background" />
         </button>
       </div>
     </div>

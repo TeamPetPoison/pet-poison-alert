@@ -1,6 +1,6 @@
-import { CheckIcon } from '@heroicons/react/24/outline';
 import useFormStore from '../../../../store/formStore';
 import useMainStore from '../../../../store/store';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const Submit = () => {
   const setShowForm = useFormStore((state) => state.setShowForm);
@@ -36,7 +36,7 @@ const Submit = () => {
       className="flex items-center justify-center bg-positive text-background text-xl border py-1.5 m-1 w-1/2 rounded-2xl"
     >
       Submit
-      <CheckIcon className="w-6 h-6 pl-1 text-background" />
+      <SVGIcon name="checkIcon" className="pl-1" />
     </button>
   );
 };
