@@ -26,6 +26,15 @@ module.exports = {
       selected: 'rgb(var(--color-selected) / <alpha-value>)',
       warning: 'rgb(var(--color-warning) / <alpha-value>)',
     },
+    extend: {
+      // override the default utility class for `screen`
+      minHeight: {
+        screen: 'var(--window-height)',
+      },
+      height: {
+        screen: 'var(--window-height)',
+      },
+    },
   },
   plugins: [],
 };

@@ -11,6 +11,12 @@ import {
 import useFormStore from '../../store/formStore';
 import useMainStore from '../../store/store';
 
+/**
+ * Recommended approach for update the leaflet map
+ * @see https://react-leaflet.js.org/docs/api-map/#usemap
+ *
+ * @returns null
+ */
 const SetViewOnUserLocation = () => {
   const geoData = useMainStore((state) => state.geoData);
   const setLocation = useFormStore((state) => state.setLocation);
@@ -69,6 +75,9 @@ const SetViewOnUserLocation = () => {
   return null;
 };
 
+/**
+ * Renders the main leaflet map with markers
+ */
 const Map = () => {
   const geoData = useMainStore((state) => state.geoData);
   const markers = useMainStore((state) => state.markers);

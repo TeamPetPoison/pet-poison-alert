@@ -1,5 +1,5 @@
 import useFormStore from '../../../../store/formStore';
-import useMainStore from '../../../../store/store';
+import { useMainStoreActions } from '../../../../store/store';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const SubmitReportForm = () => {
@@ -10,7 +10,7 @@ const SubmitReportForm = () => {
   const title = useFormStore((state) => state.title);
   const description = useFormStore((state) => state.description);
   const location = useFormStore((state) => state.location);
-  const setMarkers = useMainStore((state) => state.setMarkers);
+  const { setMarkers } = useMainStoreActions();
 
   const handleSubmit = (category, photos, title, description, location) => {
     const formObj = {

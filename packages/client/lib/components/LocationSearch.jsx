@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import useMainStore from '../../store/store';
+import { useMainStoreActions } from '../../store/store';
 import useOnClickOutside from '../hooks/useOnClickOutside';
 import { SVGIcon } from './common/icons/SVGIcon';
 
@@ -27,7 +27,7 @@ const LocationSearch = () => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
-  const setGeoData = useMainStore((state) => state.setGeoData);
+  const { setGeoData } = useMainStoreActions();
 
   let debounceTimerRef = useRef(null);
 
