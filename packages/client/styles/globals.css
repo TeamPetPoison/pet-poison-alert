@@ -14,6 +14,7 @@
     --color-primary: 168 85 247; /* rgb(168, 85, 247) */
     --color-selected: 59 130 246; /* rgb(59, 130, 246) */
     --color-warning: 250 204 21; /* rgb(250, 204, 21) */
+    --window-height: calc(var(--vh, 1vh) * 100);
   }
 }
 
