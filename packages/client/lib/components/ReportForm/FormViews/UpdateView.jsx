@@ -32,7 +32,7 @@ const UpdateView = () => {
   const markerRef = useRef(null);
 
   return (
-    <div className="flex h-screen justify-center">
+    <div className="flex min-h-screen justify-center">
       <div className="absolute top-10 z-[9999] w-11/12">
         <input
           type="text"
