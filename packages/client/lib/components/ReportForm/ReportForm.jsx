@@ -29,22 +29,25 @@ const ReportForm = () => {
 
   const RenderViewFromStep = renderStepMap[step];
 
+  // step 5 is the update view (map view)
   const isStepFive = step === 5;
 
   return (
-    <div className="bg-background">
-      <form
-        noValidate
-        className={`flex min-h-screen flex-col ${step !== 5 ? 'p-2' : ''}`}
-      >
+    <form
+      className={`flex min-h-screen flex-col justify-between ${
+        step !== 5 ? 'p-2' : ''
+      }`}
+      noValidate
+    >
+      <fieldset>
         {!isStepFive && (
           <h1 className="text-2xl font-medium">Report your incident</h1>
         )}
         <RenderViewFromStep />
+      </fieldset>
 
-        {!isStepFive && <FormButtons />}
-      </form>
-    </div>
+      {!isStepFive && <FormButtons />}
+    </form>
   );
 };
 
