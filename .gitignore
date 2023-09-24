@@ -21,3 +21,5 @@ node_modules
 
 # .next
 .next
+# Local Netlify folder
+.netlify
