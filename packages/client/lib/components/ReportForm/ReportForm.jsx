@@ -33,8 +33,8 @@ const ReportForm = () => {
   const isStepFive = step === 5;
 
   return (
-    <form className="flex min-h-screen flex-col justify-between" noValidate>
-      <div className={`${isStepFive ? '' : 'px-4 py-2'}`}>
+    <form className="relative flex min-h-screen flex-col" noValidate>
+      <div className={`flex-grow ${isStepFive ? '' : 'px-4 py-2'}`}>
         {!isStepFive && (
           <h1 className="text-2xl font-medium">Report your incident</h1>
         )}
