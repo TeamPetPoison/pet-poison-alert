@@ -33,7 +33,7 @@ const FormButtons = () => {
   };
 
   return (
-    <div className="bg-background sticky bottom-0 left-0 flex w-full flex-col items-center justify-end pb-4 pt-2">
+    <div className="bg-background border-t-foreground/30 sticky bottom-0 left-0 flex w-full flex-col items-center justify-end border-t pb-4 pt-2">
       <div className="text-negative mb-2 flex flex-col items-center pt-2 text-center text-xs">
         <SVGIcon name="noSymbolIcon" />
         <h3 className="w-full whitespace-nowrap">
