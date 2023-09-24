@@ -86,17 +86,17 @@ jobs:
           path: ./packages/client/out
 
   # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
-        with: 
-          local-dir: ./packages/client/out
-          token: ${{ secrets.GITHUB_TOKEN }}
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v2
+  #       with: 
+  #         local-dir: ./packages/client/out
+  #         token: ${{ secrets.GITHUB_TOKEN }}
 

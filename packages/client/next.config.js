@@ -4,7 +4,6 @@ const CopyPlugin = require('copy-webpack-plugin');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: process.env.NODE_ENV === 'development' ? '' : '/pet-poison-alert',
   images: {
     unoptimized: true, // TODO: remove this when we have a proper image pipeline
   },
