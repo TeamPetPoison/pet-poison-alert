@@ -11,7 +11,7 @@ const initialState = {
   title: '',
 };
 
-const useFormStore = create((set) => ({
+const useFormStore = create((set, get) => ({
   ...initialState,
   category: '',
   description: '',
@@ -19,6 +19,17 @@ const useFormStore = create((set) => ({
   location: { lat: -8.7445, lng: 115.182 },
   photos: [],
   resetForm: () => set(initialState),
+  getFormData: () => {
+    const { category, description, location, photos, title } = get();
+    return {
+      id: Date.now(),
+      category: category,
+      photos: photos,
+      title: title,
+      description: description,
+      location: location,
+    };
+  },
   setCategory: (str) => set(() => ({ category: str })),
   setDescription: (str) => set(() => ({ description: str })),
   setError: (bool) => set(() => ({ error: bool })),
