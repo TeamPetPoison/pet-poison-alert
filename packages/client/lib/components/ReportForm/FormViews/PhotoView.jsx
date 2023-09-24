@@ -66,15 +66,14 @@ const PhotoView = () => {
             Browse Photos
           </button>
           <input
+            accept="image/*"
+            className="hidden"
+            id="photos"
+            multiple
+            name="photos"
             onChange={handleChange}
             ref={inputRef}
-            id="photos"
-            name="photos"
             type="file"
-            accept=".png,.jpg,.jpeg,.webp"
-            capture="environment"
-            multiple
-            className="hidden"
           />
         </div>
       </div>
@@ -97,10 +96,11 @@ const PhotoView = () => {
                 alt=""
               />
               <button
+                className="absolute right-0 top-0 px-1 py-1"
                 onClick={() => removePhoto(index)}
-                className="text-foreground absolute right-0.5 top-0.5 z-10"
+                type="button"
               >
-                <SVGIcon name="xCircleIcon" />
+                <SVGIcon name="xCircleIcon" className="text-negative h-7 w-7" />
               </button>
             </div>
           ))
