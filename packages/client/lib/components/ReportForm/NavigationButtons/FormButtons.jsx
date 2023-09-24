@@ -1,4 +1,5 @@
 import useFormStore from '../../../../store/formStore';
+import { Button } from '../../common/Button';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 import SubmitReportForm from './SubmitReportForm.jsx';
 
@@ -17,7 +18,7 @@ const FormButtons = () => {
 
   const onNextStep = (e) => {
     e.preventDefault();
-    if (!e.target.form.checkValidity()) {
+    if (!e.target?.form?.checkValidity()) {
       setError(true);
     } else {
       setStep(step + 1);
@@ -25,8 +26,14 @@ const FormButtons = () => {
     }
   };
 
+  // If we are on the first step, we want to cancel the form
+  // If we are on any other step, we want to go back one step
+  const handleBackClick = () => {
+    return step === 0 ? handleCancel : () => setStep(step - 1);
+  };
+
   return (
-    <div className="mx-8 my-2 flex w-11/12 flex-col self-center">
+    <div className="bg-background border-t-foreground/30 sticky bottom-0 left-0 flex w-full flex-col items-center justify-end border-t pb-4 pt-2">
       <div className="text-negative mb-2 flex flex-col items-center pt-2 text-center text-xs">
         <SVGIcon name="noSymbolIcon" />
         <h3 className="w-full whitespace-nowrap">
@@ -38,35 +45,16 @@ const FormButtons = () => {
           </h3>
         ) : null}
       </div>
-      <div className="flex justify-between">
-        {step === 0 ? (
-          <button
-            onClick={handleCancel}
-            className="bg-negative text-background m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
-          >
-            Cancel
-            <SVGIcon name="arrowUturnLeftIcon" className="pl-1" />
-          </button>
-        ) : null}
-        {step > 0 ? (
-          <button
-            className="bg-background text-foreground m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
-            onClick={() => setStep(step - 1)}
-            type="button"
-          >
-            Back
-            <SVGIcon name="arrowUturnLeftIcon" className="pl-1" />
-          </button>
-        ) : null}
+      <div className="flex w-full max-w-xs items-center justify-center gap-x-2">
+        <BackOrExitButton handleClick={handleBackClick} step={step} />
         {step < 4 ? (
-          <button
-            className="bg-background text-foreground m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
-            type="button"
-            onClick={onNextStep}
+          <Button
+            buttonType="neutral"
+            handleClick={onNextStep}
+            iconName="arrowUturnRightIcon"
           >
             Continue
-            <SVGIcon name="arrowUturnRightIcon" className="pl-1" />
-          </button>
+          </Button>
         ) : (
           <SubmitReportForm />
         )}
@@ -76,3 +64,15 @@ const FormButtons = () => {
 };
 
 export default FormButtons;
+
+const BackOrExitButton = ({ handleClick, step }) => {
+  return (
+    <Button
+      buttonType={step === 0 ? 'negative' : 'neutral'}
+      handleClick={handleClick()}
+      iconName="arrowUturnLeftIcon"
+    >
+      {step === 0 ? 'Cancel' : 'Back'}
+    </Button>
+  );
+};

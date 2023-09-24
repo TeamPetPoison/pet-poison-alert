@@ -27,7 +27,7 @@ const CategoryView = () => {
   };
 
   return (
-    <div className="flex-1">
+    <>
       <h2 className="mt-4 text-xl">Category of incident</h2>
       <h3 className="text-lg">Please choose one category</h3>
       {categoryOptions.map((option) => (
@@ -54,7 +54,7 @@ const CategoryView = () => {
       >
         Please provide a category
       </p>
-    </div>
+    </>
   );
 };
 

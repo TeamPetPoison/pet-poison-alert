@@ -1,43 +1,30 @@
 import useFormStore from '../../../../store/formStore';
 import { useMainStoreActions } from '../../../../store/store';
-import { SVGIcon } from '../../common/icons/SVGIcon';
+import { Button } from '../../common/Button';
 
 const SubmitReportForm = () => {
-  const setShowForm = useFormStore((state) => state.setShowForm);
-  const resetForm = useFormStore((state) => state.resetForm);
-  const category = useFormStore((state) => state.category);
-  const photos = useFormStore((state) => state.photos);
-  const title = useFormStore((state) => state.title);
-  const description = useFormStore((state) => state.description);
-  const location = useFormStore((state) => state.location);
   const { setMarkers } = useMainStoreActions();
+  const getFormData = useFormStore((state) => state.getFormData);
+  const resetForm = useFormStore((state) => state.resetForm);
+  const setShowForm = useFormStore((state) => state.setShowForm);
 
-  const handleSubmit = (category, photos, title, description, location) => {
-    const formObj = {
-      id: Date.now(),
-      category: category,
-      photos: photos,
-      title: title,
-      description: description,
-      location: location,
-    };
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formObj = getFormData();
     setMarkers(formObj);
+    setShowForm(false);
     resetForm();
   };
 
   return (
-    <button
-      onClick={(e) => {
-        e.preventDefault();
-        handleSubmit(category, photos, title, description, location);
-        setShowForm(false);
-      }}
-      className="bg-positive text-background m-1 flex w-1/2 items-center justify-center rounded-2xl border py-1.5 text-xl"
+    <Button
+      handleClick={handleSubmit}
+      iconName="checkIcon"
+      buttonType="positive"
+      type="submit"
     >
       Submit
-      <SVGIcon name="checkIcon" className="pl-1" />
-    </button>
+    </Button>
   );
 };
 

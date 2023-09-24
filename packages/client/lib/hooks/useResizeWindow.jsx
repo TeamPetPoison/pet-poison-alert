@@ -10,20 +10,29 @@ export const useResizeWindow = () => {
 
   useEffect(() => {
     let timer = null;
+
+    const updateWindowDimensions = () => {
+      const innerHeight = window.innerHeight;
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: innerHeight,
+      });
+
+      // set css variable for mobile browsers
+      let vh = innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    // initial call on mount
+    updateWindowDimensions();
+
+    // update on window resize event
     window.onresize = () => {
       // debounce the resize event to prevent too many re-renders
       clearTimeout(timer);
       timer = setTimeout(() => {
-        const innerHeight = window.innerHeight;
-        setWindowDimensions({
-          width: window.innerWidth,
-          height: innerHeight,
-        });
-
-        // set css variable for mobile browsers
-        let vh = innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      }, 100);
+        updateWindowDimensions();
+      }, 16);
     };
     // cleanup listener
     return () => {
