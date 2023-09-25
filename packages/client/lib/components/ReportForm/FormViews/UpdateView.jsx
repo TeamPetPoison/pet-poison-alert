@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import useFormStore from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
+import LocationSearch from '../../LocationSearch';
 
 const SetMarkerLocation = ({ markerRef, setLocation }) => {
   const map = useMap();
@@ -34,13 +35,14 @@ const UpdateView = () => {
   return (
     <div className="flex justify-center">
       <div className="absolute top-10 z-[9999] w-11/12">
-        <input
+        <LocationSearch />
+        {/* <input
           type="text"
           id="title"
           name="title"
           placeholder="Search"
           className="text-foreground border-border bg-background focus:ring-primary focus:border-primary w-full rounded-lg border p-2 shadow-md"
-        />
+        />*/}
       </div>
       <MapContainer
         center={location}
