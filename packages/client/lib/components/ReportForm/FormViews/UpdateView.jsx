@@ -36,13 +36,6 @@ const UpdateView = () => {
     <div className="flex justify-center">
       <div className="absolute top-10 z-[9999] w-11/12">
         <LocationSearch />
-        {/* <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Search"
-          className="text-foreground border-border bg-background focus:ring-primary focus:border-primary w-full rounded-lg border p-2 shadow-md"
-        />*/}
       </div>
       <MapContainer
         center={location}
