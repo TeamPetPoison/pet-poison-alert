@@ -29,7 +29,6 @@ const SetMarkerLocation = ({ markerRef, setLocation }) => {
 
 const UpdateMapLocation = ({location}) => {
   const map = useMap()
-  console.log(location)
   map.setView(location, map.getZoom());
   return null;
 }
@@ -39,9 +38,6 @@ const UpdateView = () => {
   const setLocation = useFormStore((state) => state.setLocation);
   const setStep = useFormStore((state) => state.setStep);
   const markerRef = useRef(null);
-  
-
-  console.log(location, "location");
   return (
     <div className="flex justify-center">
       <div className="absolute top-10 z-[9999] w-11/12">
