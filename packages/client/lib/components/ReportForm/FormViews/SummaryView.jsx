@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import useFormStore from '../../../../store/formStore';
+import useMainStore from '@/store/store';
 
 const SummaryView = () => {
   const category = useFormStore((state) => state.category);
   const photos = useFormStore((state) => state.photos);
   const title = useFormStore((state) => state.title);
   const description = useFormStore((state) => state.description);
-  const location = useFormStore((state) => state.location);
+  const location = useMainStore((state) => state.geoData);
 
   return (
     <div className="flex-1">
