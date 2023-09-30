@@ -1,11 +1,10 @@
+import useMainStore from '@/store/store';
 import useFormStore from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const LocationView = () => {
-  const location = useFormStore((state) => state.location);
   const setLocation = useFormStore((state) => state.setLocation);
   const setStep = useFormStore((state) => state.setStep);
-
   return (
     <div className="flex-1">
       <h2 className="mt-4 text-xl">Pin map location</h2>
@@ -19,7 +18,7 @@ const LocationView = () => {
           disabled
           onChange={(e) => setLocation(e.target.value)}
           name="location"
-          value={`${location.lat}, ${location.lng}`}
+          value={`${useMainStore.getState().geoData.lat}, ${useMainStore.getState().geoData.lng}`}
           placeholder="Provide a location or coordinates"
           className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"
         />
@@ -27,6 +26,7 @@ const LocationView = () => {
           <button
             onClick={(e) => {
               e.preventDefault();
+              setLocation(useMainStore.getState().geoData);
               setStep(5);
             }}
             className="bg-primary text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"

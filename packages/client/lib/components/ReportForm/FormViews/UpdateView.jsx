@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import useFormStore from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
+import LocationSearch from '../../LocationSearch';
+import useMainStore from '@/store/store';
 
 const SetMarkerLocation = ({ markerRef, setLocation }) => {
   const map = useMap();
@@ -25,22 +27,21 @@ const SetMarkerLocation = ({ markerRef, setLocation }) => {
   return null;
 };
 
+const UpdateMapLocation = ({location}) => {
+  const map = useMap()
+  map.setView(location, map.getZoom());
+  return null;
+}
+
 const UpdateView = () => {
-  const location = useFormStore((state) => state.location);
+  const location = useMainStore((state) => state.geoData);
   const setLocation = useFormStore((state) => state.setLocation);
   const setStep = useFormStore((state) => state.setStep);
   const markerRef = useRef(null);
-
   return (
     <div className="flex justify-center">
       <div className="absolute top-10 z-[9999] w-11/12">
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Search"
-          className="text-foreground border-border bg-background focus:ring-primary focus:border-primary w-full rounded-lg border p-2 shadow-md"
-        />
+        <LocationSearch />
       </div>
       <MapContainer
         center={location}
@@ -51,6 +52,7 @@ const UpdateView = () => {
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <SetMarkerLocation markerRef={markerRef} setLocation={setLocation} />;
         <Marker position={location} ref={markerRef} draggable />
+        <UpdateMapLocation location={location}/>
       </MapContainer>
       <div className="absolute bottom-10 z-[9999]">
         <button
