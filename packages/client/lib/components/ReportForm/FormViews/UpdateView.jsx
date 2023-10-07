@@ -1,9 +1,9 @@
+import useMainStore from '@/store/store';
 import { useEffect, useRef } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
-import useFormStore from '../../../../store/formStore';
-import { SVGIcon } from '../../common/icons/SVGIcon';
+import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
 import LocationSearch from '../../LocationSearch';
-import useMainStore from '@/store/store';
+import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const SetMarkerLocation = ({ markerRef, setLocation }) => {
   const map = useMap();
@@ -13,7 +13,8 @@ const SetMarkerLocation = ({ markerRef, setLocation }) => {
 
     if (current) {
       current.on('dragend', (e) => {
-        setLocation(e.target.getLatLng());
+        const { lat, lng } = e.target.getLatLng();
+        setLocation({ lat, lng });
       });
     }
 
@@ -27,40 +28,47 @@ const SetMarkerLocation = ({ markerRef, setLocation }) => {
   return null;
 };
 
-const UpdateMapLocation = ({location}) => {
-  const map = useMap()
+const UpdateMapLocation = ({ location }) => {
+  const map = useMap();
   map.setView(location, map.getZoom());
   return null;
-}
+};
 
 const UpdateView = () => {
-  const location = useMainStore((state) => state.geoData);
-  const setLocation = useFormStore((state) => state.setLocation);
-  const setStep = useFormStore((state) => state.setStep);
+  const { setStep, setLocation } = useFormStoreActions();
+  const geoData = useMainStore((state) => state.geoData);
+  const location = useFormStore((state) => state.location);
+
+  // use the location from the form if it exists, otherwise use the geolocation data
+  const coordinatesLatLng = location ?? geoData;
+
   const markerRef = useRef(null);
+
+  const handleConfirm = () => {
+    setStep(3);
+  };
+
   return (
     <div className="flex justify-center">
       <div className="absolute top-10 z-[9999] w-11/12">
-        <LocationSearch />
+        <LocationSearch setLocationData={setLocation} />
       </div>
       <MapContainer
-        center={location}
+        center={coordinatesLatLng}
         zoom={13}
         scrollWheelZoom={false}
         className="min-h-screen w-full"
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <SetMarkerLocation markerRef={markerRef} setLocation={setLocation} />;
-        <Marker position={location} ref={markerRef} draggable />
-        <UpdateMapLocation location={location}/>
+        <Marker draggable position={coordinatesLatLng} ref={markerRef} />
+        <UpdateMapLocation location={coordinatesLatLng} />
       </MapContainer>
       <div className="absolute bottom-10 z-[9999]">
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            setStep(3);
-          }}
           className="bg-positive hover:bg-positive text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"
+          onClick={handleConfirm}
+          type="button"
         >
           Confirm
           <SVGIcon name="checkIcon" className="text-background pr-1" />
