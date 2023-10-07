@@ -5,20 +5,20 @@ import BottomNavItem from './BottomNavItem.jsx';
 
 const BOTTOM_NAV_ITEMS = [
   {
-    name: 'Home',
     icon: <SVGIcon name="homeIcon" />,
+    name: 'Home',
   },
   {
-    name: 'Search',
     icon: <SVGIcon name="magnifyingGlassIcon" />,
+    name: 'Search',
   },
   {
-    name: 'Layers',
     icon: <SVGIcon name="mapPinIcon" />,
+    name: 'Layers',
   },
   {
-    name: 'Profile',
     icon: <SVGIcon name="userIcon" />,
+    name: 'Profile',
   },
 ];
 

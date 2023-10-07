@@ -1,9 +1,9 @@
 import { SVGIcon } from './icons/SVGIcon';
 
 const BUTTON_TYPE_CLASSES_MAP = {
+  negative: 'bg-negative text-background',
   neutral: 'bg-background text-foreground',
   positive: 'bg-positive text-background',
-  negative: 'bg-negative text-background',
 };
 
 export const Button = ({

@@ -1,6 +1,6 @@
-import { latLngToString } from '@/lib/helpers/helpers';
-import useMainStore from '@/store/store';
+import { latLngToString } from '../../../../lib/helpers/helpers';
 import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
+import useMainStore from '../../../../store/store';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const LocationView = () => {

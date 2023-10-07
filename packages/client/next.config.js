@@ -3,10 +3,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   images: {
     unoptimized: true, // TODO: remove this when we have a proper image pipeline
   },
+  reactStrictMode: true,
   webpack: (config) => {
     config.plugins.push(
       new CopyPlugin({

@@ -2,25 +2,35 @@
 import { create } from 'zustand';
 import { normalizeLatLng } from '../lib/helpers/helpers.js';
 
+const initialState = {
+  geoData: { lat: -8.7445, lng: 115.182 },
+  markers: [],
+  rootDimensions: {
+    height: 0,
+  },
+  width: 0,
+  windowDimensions: {
+    height: 0,
+    width: 0,
+  },
+};
+
 /**
  * main global zustand store
  * - stores the state
  */
 const useMainStore = create((set) => ({
-  geoData: { lat: -8.7445, lng: 115.182 },
-  markers: [],
-  rootDimensions: { width: 0, height: 0 },
-  windowDimensions: { width: 0, height: 0 },
+  ...initialState,
   actions: {
     setGeoData: ({ lat, lng }) => {
       set({ geoData: normalizeLatLng({ lat, lng }) });
     },
     setMarkers: (object) =>
       set((state) => ({ markers: [...state.markers, object] })),
-    setRootDimensions: ({ width, height }) =>
-      set({ rootDimensions: { width, height } }),
-    setWindowDimensions: ({ width, height }) =>
-      set({ windowDimensions: { width, height } }),
+    setRootDimensions: ({ height, width }) =>
+      set({ rootDimensions: { height, width } }),
+    setWindowDimensions: ({ height, width }) =>
+      set({ windowDimensions: { height, width } }),
   },
 }));
 

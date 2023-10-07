@@ -19,11 +19,11 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": false, // TODO make "true" once all files are converted to TS
-    "target": "es5",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "target": "es5"
+    // "paths": {
+    //   "@/*": ["./*"]
+    // }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "store/formStore.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
