@@ -1,11 +1,11 @@
-import useFormStore from '../../../../store/formStore';
+import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
 
 const TitleView = () => {
-  const title = useFormStore((state) => state.title);
-  const setTitle = useFormStore((state) => state.setTitle);
   const description = useFormStore((state) => state.description);
-  const setDescription = useFormStore((state) => state.setDescription);
   const formErrorState = useFormStore((state) => state.error);
+  const title = useFormStore((state) => state.title);
+
+  const { setDescription, setTitle } = useFormStoreActions();
 
   const isTitleValid = () => {
     if (!title && formErrorState) {

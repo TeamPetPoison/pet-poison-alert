@@ -1,13 +1,15 @@
+import { latLngToString } from '@/lib/helpers/helpers';
 import Image from 'next/image';
-import useFormStore from '../../../../store/formStore';
-import useMainStore from '@/store/store';
+import { useFormStore } from '../../../../store/formStore';
 
 const SummaryView = () => {
   const category = useFormStore((state) => state.category);
   const photos = useFormStore((state) => state.photos);
   const title = useFormStore((state) => state.title);
   const description = useFormStore((state) => state.description);
-  const location = useMainStore((state) => state.geoData);
+  const location = useFormStore((state) => state.location);
+
+  const latLngString = latLngToString(location);
 
   return (
     <div className="flex-1">
@@ -63,7 +65,7 @@ const SummaryView = () => {
       <h2 className="mt-4 text-xl">Location</h2>
       <input
         type="text"
-        value={`${location.lat}, ${location.lng}`}
+        value={latLngString}
         placeholder="Provide a location or coordinates"
         disabled
         className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"

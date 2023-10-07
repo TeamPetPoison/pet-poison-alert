@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import useFormStore from '../../../store/formStore';
+import { useFormStore } from '../../../store/formStore';
 import CategoryView from './FormViews/CategoryView';
 import LocationView from './FormViews/LocationView';
 import PhotoView from './FormViews/PhotoView';

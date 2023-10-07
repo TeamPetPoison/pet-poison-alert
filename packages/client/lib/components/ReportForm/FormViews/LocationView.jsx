@@ -1,10 +1,20 @@
+import { latLngToString } from '@/lib/helpers/helpers';
 import useMainStore from '@/store/store';
-import useFormStore from '../../../../store/formStore';
+import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const LocationView = () => {
-  const setLocation = useFormStore((state) => state.setLocation);
-  const setStep = useFormStore((state) => state.setStep);
+  const { setStep } = useFormStoreActions();
+  const geoData = useMainStore((state) => state.geoData);
+  const location = useFormStore((state) => state.location);
+
+  const handleClick = () => {
+    setStep(5); // this is the step where the map is shown
+  };
+
+  // use the location from the form if it exists, otherwise use the geolocation data
+  const locationCoordinates = latLngToString(location ?? geoData);
+
   return (
     <div className="flex-1">
       <h2 className="mt-4 text-xl">Pin map location</h2>
@@ -13,23 +23,19 @@ const LocationView = () => {
           e.g. {'"'}Example Road, City{'"'} or {'"'}-8.54, 115.24{'"'}
         </label>
         <input
-          type="text"
-          id="location"
-          disabled
-          onChange={(e) => setLocation(e.target.value)}
-          name="location"
-          value={`${useMainStore.getState().geoData.lat}, ${useMainStore.getState().geoData.lng}`}
-          placeholder="Provide a location or coordinates"
           className="text-foreground border-border bg-background focus:ring-primary focus:border-primary block w-full rounded-lg border p-2 shadow-md"
+          disabled
+          id="location"
+          name="location"
+          placeholder="Provide a location or coordinates"
+          type="text"
+          value={locationCoordinates}
         />
         <div className="mt-20 flex justify-center">
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              setLocation(useMainStore.getState().geoData);
-              setStep(5);
-            }}
             className="bg-primary text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"
+            onClick={handleClick}
+            type="button"
           >
             <SVGIcon
               name="mapPinIcon"

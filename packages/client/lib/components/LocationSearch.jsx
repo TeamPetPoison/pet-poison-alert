@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useMainStoreActions } from '../../store/store';
 import useOnClickOutside from '../hooks/useOnClickOutside';
 import { SVGIcon } from './common/icons/SVGIcon';
 
@@ -22,12 +21,15 @@ const getSearchLocationData = async (searchText) => {
   }
 };
 
-const LocationSearch = () => {
+/**
+ * @property {({ lat, lng }) => void} setLocationData
+ * @returns {JSX.Element}
+ */
+const LocationSearch = ({ setLocationData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const searchRef = useRef(null);
-  const { setGeoData } = useMainStoreActions();
 
   let debounceTimerRef = useRef(null);
 
@@ -52,7 +54,7 @@ const LocationSearch = () => {
     console.log('Clicked on item:', name, lat, lng);
     setValue(name);
     setIsOpen(false);
-    setGeoData({ lat, lng });
+    setLocationData({ lat, lng });
   };
 
   const hideSearch = () => {

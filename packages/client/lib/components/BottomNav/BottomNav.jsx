@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useFormStore from '../../../store/formStore.js';
+import { useFormStoreActions } from '../../../store/formStore.js';
 import { SVGIcon } from '../common/icons/SVGIcon.jsx';
 import BottomNavItem from './BottomNavItem.jsx';
 
@@ -27,7 +27,7 @@ const RIGHT_NAV_ITEMS = BOTTOM_NAV_ITEMS.slice(2, 4);
 
 const BottomNav = () => {
   const [active, setActive] = useState(0);
-  const setShowForm = useFormStore((state) => state.setShowForm);
+  const { setShowForm } = useFormStoreActions();
 
   const handleActive = (name) => {
     setActive(name);
