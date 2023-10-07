@@ -1,19 +1,20 @@
-import useFormStore from '../../../../store/formStore';
+import { useFormStoreActions } from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
 //TODO: is this component needed?
 const ExitForm = () => {
-  const setShowForm = useFormStore((state) => state.setShowForm);
+  const { setShowForm } = useFormStoreActions();
+
+  const handleCancel = () => {
+    setShowForm(false);
+  };
 
   return (
     <button
-      onClick={(e) => {
-        e.preventDefault();
-        setShowForm(false);
-      }}
       className="absolute right-2 top-2 z-[9999] flex"
+      onClick={handleCancel}
+      type="button"
     >
-      {/* <XMarkIcon className="h-8 w-8 stroke-2 text-foreground" /> */}
       <SVGIcon name="xMarkIcon" className="text-foreground" />
     </button>
   );

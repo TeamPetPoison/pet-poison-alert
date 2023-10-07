@@ -1,15 +1,11 @@
-import useFormStore from '../../../../store/formStore';
+import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
 import { Button } from '../../common/Button';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 import SubmitReportForm from './SubmitReportForm.jsx';
 
 const FormButtons = () => {
   const step = useFormStore((state) => state.step);
-  const setStep = useFormStore((state) => state.setStep);
-  const setError = useFormStore((state) => state.setError);
-
-  const resetForm = useFormStore((state) => state.resetForm);
-  const setShowForm = useFormStore((state) => state.setShowForm);
+  const { resetForm, setError, setShowForm, setStep } = useFormStoreActions();
 
   const handleCancel = () => {
     resetForm();

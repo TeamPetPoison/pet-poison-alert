@@ -1,9 +1,10 @@
-import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import LocationSearch from '@/lib/components/LocationSearch';
+import { useMainStoreActions } from '@/store/store';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import BottomNav from '../lib/components/BottomNav/BottomNav';
 import ReportForm from '../lib/components/ReportForm/ReportForm';
-import useFormStore from '../store/formStore';
+import { useFormStore } from '../store/formStore';
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,
@@ -11,6 +12,7 @@ const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
 
 export default function Home() {
   const showForm = useFormStore((state) => state.showForm);
+  const { setGeoData } = useMainStoreActions();
 
   return (
     <>
@@ -28,7 +30,7 @@ export default function Home() {
           <ReportForm />
         ) : (
           <>
-            <LocationSearch />
+            <LocationSearch setLocationData={setGeoData} />
             <MapWithNoSSR />
             <BottomNav />
           </>

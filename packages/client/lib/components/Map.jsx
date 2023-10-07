@@ -8,7 +8,7 @@ import {
   ZoomControl,
   useMap,
 } from 'react-leaflet';
-import useFormStore from '../../store/formStore';
+import { useFormStoreActions } from '../../store/formStore';
 import useMainStore from '../../store/store';
 
 /**
@@ -19,7 +19,7 @@ import useMainStore from '../../store/store';
  */
 const SetViewOnUserLocation = () => {
   const geoData = useMainStore((state) => state.geoData);
-  const setLocation = useFormStore((state) => state.setLocation);
+  const { setLocation } = useFormStoreActions();
   const isMounted = useRef(false);
   const map = useMap();
 

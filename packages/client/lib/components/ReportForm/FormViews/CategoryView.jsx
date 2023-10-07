@@ -1,4 +1,4 @@
-import useFormStore from '../../../../store/formStore';
+import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
 
 const categoryOptions = [
   'Lost/Missing Pet',
@@ -12,8 +12,8 @@ const categoryOptions = [
 
 const CategoryView = () => {
   const category = useFormStore((state) => state.category);
-  const setCategory = useFormStore((state) => state.setCategory);
   const formErrorState = useFormStore((state) => state.error);
+  const { setCategory } = useFormStoreActions();
 
   const handleChange = ({ target }) => {
     setCategory(target.value);

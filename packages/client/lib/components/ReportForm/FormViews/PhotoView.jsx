@@ -1,22 +1,22 @@
+//@ts-check
 import Image from 'next/image';
 import { useRef } from 'react';
-import useFormStore from '../../../../store/formStore';
+import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 
 const PhotoView = () => {
   const photos = useFormStore((state) => state.photos);
-  const setPhotos = useFormStore((state) => state.setPhotos);
+  const { setPhotos } = useFormStoreActions();
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
     const { files } = e.target;
-    // TODO: Add logic here to check for files type and size
-    if (photos.length > 0) {
-      if (files.length) {
+
+    if (files.length) {
+      // TODO: Add logic here to check for files type and size
+      if (photos.length > 0) {
         setPhotos([...photos, ...Array.from(files)]);
-      }
-    } else {
-      if (files.length) {
+      } else {
         setPhotos(Array.from(files));
       }
     }
@@ -54,10 +54,9 @@ const PhotoView = () => {
             </p>
           </div>
           <button
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            // onClick={}
             className="bg-primary hover:text-background/70 text-background flex items-center rounded-xl px-3.5 py-2.5 font-bold"
+            type="button"
           >
             <SVGIcon
               className="text-background pr-1"

@@ -1,12 +1,10 @@
-import useFormStore from '../../../../store/formStore';
+import { useFormStoreActions } from '../../../../store/formStore';
 import { useMainStoreActions } from '../../../../store/store';
 import { Button } from '../../common/Button';
 
 const SubmitReportForm = () => {
   const { setMarkers } = useMainStoreActions();
-  const getFormData = useFormStore((state) => state.getFormData);
-  const resetForm = useFormStore((state) => state.resetForm);
-  const setShowForm = useFormStore((state) => state.setShowForm);
+  const { getFormData, resetForm, setShowForm } = useFormStoreActions();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,9 +16,9 @@ const SubmitReportForm = () => {
 
   return (
     <Button
+      buttonType="positive"
       handleClick={handleSubmit}
       iconName="checkIcon"
-      buttonType="positive"
       type="submit"
     >
       Submit
