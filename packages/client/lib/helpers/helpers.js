@@ -11,3 +11,12 @@ export const normalizeLatLng = ({ lat, lng }) => {
   const truncLng = parseFloat(lng.toFixed(6));
   return { lat: truncLat, lng: truncLng };
 };
+
+/**
+ * takes a lat lng object and returns a string of the form 'lat,lng'
+ * @param {{lat: number, lng: number}} args
+ * @returns {`${number},${number}`}
+ */
+export const latLngToString = ({ lat, lng }) => {
+  return `${lat},${lng}`;
+};
