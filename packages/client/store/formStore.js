@@ -1,10 +1,11 @@
+import { normalizeLatLng } from '@/lib/helpers/helpers';
 import { create } from 'zustand';
 
 const initialState = {
   category: '',
   description: '',
   error: false,
-  location: { lat: -8.7445, lng: 115.182 },
+  location: undefined, // {lat, lng}
   photos: [],
   showForm: false,
   step: 0,
@@ -13,14 +14,6 @@ const initialState = {
 
 export const useFormStore = create((set, get) => ({
   ...initialState,
-  category: '',
-  description: '',
-  error: false,
-  location: { lat: -8.7445, lng: 115.182 },
-  photos: [],
-  showForm: false,
-  step: 0,
-  title: '',
   actions: {
     resetForm: () => set(initialState),
     getFormData: () => {
@@ -37,7 +30,9 @@ export const useFormStore = create((set, get) => ({
     setCategory: (str) => set({ category: str }),
     setDescription: (str) => set({ description: str }),
     setError: (bool) => set({ error: bool }),
-    setLocation: (latLng) => set({ location: latLng }),
+    setLocation: ({ lat, lng }) => {
+      set({ location: normalizeLatLng({ lat, lng }) });
+    },
     setPhotos: (array) => set({ photos: array }),
     setShowForm: (bool) => set({ showForm: bool }),
     setStep: (num) => set({ step: num }),
