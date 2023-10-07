@@ -1,10 +1,10 @@
-import LocationSearch from '@/lib/components/LocationSearch';
-import { useMainStoreActions } from '@/store/store';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import BottomNav from '../lib/components/BottomNav/BottomNav';
+import LocationSearch from '../lib/components/LocationSearch';
 import ReportForm from '../lib/components/ReportForm/ReportForm';
 import { useFormStore } from '../store/formStore';
+import { useMainStoreActions } from '../store/store';
 
 const MapWithNoSSR = dynamic(() => import('../lib/components/Map'), {
   ssr: false,

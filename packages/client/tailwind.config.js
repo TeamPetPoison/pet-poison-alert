@@ -8,6 +8,7 @@ module.exports = {
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx}',
   ],
+  plugins: [],
   theme: {
     /**
      * Colors are defined in global.css
@@ -28,13 +29,12 @@ module.exports = {
     },
     extend: {
       // override the default utility class for `screen`
-      minHeight: {
+      height: {
         screen: 'var(--window-height)',
       },
-      height: {
+      minHeight: {
         screen: 'var(--window-height)',
       },
     },
   },
-  plugins: [],
 };

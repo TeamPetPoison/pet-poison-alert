@@ -1,5 +1,5 @@
-import { normalizeLatLng } from '@/lib/helpers/helpers';
 import { create } from 'zustand';
+import { normalizeLatLng } from '../lib/helpers/helpers';
 
 const initialState = {
   category: '',
@@ -15,18 +15,18 @@ const initialState = {
 export const useFormStore = create((set, get) => ({
   ...initialState,
   actions: {
-    resetForm: () => set(initialState),
     getFormData: () => {
       const { category, description, location, photos, title } = get();
       return {
-        id: Date.now(),
         category: category,
+        description: description,
+        id: Date.now(),
+        location: location,
         photos: photos,
         title: title,
-        description: description,
-        location: location,
       };
     },
+    resetForm: () => set(initialState),
     setCategory: (str) => set({ category: str }),
     setDescription: (str) => set({ description: str }),
     setError: (bool) => set({ error: bool }),

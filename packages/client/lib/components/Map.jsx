@@ -68,7 +68,7 @@ const SetViewOnUserLocation = () => {
       (error) => {
         console.error(error);
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: Infinity },
+      { enableHighAccuracy: true, maximumAge: Infinity, timeout: 10000 },
     );
   }, [map, setLocation]);
 

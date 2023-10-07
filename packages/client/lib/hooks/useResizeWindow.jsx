@@ -14,8 +14,8 @@ export const useResizeWindow = () => {
     const updateWindowDimensions = () => {
       const innerHeight = window.innerHeight;
       setWindowDimensions({
-        width: window.innerWidth,
         height: innerHeight,
+        width: window.innerWidth,
       });
 
       // set css variable for mobile browsers

@@ -1,7 +1,7 @@
-import useMainStore from '@/store/store';
 import { useEffect, useRef } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import { useFormStore, useFormStoreActions } from '../../../../store/formStore';
+import useMainStore from '../../../../store/store';
 import LocationSearch from '../../LocationSearch';
 import { SVGIcon } from '../../common/icons/SVGIcon';
 

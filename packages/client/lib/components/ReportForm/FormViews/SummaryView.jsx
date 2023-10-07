@@ -1,6 +1,6 @@
-import { latLngToString } from '@/lib/helpers/helpers';
 import Image from 'next/image';
 import { useFormStore } from '../../../../store/formStore';
+import { latLngToString } from '../../../helpers/helpers';
 
 const SummaryView = () => {
   const category = useFormStore((state) => state.category);
