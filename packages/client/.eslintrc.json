@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "es2022": true
+  },
+  "extends": ["eslint:recommended", "next", "next/core-web-vitals", "prettier"],
+  "rules": {
+    "prefer-template": "error",
+    "sort-imports": "error",
+    "sort-keys": [
+      "error",
+      "asc",
+      {
+        "allowLineSeparatedGroups": true
+      }
+    ]
+  }
 }
